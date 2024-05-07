@@ -9,12 +9,14 @@ product_parser = reqparse.RequestParser()
 product_parser.add_argument('Authorization', type=str, location='headers', help='Authorization header', required=True)
 product_parser.add_argument('product_id', type=str, help="product id", required=True)
 
-@product_ns.route('/product/<product_id>', methods=['GET'])
+@product_ns.route('/product/', methods=['GET'])
 class Product(Resource):
     @product_ns.expect(product_parser)
-    def get(self, product_id):  
+    def get(self):  
         app_logger.info('Received request to get product')
         app_logger.info(f'Request headers: {request.headers}')
+        args = request.get_json()
+        product_id = args['product_id'] 
         try:
             response = product_rest_response(product_id)
         except Exception as e:

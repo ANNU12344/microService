@@ -9,10 +9,12 @@ collection_parser = reqparse.RequestParser()
 collection_parser.add_argument('Authorization', type=str, location='headers', help='Authorization header', required=True)
 collection_parser.add_argument('collection_id', type=str, help="Collection ids", required=True)
 
-@collection_ns .route('/collection/<collection_id>', methods=['GET'])
+@collection_ns .route('/collection/', methods=['GET'])
 class Product(Resource):
     @collection_ns.expect(collection_parser)
-    def get(self, collection_id):  
+    def get(self):
+        args = request.get_json()
+        collection_id = args['collection_id']  
         app_logger.info('Received request to get collections')
         app_logger.info(f'Request headers: {request.headers}')
         try:

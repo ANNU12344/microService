@@ -1,0 +1,31 @@
+2024-04-24 10:11:55,247.247 INFO isAvailable_routes - get: Received request to get Product
+2024-04-24 10:11:55,260.260 INFO isAvailable_routes - get: Request headers: User-Agent: PostmanRuntime/7.37.3
+Accept: */*
+Postman-Token: 1991476a-d0c5-49ea-9012-23375403565a
+Host: 127.0.0.1:5000
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+
+
+2024-04-24 10:12:18,254.254 INFO isAvailable_routes - get: Received request to get Product
+2024-04-24 10:12:18,256.256 INFO isAvailable_routes - get: Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: none
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-GB,en-US;q=0.9,en;q=0.8,hi;q=0.7
+
+
+2024-04-24 10:22:23,975.975 INFO isAvailable_routes - get: Received request to get Product availability
+2024-04-24 10:24:07,750.750 INFO isAvailable_routes - get: Received request to get Product availability
+2024-04-24 10:24:07,752.752 ERROR isAvailable_routes - get: Invalid Content-Type: Expected application/json
+2024-04-24 10:27:40,726.726 INFO isAvailable_routes - get: Received request to get Product availability
+2024-04-24 10:27:40,728.728 ERROR isAvailable_routes - get: Invalid Content-Type: Expected application/json

@@ -1,0 +1,142 @@
+syntax = "proto3";
+
+package shopify;
+
+
+service ShopifyService {
+  rpc GetShopInfo(GetShopInfoRequest) returns (GetShopInfoResponse);
+  rpc GetToken(GetTokenRequest) returns (GetTokenResponse);
+  rpc GetProducts(GetProductsRequest) returns (GetProductsResponse);
+  rpc GetOrder(GetOrderRequest) returns (GetOrderResponse);
+  rpc GetCollection(GetCollectionRequest) returns (GetCollectionResponse);
+  rpc IsActive(IsActiveRequest) returns (IsActiveResponse);
+
+  rpc SearchProduct(SearchProductRequest) returns (SearchProductResponse);
+
+  rpc UpdateProduct(UpdateProductRequest) returns (UpdateProductResponse);
+  rpc UpdateCollection(UpdateCollectionRequest) returns (UpdateCollectionResponse);
+}
+
+message SearchProductRequest {
+  string shop = 1;
+  string query = 2;
+}
+
+message SearchProductResponse {
+  repeated ProductInfo products = 1;
+}
+
+// GetShopInfo
+message GetShopInfoRequest {
+  string shop = 1;
+}
+
+message GetShopInfoResponse {
+  string name = 1;
+  string email = 2;
+  string country = 3;
+  string currency = 4;
+  string timezone = 5;
+  string phone = 6;
+  string city = 7;
+}
+
+
+// GetToken
+message GetTokenRequest {
+  string shop = 1;
+}
+
+message GetTokenResponse {
+  string access_token = 1;
+}
+
+
+// GetProducts
+message GetProductsRequest {
+  string shop = 1;
+  repeated string product_ids = 2;
+}
+
+message ProductInfo {
+  string title = 1;
+  string description = 2;
+}
+
+message GetProductsResponse {
+  repeated ProductInfo products = 1;
+}
+
+
+// GetOrder
+message GetOrderRequest {
+  string shop = 1;
+  repeated string order_ids = 2;
+}
+
+message OrderInfo {
+  string id = 1;
+  string product_id = 2;
+}
+
+message GetOrderResponse {
+  repeated OrderInfo orders = 1;
+}
+
+
+// GetCollection
+message GetCollectionRequest {
+  string shop = 1;
+  repeated string collection_ids = 2;
+}
+
+message CollectionInfo {
+  string id = 1;
+  string title = 2;
+  string description = 3;
+}
+
+message GetCollectionResponse {
+  repeated CollectionInfo collection = 1;
+}
+
+
+// IsActive
+message IsActiveRequest {
+  string shop = 1;
+}
+
+message IsActiveResponse {
+  bool is_active = 1;
+  string description = 2;
+}
+
+
+// CustomTokenHeader	
+message CustomTokenHeader {
+  string header_name = 1;
+  string header_value = 2;
+}
+
+
+message UpdateProductRequest{
+  string shop = 1;
+  string id = 2;
+  string title = 3;
+  string description = 4;
+}
+
+message UpdateProductResponse{
+  bool success = 1;
+}
+
+message UpdateCollectionRequest{
+  string shop = 1;
+  string id = 2;
+  string title = 3;
+  string description = 4;
+}
+
+message UpdateCollectionResponse{
+  bool success = 1;
+}

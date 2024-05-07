@@ -1,0 +1,308 @@
+openapi: "3.0.0"
+info:
+  title: "Shopify gRPC API"
+  description: "API for interacting with Shopify services"
+  version: "1.0.0"
+
+paths:
+  /ShopifyService/GetShopInfo:
+    post:
+      summary: "Get Shop Information"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GetShopInfoRequest"
+      responses:
+        '200':
+          description: "Successful response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetShopInfoResponse"
+
+  /ShopifyService/GetToken:
+    post:
+      summary: "Get Access Token"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GetTokenRequest"
+      responses:
+        '200':
+          description: "Successful response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetTokenResponse"
+
+  /ShopifyService/GetProducts:
+    post:
+      summary: "Get Products Information"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GetProductsRequest"
+      responses:
+        '200':
+          description: "Successful response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetProductsResponse"
+
+  /ShopifyService/GetOrder:
+    post:
+      summary: "Get Order Information"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GetOrderRequest"
+      responses:
+        '200':
+          description: "Successful response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetOrderResponse"
+
+  /ShopifyService/GetCollection:
+    post:
+      summary: "Get Collection Information"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GetCollectionRequest"
+      responses:
+        '200':
+          description: "Successful response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetCollectionResponse"
+
+  /ShopifyService/IsActive:
+    post:
+      summary: "Check if Shop is Active"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/IsActiveRequest"
+      responses:
+        '200':
+          description: "Successful response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/IsActiveResponse"
+
+  /ShopifyService/UpdateProduct:
+    post:
+      summary: "Update Product Information"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateProductRequest"
+      responses:
+        '200':
+          description: "Successful response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdateProductResponse"
+
+  /ShopifyService/UpdateCollection:
+    post:
+      summary: "Update Collection Information"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateCollectionRequest"
+      responses:
+        '200':
+          description: "Successful response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdateCollectionResponse"
+
+components:
+  schemas:
+    GetShopInfoRequest:
+      type: object
+      properties:
+        shop:
+          type: string
+      required:
+        - shop
+
+    GetShopInfoResponse:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        country:
+          type: string
+        currency:
+          type: string
+        timezone:
+          type: string
+        phone:
+          type: string
+        city:
+          type: string
+
+    GetTokenRequest:
+      type: object
+      properties:
+        shop:
+          type: string
+      required:
+        - shop
+
+    GetTokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+
+    GetProductsRequest:
+      type: object
+      properties:
+        shop:
+          type: string
+        product_ids:
+          type: array
+          items:
+            type: string
+
+    ProductInfo:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+
+    GetProductsResponse:
+      type: object
+      properties:
+        products:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProductInfo"
+
+    GetOrderRequest:
+      type: object
+      properties:
+        shop:
+          type: string
+        order_ids:
+          type: array
+          items:
+            type: string
+
+    OrderInfo:
+      type: object
+      properties:
+        id:
+          type: string
+        product_id:
+          type: string
+
+    GetOrderResponse:
+      type: object
+      properties:
+        orders:
+          type: array
+          items:
+            $ref: "#/components/schemas/OrderInfo"
+
+    GetCollectionRequest:
+      type: object
+      properties:
+        shop:
+          type: string
+        collection_ids:
+          type: array
+          items:
+            type: string
+
+    CollectionInfo:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+
+    GetCollectionResponse:
+      type: object
+      properties:
+        collection:
+          type: array
+          items:
+            $ref: "#/components/schemas/CollectionInfo"
+
+    IsActiveRequest:
+      type: object
+      properties:
+        shop:
+          type: string
+      required:
+        - shop
+
+    IsActiveResponse:
+      type: object
+      properties:
+        is_active:
+          type: boolean
+        description:
+          type: string
+
+    UpdateProductRequest:
+      type: object
+      properties:
+        shop:
+          type: string
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+
+    UpdateProductResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+
+    UpdateCollectionRequest:
+      type: object
+      properties:
+        shop:
+          type: string
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+
+    UpdateCollectionResponse:
+      type: object
+      properties:
+        success:
+          type: boolean

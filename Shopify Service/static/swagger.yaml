@@ -1,0 +1,228 @@
+openapi: 3.0.3
+info:
+  title: Shopify App
+  version: 1.0.0
+  contact: {}
+servers:
+  - url: http://127.0.0.1
+paths:
+  /shopify_rest/token:
+    get:
+      summary: Get Token
+      description: Get Token
+      operationId: getToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                store_name:
+                  type: string
+                  example: computelibstore
+            examples:
+              Get Token:
+                value:
+                  store_name: computelibstore
+      responses:
+        '200':
+          description: ''
+  /shopify_rest/products:
+    get:
+      summary: Get Products
+      description: Get Products
+      operationId: getProducts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                product_ids:
+                  type: array
+                  items:
+                    type: number
+                    example: 8376700731670
+                  example:
+                    - 8376700731670
+                store_name:
+                  type: string
+                  example: computelibstore
+            examples:
+              Get Products:
+                value:
+                  product_ids:
+                    - 8376700731670
+                  store_name: computelibstore
+      responses:
+        '200':
+          description: ''
+  /shopify_rest/search:
+    get:
+      summary: Get Search
+      description: Get Search
+      operationId: getSearch
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                search_term:
+                  type: string
+                  example: Nachos
+                store_name:
+                  type: string
+                  example: computelibstore
+            examples:
+              Get Search:
+                value:
+                  search_term: Nachos
+                  store_name: computelibstore
+      responses:
+        '200':
+          description: ''
+  /shopify_rest/collection:
+    get:
+      summary: Get Collection
+      description: Get Collection
+      operationId: getCollection
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                collection_ids:
+                  type: array
+                  items:
+                    type: number
+                    example: 451042345238
+                  example:
+                    - 451042345238
+                store_name:
+                  type: string
+                  example: computelibstore
+            examples:
+              Get Collection:
+                value:
+                  collection_ids:
+                    - 451042345238
+                  store_name: computelibstore
+      responses:
+        '200':
+          description: ''
+  /shopify_rest/orders:
+    get:
+      summary: Get Orders
+      description: Get Orders
+      operationId: getOrders
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                order_ids:
+                  type: array
+                  items: {}
+                  example: []
+                store_name:
+                  type: string
+                  example: computelibstore
+            examples:
+              Get Orders:
+                value:
+                  order_ids: []
+                  store_name: computelibstore
+      responses:
+        '200':
+          description: ''
+  /shopify_rest/shop_info:
+    get:
+      summary: Get Shop Info
+      description: Get Shop Info
+      operationId: getShopInfo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                store_name:
+                  type: string
+                  example: computelibstore
+            examples:
+              Get Shop Info:
+                value:
+                  store_name: computelibstore
+      responses:
+        '200':
+          description: ''
+  /shopify_rest/update_product:
+    post:
+      summary: Update Product
+      description: Update Product
+      operationId: updateProduct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                  example: Now flaunt your wrist with out brand new watch
+                id:
+                  type: string
+                  example: '8376743887126'
+                store_name:
+                  type: string
+                  example: computelibstore
+                title:
+                  type: string
+                  example: The new Watch Class
+            examples:
+              Update Product:
+                value:
+                  description: Now flaunt your wrist with out brand new watch
+                  id: '8376743887126'
+                  store_name: computelibstore
+                  title: The new Watch Class
+      responses:
+        '200':
+          description: ''
+  /shopify_rest/update_collection:
+    post:
+      summary: Update Collection
+      description: Update Collection
+      operationId: updateCollection
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                  example: Now flaunt your wrist with out brand new watch
+                id:
+                  type: string
+                  example: '451042345238'
+                store_name:
+                  type: string
+                  example: computelibstore
+                title:
+                  type: string
+                  example: The new Watch Class
+            examples:
+              Update Collection:
+                value:
+                  description: Now flaunt your wrist with out brand new watch
+                  id: '451042345238'
+                  store_name: computelibstore
+                  title: The new Watch Class
+      responses:
+        '200':
+          description: ''
+tags: []

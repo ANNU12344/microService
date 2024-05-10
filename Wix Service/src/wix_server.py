@@ -1,5 +1,5 @@
 from flask import Flask
-
+from src.Interactor.Database.sql_alchemy import setup_sqlalchemy
 from src.Domain.wix_token.server import wix_token_bp
 from src.api.Routes.order_routes import order_ns
 from src.api.Routes.product_routes import product_ns
@@ -13,6 +13,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SWAGGER_UI_JSONEDITOR'] = True
+setup_sqlalchemy(app)
 
 app.register_blueprint(wix_token_bp, url_prefix='/wix_token')
 api = Api(app)
@@ -21,4 +22,5 @@ api.add_namespace(product_ns) #getting the product by id
 api.add_namespace(update_ns) 
 api.add_namespace(collection_ns) #getting the collection information
 api.add_namespace(search_ns )
+
 

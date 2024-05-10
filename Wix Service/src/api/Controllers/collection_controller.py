@@ -1,51 +1,34 @@
 import json
 import requests
 from src.Interactor.Logger.custom_logger import app_logger
-from src.Interactor.Exception.custom_exceptions import TokenNotFoundException
+from src.Interactor.Exception.custom_exceptions import TokenNotFoundException,UnauthorizedApiException
+from src.api.Controllers.token_controller import get_token_from_db
 from src.Interactor.Dto.collection_dto import collection_dto
-def createCollection(name:str):
-    access_token="OAUTH2.eyJraWQiOiJLaUp3NXZpeSIsImFsZyI6IlJTMjU2In0.eyJkYXRhIjoie1wiYXBwSWRcIjpcIjU5ZWViYWQ3LWFkMTctNDMxNS1hOTdlLTNkNWY2NTIxZjQxMFwiLFwiaW5zdGFuY2VJZFwiOlwiMjliM2U2YTMtZDhmMi00NmRkLTk4Y2QtNThiYTU5ZThlMWMxXCIsXCJzY29wZVwiOltcIkg0c0lBQUFBQUFBQS81MVkyM0xjS0JEOUllLzhBeU14R3NwSUtJREdubjJoWEZ1dUpBK2JTcTN6LzVVR1doS1hSdVBzazhjU2dyNmNjN29iSXl4M2hsc3Jwc0djYm9LL1BMMklWMmVzMHR5Y3VnVitqT0p2Wm9XYTNETDN6UEwwL2F4VnYzVFdhYzU2TjNMZFhkbGtIYXhpNmFxelpsTWYxanp4VG8ybnNOckNROE02djdHSmozc3V4WTNydSt1WTFvSnI0cnhSOWVKeWQwcjNYSnVuczVBU3pENVo5dW9HclpiWmpXeWU0WW5yNEFqYVVqaUUwMi93dE53VXpZZGp6ek9ubzQvSktpM081LzF6dHRpcjBoak5rekJ1NW5vVTF2TGVuZThPVEhkaU1wWk5YY01LOUdxUElRVEs3bUZnTnlhWlptNExoMW5qWVZhM08vaCtBQk44YXVQUHV4dlZqVHRBd2RqSUF1dTN0SW1wNTY5bDlOTmp0MmlBcVQyZnJHRFNFTUVUMDBVQjZFTHlFMXowbWwwc2JvOFd1MTZZVGkyVHBiSmQ1eExqallINjUrM2oyL2YzLzA3L3Z2MTQrL29lejBBRWllbW1STWNObFZJMTJ6TGFxeFZPTDVLYjlkVnFrUlRHT2pIT2tvL2dNNDNNZzkzUWpWWUltb0VidUYrWjc1eCtEZzhBWFkyc2F1N3pudkZSRElPM3ZSMFJUQ1FGb3RyVVFQb3QrV2xBdk5jRVExUGZUTVpHekZsRSsyN3haWkVYMk5iSDNEeDFpOVo4Nm1DVm1zQlJ5QUpTSkQ0SFkrT1g4VngzWnQwemdNQ2ZEVDhtWmNWRmRBengrR1hocHNHckZOZm84N3FzWTdKYnBOOGNGbEpSTEZEemtEYzdNVEFBT1c1b2pjakF0TDREQ3lCU3ZMUjRTMFk0NmROMmtVZXN1T3E1WlNJelBxUUJJYmtXbWhDZW50KzRWS0NCb091d29mWXlHRzF3Y0tnZU9PNENzcW5Ha0JzZ09KK1Z0ZzYrbkd5VEdMWGd4QXAwSUlLUkRva001cFVtZytHVmQ4OXFzVG1nMXFmdW90VVlvSnJwa28vQlZmUVFRMmVXcyttMGlKU0t6REpWcEVpaHlDclV6blI4N3ZpcjVTRFFRQXpCWlcrcTh4R0h1VHF0R1NHS3krWm5rU3l2Tzd3WHNETTg1Yk9Edlo0SnhXdGtJWVdHQVh2Umh4RlFreWZVcHppUmxscmZvREFsNWFIVmxVd1E1WnN3NGl3cDUzSkU1bFhra2I3Q3A5NEc0VFBJcEx2d3ZKemt2Vk5Hc2JwaElaaTU2b25TR0RJYXQvQkNlOXRBQnZ1TkpJM1ZsT2l1WWE3VGxZSjJ3MDdkakcxYlZOOUtoWks2TDZrajBDai9Qcm13TWxMU05LS2ZaeitCYUFEV1dVU2RvTWxVcWV1ZmxJU2duSm5ndnYzOCtkZkgrNjlmMzM5OC9WZ2JqbGEzbFFZcS90bERWWGFRZVZVc1lKSktkZlJxYS9pYUdHalNNdVZacG42UWZIR0xkVzBnUTFERHFsSXk0OGNNcmFRTW5MUE1MbWtHd0RnbTFSQnlYVE1GVDBtQVV0YTFSODFFL1I1VkcwMHMwT003OFhueGxjOXdJSUNwa0x1SlpxdlNwRXE5U1EwNE40ZitnT3JyVmhwV01reDFxcmwzU1J3enJ3NEwrdkVzOXdSVW1XRXVoRExNM2FMbGFXUVRHMGdCaFNlek1xRGdCaDZON0dIWGxJYkdLeXdFV3dMUFFKN0pGalFyN0hVZUVhaWJQTkg0MkNQa1pRVWpTbXpUTHMxRS8weE9lZzlrbnVxR0E3cXJtZUpvbU1PbGFWL1UrYWxSWWw5RTBUNDQ3cnVienh6d3dJdUdaS2ZRWldlZ2dacDRBcFFHcnlrU1lUcUkrbEZxVEp3Skt2NFJoQWNIL0dFSTVIS2ZkdVpEdHlQRklES0VwbjZNWXRDcm5RRFdaak5kUnBrWWNiS1JodFNIUGZaQkxQZWlWdUF4N3o0T3dGWFVqYUxDUU5VVFl6clRKREpaZEw3dDB4dkRJZFZnMVdKNVlIbzFMSDNDUDZKV1JlWVM1ZStoeG1XMW9NeEFNVHduUVVnSG53Qkg0dTVuazBhZ1VCRGpHdVdtQ0dCTklJVFRWb1hUK29DRHlwcTg4QjRIaWJvNXJzbStObitoTzZzdGE3UUVwVUdFZmh5MTFGa3hhTi9rWWQ5dnQ3Ny9nSzBGdkZKZHFpUWV5ekhSeWhhYnBsaXFFUjMyRGRlRllXSXovck1Jck5PTEZuOXlRNUF5QnhPU1hhdFdnejVLRGdEUWRlR3FLalptTTd0N3lZRkQ3Rld0dlVTZzhLWjRhWmRSZVpRcUdldEhhS0t6SzV1RFNCMFV4TU9iakhiN2duUXI3aC8rNzMxUG9SN0hmVjBwaVBUUVlxNGk3UGJaNFNNbklRcEdKdjZKbjB6S3JPOE9ENmw3STZSNmVTOURLdHQ2YnhKTEtNNkZ6Rjh3aGdjMXpJaUwyV0RjM2hSVXVNZ3YyaXNKcksrQlc0V2dPYTdqaFhJcEwvWENPRHFoczlndldQWE1zWXdxZlVyKzQ3OEJVTmlBZ2tFWkFBQT1cIl0sXCJleHRyYUF0dHJpYnV0ZXNcIjp7XCJ3aXgtZ3ppcHBlZC1zY29wZVwiOlwiXCJ9fSIsImlhdCI6MTcxNTA3NjQwNCwiZXhwIjoxNzE1MDc2NzA0fQ.G6kF-16KRAA8astQzR5hA1f1_lzeWZC3a6Z_J3ZNLUqQUQrV0N2Q8tsP2fD5y-Zkx5cg79dapJRLuoqevpAXqYlFvYv2SBsA9RHFgRaRe3zVGsOTjnAMGA3gzkOA4OaZ12NU5naSnPiyhkmAXK9llSsjjsm0IFiC5XqKHgEG-OBhQnD9vwKZKlcXy_CAl3HMUEIfSmSAGGaUD4j_KT8egvg-unfpzXSsiijvYFyJc33O3T5aHqi-_UtH4l6DXI9JEwHbGrRQ9TtEK3p-cf4e5TyGtHpbkVVi0FTPoGN7CHpql_mZmL-eeoGb1FYC0BpDEO6TtIqja42gfnPL1rkwYA" #sset path to get the toekn
-    if not access_token:
-        app_logger.error(f'No access token found')
-        raise TokenNotFoundException
-    url = "https://www.wixapis.com/stores/v1/collections"
-    payload = json.dumps({
-        "collection": {
-         "name": name
-          }
-         })
-    headers = {
-         'Content-Type': 'application/json',
-        'Authorization': access_token
-    }
-    app_logger.info(f'Sending request to Wix api to create the collection with collection name :{name}')
-    response = requests.request("POST",url, headers=headers, data=payload)
-    app_logger.info(f'Wix API Response : {response.json()}')
-    app_logger.info(f'Wix Api Response Status Code: {response.status_code}')
-    if response.status_code==200:
-        app_logger.info(f'Created Collection with collection Name:  {name }')
-        return True
-    if response.status_code==404:
-        app_logger.warning(f'Error creating collection ')
-        return False
-    else:
-        app_logger.warning(f'Failed to create the collection ')
-        print(f'Error Creating the collection')
-        return False
         
-def get_collection_by_id(collection_id):
-    app_logger.info(f'Received request to get the particular collection details with collection id {collection_id}')
-    access_token = "OAUTH2.eyJraWQiOiJLaUp3NXZpeSIsImFsZyI6IlJTMjU2In0.eyJkYXRhIjoie1wiYXBwSWRcIjpcIjU5ZWViYWQ3LWFkMTctNDMxNS1hOTdlLTNkNWY2NTIxZjQxMFwiLFwiaW5zdGFuY2VJZFwiOlwiMjliM2U2YTMtZDhmMi00NmRkLTk4Y2QtNThiYTU5ZThlMWMxXCIsXCJzY29wZVwiOltcIkg0c0lBQUFBQUFBQS81MVkyM0xjS0JEOUllLzhBeU14R3NwSUtJREdubjJoWEZ1dUpBK2JTcTN6LzVVR1doS1hSdVBzazhjU2dyNmNjN29iSXl4M2hsc3Jwc0djYm9LL1BMMklWMmVzMHR5Y3VnVitqT0p2Wm9XYTNETDN6UEwwL2F4VnYzVFdhYzU2TjNMZFhkbGtIYXhpNmFxelpsTWYxanp4VG8ybnNOckNROE02djdHSmozc3V4WTNydSt1WTFvSnI0cnhSOWVKeWQwcjNYSnVuczVBU3pENVo5dW9HclpiWmpXeWU0WW5yNEFqYVVqaUUwMi93dE53VXpZZGp6ek9ubzQvSktpM081LzF6dHRpcjBoak5rekJ1NW5vVTF2TGVuZThPVEhkaU1wWk5YY01LOUdxUElRVEs3bUZnTnlhWlptNExoMW5qWVZhM08vaCtBQk44YXVQUHV4dlZqVHRBd2RqSUF1dTN0SW1wNTY5bDlOTmp0MmlBcVQyZnJHRFNFTUVUMDBVQjZFTHlFMXowbWwwc2JvOFd1MTZZVGkyVHBiSmQ1eExqallINjUrM2oyL2YzLzA3L3Z2MTQrL29lejBBRWllbW1STWNObFZJMTJ6TGFxeFZPTDVLYjlkVnFrUlRHT2pIT2tvL2dNNDNNZzkzUWpWWUltb0VidUYrWjc1eCtEZzhBWFkyc2F1N3pudkZSRElPM3ZSMFJUQ1FGb3RyVVFQb3QrV2xBdk5jRVExUGZUTVpHekZsRSsyN3haWkVYMk5iSDNEeDFpOVo4Nm1DVm1zQlJ5QUpTSkQ0SFkrT1g4VngzWnQwemdNQ2ZEVDhtWmNWRmRBengrR1hocHNHckZOZm84N3FzWTdKYnBOOGNGbEpSTEZEemtEYzdNVEFBT1c1b2pjakF0TDREQ3lCU3ZMUjRTMFk0NmROMmtVZXN1T3E1WlNJelBxUUJJYmtXbWhDZW50KzRWS0NCb091d29mWXlHRzF3Y0tnZU9PNENzcW5Ha0JzZ09KK1Z0ZzYrbkd5VEdMWGd4QXAwSUlLUkRva001cFVtZytHVmQ4OXFzVG1nMXFmdW90VVlvSnJwa28vQlZmUVFRMmVXcyttMGlKU0t6REpWcEVpaHlDclV6blI4N3ZpcjVTRFFRQXpCWlcrcTh4R0h1VHF0R1NHS3krWm5rU3l2Tzd3WHNETTg1Yk9Edlo0SnhXdGtJWVdHQVh2Umh4RlFreWZVcHppUmxscmZvREFsNWFIVmxVd1E1WnN3NGl3cDUzSkU1bFhra2I3Q3A5NEc0VFBJcEx2d3ZKemt2Vk5Hc2JwaElaaTU2b25TR0RJYXQvQkNlOXRBQnZ1TkpJM1ZsT2l1WWE3VGxZSjJ3MDdkakcxYlZOOUtoWks2TDZrajBDai9Qcm13TWxMU05LS2ZaeitCYUFEV1dVU2RvTWxVcWV1ZmxJU2duSm5ndnYzOCtkZkgrNjlmMzM5OC9WZ2JqbGEzbFFZcS90bERWWGFRZVZVc1lKSktkZlJxYS9pYUdHalNNdVZacG42UWZIR0xkVzBnUTFERHFsSXk0OGNNcmFRTW5MUE1MbWtHd0RnbTFSQnlYVE1GVDBtQVV0YTFSODFFL1I1VkcwMHMwT003OFhueGxjOXdJSUNwa0x1SlpxdlNwRXE5U1EwNE40ZitnT3JyVmhwV01reDFxcmwzU1J3enJ3NEwrdkVzOXdSVW1XRXVoRExNM2FMbGFXUVRHMGdCaFNlek1xRGdCaDZON0dIWGxJYkdLeXdFV3dMUFFKN0pGalFyN0hVZUVhaWJQTkg0MkNQa1pRVWpTbXpUTHMxRS8weE9lZzlrbnVxR0E3cXJtZUpvbU1PbGFWL1UrYWxSWWw5RTBUNDQ3cnVienh6d3dJdUdaS2ZRWldlZ2dacDRBcFFHcnlrU1lUcUkrbEZxVEp3Skt2NFJoQWNIL0dFSTVIS2ZkdVpEdHlQRklES0VwbjZNWXRDcm5RRFdaak5kUnBrWWNiS1JodFNIUGZaQkxQZWlWdUF4N3o0T3dGWFVqYUxDUU5VVFl6clRKREpaZEw3dDB4dkRJZFZnMVdKNVlIbzFMSDNDUDZKV1JlWVM1ZStoeG1XMW9NeEFNVHduUVVnSG53Qkg0dTVuazBhZ1VCRGpHdVdtQ0dCTklJVFRWb1hUK29DRHlwcTg4QjRIaWJvNXJzbStObitoTzZzdGE3UUVwVUdFZmh5MTFGa3hhTi9rWWQ5dnQ3Ny9nSzBGdkZKZHFpUWV5ekhSeWhhYnBsaXFFUjMyRGRlRllXSXovck1Jck5PTEZuOXlRNUF5QnhPU1hhdFdnejVLRGdEUWRlR3FLalptTTd0N3lZRkQ3Rld0dlVTZzhLWjRhWmRSZVpRcUdldEhhS0t6SzV1RFNCMFV4TU9iakhiN2duUXI3aC8rNzMxUG9SN0hmVjBwaVBUUVlxNGk3UGJaNFNNbklRcEdKdjZKbjB6S3JPOE9ENmw3STZSNmVTOURLdHQ2YnhKTEtNNkZ6Rjh3aGdjMXpJaUwyV0RjM2hSVXVNZ3YyaXNKcksrQlc0V2dPYTdqaFhJcEwvWENPRHFoczlndldQWE1zWXdxZlVyKzQ3OEJVTmlBZ2tFWkFBQT1cIl0sXCJleHRyYUF0dHJpYnV0ZXNcIjp7XCJ3aXgtZ3ppcHBlZC1zY29wZVwiOlwiXCJ9fSIsImlhdCI6MTcxNTA3NjkwMSwiZXhwIjoxNzE1MDc3MjAxfQ.QL4lqSleDt3OOONtNGSjqMw3CvXvQY-2pb4oWC0tt7krZ609VHYkmmBFlILoU6-FeJq1N-cI-9gyNoIWVKjdUVGKH9L4gW6wFF23i0NBzjih2BPZK4QWbJckwxtVPrkJz-h-gq8mWCOQXIey0GwYfY4XVPu8A5uSZRSzTRIWvcVWbdujXSdrxUAX9xJcRzESF0-UY4WkmF0H1XkhCvS51WGpDkNo1PIlyOmAMYMGMff6Wi6q0RerGHRSPUigTATowplMGlt8HLXMiKavTyfH7fUlzAlIfuu_euTWalwVQrQRuP0jRS8Ue02z66_MnxYhGuN65oOCuMBr1jLh99MAfA"
+def get_collection_by_id(collection_id,wix_site):
+    access_token=get_token_from_db(wix_site)
+    if not access_token:
+        app_logger.error(f'No access token found for wix site :{wix_site}')
+        raise TokenNotFoundException
     url = f"https://www.wixapis.com/stores/v1/collections/{collection_id}?includeNumberOfProducts=true"
-    headers = {'Authorization': access_token}
-
-    try:
-        response = requests.get(url, headers=headers)
-        response.raise_for_status()  # Raise an exception for HTTP errors
+    headers = {
+        'Authorization': access_token
+        }
+    
+    app_logger.info(f'Sending request to Wix Api to get collection from the wix site:{wix_site}')
+    response = requests.get(url, headers=headers)
+    app_logger.info(f'Wix API Response: {response.json()}')
+    app_logger.info(f'Wix API Response Status Code: {response.status_code}')
+    print(f'Status code of response:{response.status_code}')
+    if response.status_code==200:
         collection_data = response.json()
-        app_logger.info(f'Successfully retrieved collection details: {collection_data}')
         return collection_data
-    except requests.exceptions.RequestException as e:
-        app_logger.error(f'Failed to retrieve collection details: {e}')
-        return "Failed to retrieve collection details", 500
+    elif response.status_code==401:
+        app_logger.error('Unauthorized API call. Invalid API key or access token.')
+        # return "Unauthorized API call. Invalid API key or access token."
+        raise UnauthorizedApiException
+    else:
+        app_logger.warning(f'Failed to retrieve collection from Wix site. Status Code : {response.status_code}')
+    return response
+
     

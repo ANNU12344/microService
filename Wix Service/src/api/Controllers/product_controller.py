@@ -1,9 +1,11 @@
 import requests
-from src.Interactor.Logger.custom_logger import app_logger
 import json
-def createProduct(name,id,visible,productType,description,slug,weight):
+from src.Interactor.Logger.custom_logger import app_logger
+from src.api.Controllers.token_controller import get_token_from_db
+def createProduct(name,id,visible,productType,description,slug,weight,wix_site):
     url=f"https://www.wixapis.com/stores/v1/products"
-    access_token=" "#I have to set this like how to get the token from the database
+    # access_token=" "#I have to set this like how to get the token from the database
+    access_token=get_token_from_db(wix_site)
     product={
         "name":name,
         "id":id,
@@ -26,9 +28,10 @@ def createProduct(name,id,visible,productType,description,slug,weight):
         print(response.json())
 
 
-def get_product_by_id(product_id):
+def get_product_by_id(product_id,wix_site):
     app_logger.info(f'Received request to get the particular collection details with product id {product_id}')
-    access_token = " "
+    # access_token = " "
+    access_token=get_token_from_db(wix_site)
     url = f"https://www.wixapis.com/stores-reader/v1/products/{product_id}"
     headers = {'Authorization': access_token}
 

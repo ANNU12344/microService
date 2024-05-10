@@ -1,0 +1,115 @@
+2024-05-07 15:37:37,040.040 INFO collection_routes - get: Received request to get collections
+2024-05-07 15:37:37,043.043 INFO collection_routes - get: Request headers: Authorization: oauth
+
+Content-Type: application/json
+
+User-Agent: PostmanRuntime/7.37.3
+
+Accept: */*
+
+Postman-Token: 3b6ae569-589b-406f-99b6-8af57ac9d78f
+
+Accept-Encoding: gzip, deflate, br
+
+Connection: keep-alive
+
+Content-Length: 64
+
+Referer: http://127.0.0.1:5000/wix_token/collection
+
+Host: 127.0.0.1:5000
+
+
+
+
+2024-05-07 15:37:37,044.044 INFO collection_dtr - collection_rest_response: Starting collection_rest_response
+2024-05-07 15:37:37,051.051 INFO collection_dtr - collection_rest_response: Getting collections by ID: 00000000-000000-000000-000000000001
+2024-05-07 15:37:37,055.055 INFO collection_controller - get_collection_by_id: Received request to get the particular collection details with collection id 00000000-000000-000000-000000000001
+2024-05-07 15:37:37,950.950 ERROR collection_controller - get_collection_by_id: Failed to retrieve collection details: 401 Client Error: Unauthorized for url: https://www.wixapis.com/stores/v1/collections/00000000-000000-000000-000000000001?includeNumberOfProducts=true
+2024-05-07 15:37:37,954.954 INFO collection_dtr - collection_rest_response: Finally it is extracting the collection class attibute
+2024-05-07 15:37:37,955.955 INFO collection_dtr - collection_rest_response: Collection response successfully generated
+2024-05-07 15:45:31,343.343 INFO collection_routes - get: Received request to get collections
+2024-05-07 15:45:31,345.345 INFO collection_routes - get: Request headers: Authorization: oauth
+
+Content-Type: application/json
+
+User-Agent: PostmanRuntime/7.37.3
+
+Accept: */*
+
+Postman-Token: c360c7dc-de13-49aa-b940-164adb99732e
+
+Accept-Encoding: gzip, deflate, br
+
+Connection: keep-alive
+
+Content-Length: 64
+
+Referer: http://127.0.0.1:5000/wix_token/collection
+
+Host: 127.0.0.1:5000
+
+
+
+
+2024-05-07 15:45:31,346.346 INFO collection_dtr - collection_rest_response: Starting collection_rest_response
+2024-05-07 15:45:31,346.346 INFO collection_dtr - collection_rest_response: Getting collections by ID: 00000000-000000-000000-000000000001
+2024-05-07 15:45:31,347.347 INFO collection_controller - get_collection_by_id: Received request to get the particular collection details with collection id 00000000-000000-000000-000000000001
+2024-05-07 15:45:32,157.157 INFO collection_controller - get_collection_by_id: Successfully retrieved collection details: {'collection': {'id': '00000000-000000-000000-000000000001', 'name': 'All Products', 'media': {'mainMedia': {'thumbnail': {'url': 'https://static.wixstatic.com/media/22e53e_ef2ebbf33af24b7fba34e44589f3dc38~mv2.jpg/v1/fit/w_50,h_50,q_90/file.jpg', 'width': 50, 'height': 50}, 'mediaType': 'image', 'title': '', 'image': {'url': 'https://static.wixstatic.com/media/22e53e_ef2ebbf33af24b7fba34e44589f3dc38~mv2.jpg/v1/fit/w_5000,h_3652,q_90/file.jpg', 'width': 5000, 'height': 3652}, 'id': ''}, 'items': [{'thumbnail': {'url': 'https://static.wixstatic.com/media/22e53e_ef2ebbf33af24b7fba34e44589f3dc38~mv2.jpg/v1/fit/w_50,h_50,q_90/file.jpg', 'width': 50, 'height': 50}, 'mediaType': 'image', 'title': '', 'image': {'url': 'https://static.wixstatic.com/media/22e53e_ef2ebbf33af24b7fba34e44589f3dc38~mv2.jpg/v1/fit/w_5000,h_3652,q_90/file.jpg', 'width': 5000, 'height': 3652}, 'id': ''}]}, 'numberOfProducts': 12, 'description': 'This is your category description. It�s a great place to tell customers what this category is about, connect with your audience and draw attention to your products.', 'slug': 'all-products', 'visible': True}}
+2024-05-07 15:45:32,169.169 INFO collection_dtr - collection_rest_response: Finally it is extracting the collection class attibute
+2024-05-07 15:45:32,172.172 INFO collection_dtr - collection_rest_response: Collection response successfully generated
+2024-05-07 15:53:41,001.001 INFO product_routes - get: Received request to get product
+2024-05-07 15:53:41,356.356 INFO product_routes - get: Request headers: Authorization: oauth
+
+Content-Type: application/json
+
+User-Agent: PostmanRuntime/7.37.3
+
+Accept: */*
+
+Postman-Token: c84a8952-318b-4a9a-a8c2-24694c7bb620
+
+Host: 127.0.0.1:5000
+
+Accept-Encoding: gzip, deflate, br
+
+Connection: keep-alive
+
+Content-Length: 62
+
+
+
+
+2024-05-07 15:53:41,360.360 INFO product_dtr - product_rest_response: Starting collection_rest_response
+2024-05-07 15:53:41,362.362 INFO product_dtr - product_rest_response: Getting product by ID: cd59cd36-b6d2-2cf3-9d48-81793a7bdbbd
+2024-05-07 15:53:41,363.363 INFO product_controller - get_product_by_id: Received request to get the particular collection details with product id cd59cd36-b6d2-2cf3-9d48-81793a7bdbbd
+2024-05-07 15:53:42,302.302 INFO product_controller - get_product_by_id: Successfully retrieved product details: cd59cd36-b6d2-2cf3-9d48-81793a7bdbbd
+2024-05-07 15:53:42,308.308 INFO product_dtr - product_rest_response: Successfully response generated
+2024-05-07 15:53:42,310.310 INFO product_dtr - product_rest_response: Product response successfully generated
+2024-05-07 19:01:30,322.322 INFO search_routes - get: Received request to search Products
+2024-05-07 19:01:30,657.657 INFO search_routes - get: Request headers: Authorization: Oauth
+
+Content-Type: application/json
+
+User-Agent: PostmanRuntime/7.37.3
+
+Accept: */*
+
+Postman-Token: c850ea31-8ecd-484d-a74d-e1cc22a6af81
+
+Host: 127.0.0.1:5000
+
+Accept-Encoding: gzip, deflate, br
+
+Connection: keep-alive
+
+Content-Length: 158
+
+
+
+
+2024-05-07 19:01:30,664.664 INFO search_routes - get: Request body: {'product_id': 'df19c1f7-07d8-a265-42f8-e8dfa824cc6e', 'optionType': 'drop_down', 'Name': 'Size'}
+2024-05-07 19:01:30,668.668 INFO search_dtr - search_rest_response: Received REST search product avaliable
+2024-05-07 19:01:30,670.670 INFO product_controller - get_Product_Options_Availability: Received request to check the product availability with optionType :drop_down and Name :Size
+2024-05-07 19:01:31,704.704 INFO product_controller - get_Product_Options_Availability: Successfully retrieved product Availability details: {'productOptions': [], 'availableForPurchase': True, 'managedProduct': False}
+2024-05-07 19:01:31,709.709 INFO search_dtr - search_rest_response: Generated REST response for search

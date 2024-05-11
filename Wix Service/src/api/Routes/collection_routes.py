@@ -5,22 +5,30 @@ from src.Interactor.DTR.collection_dtr import collection_rest_response
 import traceback
 
 collection_ns = Namespace('wix_token', description='create the collection')
+
 collection_parser = reqparse.RequestParser()
 collection_parser.add_argument('Authorization', type=str, location='headers', help='Authorization header', required=True)
 collection_parser.add_argument('wix_site', type=str, help="wix site Name.", required=True)
 collection_parser.add_argument('collection_id', type=str, help="collection", required=True)
+
 @collection_ns .route('/collection')
 class Product(Resource):
     @collection_ns.expect(collection_parser)
     def get(self):
+
         app_logger.info('Received request to get Collections')
         app_logger.info(f'Request headers: {request.headers}')
         app_logger.info(f'Request body: {request.get_json()}') 
+
         args = request.get_json()
-        collection_id = args['collection_id'] 
         wix_site = args['wix_site'] 
+        collection_id = args['collection_id'] 
+        
+
+        if not isinstance(collection_id, str):
+            return jsonify({'message': 'Invalid data format. Expected a collection_id.'})
         try:
-            response = collection_rest_response(collection_id,wix_site)
+            response = collection_rest_response(wix_site,collection_id)
         except Exception as e:
             exception_track = traceback.format_exc()
             app_logger.error(f'An unexpected error occurred: {e}')

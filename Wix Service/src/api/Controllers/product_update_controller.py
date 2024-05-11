@@ -1,11 +1,10 @@
 import requests
 import json
-from src.Interactor.Exception.custom_exceptions import UnauthorizedApiException , TokenNotFoundException
+from src.Interactor.Exception.custom_exceptions import TokenNotFoundException
 from src.Interactor.Logger.custom_logger import app_logger
-
-
-def update_products(product_id,name,slug,productType,description,sku,ribbon):
-    access_token = ""#I have checked it manully but i have to add to db
+from src.api.Controllers.token_controller import get_token_from_db
+def update_products(wix_site,product_id,name,description):
+    access_token=get_token_from_db(wix_site)
     if not access_token:
         app_logger.error(f'No access token found for store')
         raise TokenNotFoundException
@@ -16,32 +15,25 @@ def update_products(product_id,name,slug,productType,description,sku,ribbon):
         'Authorization': access_token
         
     }
-    app_logger.info(f'Sending request to Wix API to update product with ID: {product_id}')
+    app_logger.info(f'Sending request to Wix API to update product with ID: {product_id} for wix store :{wix_site}')
     payload = json.dumps({
     "product": {
     "name": name,
-    "slug":slug,
-    "productType":productType,
-    "description": description,
-    "sku":sku,
-    "ribbon":ribbon
+    "description": description
     }
     })
 
-    
     app_logger.info(f'Request body: {payload}')
     response = requests.patch(url, headers=headers, data=payload)
-    app_logger.info(f'Wix API Response: {response.json()}')
+
+    
     app_logger.info(f'Wix API Response Status Code: {response.status_code}')
-    # response.raise_for_status()  # Raise an exception for HTTP errors
-    # collection_data = response.json()
-    # app_logger.info(f'Successfully retrieved collection details: {collection_data}')
-    # return collection_data
+
     if response.status_code == 200:
         print(response.json())
     
         if response.json()['product'] == None:
-            app_logger.warning(f'Failed to update product from Wix API. Response: {response.json()}')
+            app_logger.warning(f'Failed to update product from Wix API. Response')
             app_logger.warning(f'Most Likely Reason is the The ID is not correct')
             print(f'Error updating product. Status code: {response.status_code}, Response: {response.text}')
             return False

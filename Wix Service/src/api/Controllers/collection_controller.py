@@ -25,7 +25,6 @@ def get_collection_by_id(collection_id,wix_site):
         return collection_data
     elif response.status_code==401:
         app_logger.error('Unauthorized API call. Invalid API key or access token.')
-        # return "Unauthorized API call. Invalid API key or access token."
         raise UnauthorizedApiException
     else:
         app_logger.warning(f'Failed to retrieve collection from Wix site. Status Code : {response.status_code}')

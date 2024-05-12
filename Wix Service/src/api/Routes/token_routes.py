@@ -2,6 +2,7 @@ from flask import request, jsonify
 from src.api.Controllers.token_controller import get_token_from_db
 from src.api.Controllers.token_controller import update_access_token
 from src.api.Controllers.token_controller import token_exist
+from src.Domain.wix_token.wix_client import WixClientToken
 from src.Interactor.Logger.custom_logger import app_logger
 from flask_restx import Resource, reqparse, Namespace
 import traceback
@@ -34,6 +35,7 @@ class Token(Resource):
                 app_logger.info(f'Retrieved token for store: {wix_site}')
                 response= update_access_token(wix_site)
                 return jsonify({'message': 'Sucessfully Updated access token'})
+    
         except Exception as e:
             exception_track = traceback.format_exc()
             app_logger.error(f'An unexpected error occurred: {e}')

@@ -37,12 +37,15 @@ class TokenRepository:
             raise
 
     @staticmethod
-    def update_token(token_id,site_code, new_token):
+    def update_token(wix_site,access_token,refresh_token):
         try:
-            token = Token.query.get(token_id)
+            token = Token.query.filter_by(wix_site=wix_site).first()
+            app_logger.info(f'New access_token: {access_token}')
             if token:
-                token.store_name =site_code
-                token.token = new_token
+                app_logger.info(f"exist token")
+                token.wix_site =wix_site
+                token.access_token = access_token
+                token.refresh_token=refresh_token
                 db.session.commit()
                 app_logger.info(f'Updated token: {token}')
                 return token

@@ -5,7 +5,8 @@ from src.api.Controllers.token_controller import get_token_from_db
 from src.Interactor.Exception.custom_exceptions import TokenNotFoundException,UnauthorizedApiException
 def get_product_by_id(wix_site,product_id):
     access_token = get_token_from_db(wix_site)
-   
+
+    app_logger.info(f'Access token :{access_token}')
     if not access_token:
         app_logger.error(f'No access token found for wix site :{wix_site}')
         raise TokenNotFoundException

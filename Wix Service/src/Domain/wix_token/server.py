@@ -1,6 +1,5 @@
 import os
 from src.Domain.wix_token import helpers
-from src.Interactor.Logger.custom_logger import app_logger
 from flask import redirect, request, Blueprint
 from src.Infra.Repositories.token_repository import TokenRepository
 from dotenv import load_dotenv
@@ -21,9 +20,9 @@ def app_launched():
 def app_installed():
     print("Request received to get the access token")
     code = request.args.get('code')
+    wix_site=request.args.get('wix_site')
     access_token,refresh_token= WixClientToken.authenticate(code=code)
-    print(f'Successfully retrieved refresh token: {refresh_token}')
-    new_token=TokenRepository.create_token(access_token,refresh_token)
+    new_token=TokenRepository.create_token(wix_site,access_token,refresh_token)
     return access_token
     
 

@@ -11,7 +11,7 @@ post_parser.add_argument('Authorization', type=str, location='headers', help='Au
 post_parser.add_argument('wix_site', type=str, help="wix site Name.", required=True)
 post_parser.add_argument('post_ids', type=str, help="post ids", required=True)
 
-@post_ns .route('/collection')
+@post_ns .route('/post')
 class Post(Resource):
     @post_ns.expect(post_parser)
     def get(self):

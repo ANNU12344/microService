@@ -16,7 +16,7 @@ class Post(Resource):
     @post_ns.expect(post_parser)
     def get(self):
 
-        app_logger.info('Received request to get Collections')
+        app_logger.info('Received request to get Posts')
         app_logger.info(f'Request headers: {request.headers}')
         app_logger.info(f'Request body: {request.get_json()}') 
 

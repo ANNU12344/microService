@@ -9,11 +9,20 @@ from dotenv import load_dotenv
 load_dotenv()
 APP_ID = os.environ.get('APP_ID')
 APP_SECRET_KEY= os.environ.get('APP_SECRET_KEY')
+
+REQUEST_METHODS = {
+    "GET": requests.get,
+    "POST": requests.post,
+    "PUT": requests.put,
+    "DEL": requests.delete
+}
+
 class WixClientToken():
 
     def __init__(self,access_token: str,refresh_token: str):
         self.access_token = access_token
         self.refresh_token = refresh_token
+        url=f"https://www.wixapis.com/apps/v1/scripts"
 
 
     @staticmethod
@@ -52,3 +61,45 @@ class WixClientToken():
         except HTTPError as ex:
             logging.exception(ex)
             return None
+    
+
+    def get_embedded_script(self):
+        url=f"https://www.wixapis.com/apps/v1/scripts"
+        request_func=REQUEST_METHODS['GET']
+        headers = {'Authorization': self.access_token}
+        try:
+            response=request_func(url,headers=headers)
+            response.raise_for_status()
+            logging.debug(f"get_embedded_script response:\n{json.dumps(response.json(), indent=4)}")
+            return response['properties']['parameters']
+        except HTTPError as ex:
+            logging.exception(ex)
+            return None
+        
+    def embed_script(self,keyNmae123:str):
+        url=f"https://www.wixapis.com/apps/v1/scripts"
+        request_func=REQUEST_METHODS['POST']
+        payload={
+            "properties": {
+                "parameters": {
+                    "KeyName123": keyNmae123
+                    }
+                }
+        }
+        headers = {'Authorization': self.access_token}
+
+        try:
+            response=request_func(url,headers=headers,json=payload)
+            response.raise_for_status()
+            logging.debug(f"embed_script response:\n{json.dumps(response.json(), indent=4)}")
+            return response['properties']['parameters']
+        except HTTPError as ex:
+            logging.exception(ex)
+            return None
+
+
+
+
+    
+    
+    

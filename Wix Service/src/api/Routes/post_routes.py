@@ -1,7 +1,7 @@
 from flask import request, jsonify
 from flask_restx import Resource, reqparse, Namespace
 from src.Interactor.Logger.custom_logger import app_logger
-from src.Interactor.DTR.collection_dtr import post_rest_response
+from src.Interactor.DTR.post_dtr import post_rest_response
 import traceback
 
 post_ns = Namespace('wix_token', description='create the collection')
@@ -9,7 +9,7 @@ post_ns = Namespace('wix_token', description='create the collection')
 post_parser = reqparse.RequestParser()
 post_parser.add_argument('Authorization', type=str, location='headers', help='Authorization header', required=True)
 post_parser.add_argument('wix_site', type=str, help="wix site Name.", required=True)
-post_parser.add_argument('post_ids', type=list, help="post ids", required=True)
+post_parser.add_argument('post_ids', type=str, help="post ids", required=True)
 
 @post_ns .route('/collection')
 class Post(Resource):
@@ -25,7 +25,7 @@ class Post(Resource):
         post_ids = args['post_ids'] 
         
 
-        if not isinstance(post_ids, list):
+        if not isinstance(post_ids, str):
             return jsonify({'message': 'Invalid data format. Expected a post_ids.'})
         try:
             response = post_rest_response(wix_site,post_ids)

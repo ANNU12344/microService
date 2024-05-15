@@ -465,3 +465,122 @@ Content-Length: 63
 2024-05-15 12:31:51,712.712 INFO token_repository - update_token: New access_token: OAUTH2.eyJraWQiOiJLaUp3NXZpeSIsImFsZyI6IlJTMjU2In0.eyJkYXRhIjoie1wiYXBwSWRcIjpcIjdiMjA5Mzg0LWU2NTctNGI1OS1iOTJlLTU0ZTYxZDNmYWZlY1wiLFwiaW5zdGFuY2VJZFwiOlwiODUzNGU4MDEtMDEyMy00YmQ1LTk4YTgtYjBmNmZiNDczNjk5XCIsXCJzY29wZVwiOltcIkg0c0lBQUFBQUFBQS81MVkyM0xjS0JEOUllLzhBeU14R3NwSUtJREdubjJoWEZ1dUpBK2JTcTN6LzVVR1doS1hSdVBzazhjU2dyNmNQbjBhSXl4M2hsc3Jwc0djYm9LL1BMMklWMmVzMHR5Y3VnVitqT0p2Wm9XYTNETDN6UEwwL2F4VnYzVFdhYzU2TjNMZFhkbGtIYXhpNmFxelpsTWYxanp4VG8ybnNOckNROE02djdHSmozc3V4WTNydSt1WTFvSnI0cnhSOWVKeWQwcjNYSnVuczVBU3pENVo5dW9HclpiWmpXeWU0WW5yNEFqYVVqaUUwMi93dE53VXpZZGp6ek9ubzQvSktpM081LzF6dHRpcjBoak5rekJ1NW5vVTF2TGVuZThPVEhkaU1wWk5YY01LOUdxUElRVEs3bUZnTnlhWlptNExoMW5qWVZhM08vaCtBQk44YXVQUHV4dlZqVHRBd2RqSUF1dTN0SW1wNTY5bDlOTmp0MmlBcVQyZnJHRFNFTUVUMDBVQjZFTHlFMXowbWwwc2JvOFd1MTZZVGkyVHBiSmQ1eExqallINjUrM2oyL2YzLzA3L3Z2MTQrL29lejBBRWllbW1STWNObFZJMTJ6TGFxeFZPTDVLYjlkVnFrUlRHT2pIT2tvL2dNNDNNZzkzUWpWWUltb0VidUYrWjc1eCtEZzhBWFkyc2F1N3pudFdqR0FadmV6c2ltRWdLUkxXcG9laTM1S2NCOFY0VEZacjZackpxeEp4RnRPOFdYeFo1Z1cxOXpNMVR0MmpOcHc1V3FRa2NoU3hnaWNUbllHejhNcDdyenF4N0JoRDRzK0hIcEt5NGlJNGhIcjhzM0RUcUtzVTErcnd1NjVqc0Z1azNoNFZVRkF2VVBLeWJ2VEF3QURsdWFJN0l3TFMrQXdzZ1VyeTBlRXRHT09uVGRwRkhyTGpxdVdVaU16NmtBU0c1TnBvUW5wN2Z1RlRBZ2NEcnNLSDJOQmh0Y0hDb0hqanVBclNweHBBYktIQStLMjBkZkRuWlptSFVoQk03MEFFSnhuSklhRER2TkJrTXI3eDdWb3ZOQWJVK2RSZXR4Z0RWakpkOERLNmloeGc2czV4TnAwVXNxVmhacG9vVVNSUlpoOW9ySFo4Ny9tbzVFRFFVaHVDeU45WDVpTU9jbmRhTUVNMWw4N05JbHVjZDNndllHWjd5MmNGZXp3VGpOYktRUXNPQXZlakRDS2pKRStwVG5GQkx6Vy9RbUpMMjBGSWxFMFQ1Sm93NFM4cTVISkY1RjNuRXIvQ3B0MEg0RERMcExqeHZKN2wyeWtxc0ZpeEVaYTU4b2pTR2pNWnQ0d1hGcjJ0RTY4eWsrTnhnVXV1dWJZdnFXNm1RUGZjbHRiT05UdS96Q0N0ajlabEdvUE5FSjJnTUdEcUxTQWwwM1ZSRStpZnNIMGd5NDlhM256Ly8rbmovOWV2N2o2OGZxN1pvQ2FzMFVQSFBIcXBTTE9ZTnNFQkV5c3JScTAzYk5USFFyTUMwcERLaWcrU0xXMnhoQXhtQ0dsWVZhUmsvVVdnbFpTZ3Z5K3lTWmdDTVkxSU5JZGQxVWVBcENWREtGdlpJTjlUdmthRFJ4QUk5WG5UUGkyOXloa01CbUFxNUd6KzJta3BLeWh1cmdITnprQUtVaEZ2THNHSmNTcFRtM2lWeHpMdzY3TjNIWTlzVGxNb01JeUIwWE80V0xVOGptOWhBY2lVOG1aVUJzamJ3YUdRUEJWSWFHayttRUd3SmRRWk1US3JOcklmWGVVU2didlJFNDJPUGtLY1ZqQ2l4VGJzTEUxS1pIT29lTURvbGZBTzZxL0hoYUc3RHBha0U2dnlBS0ZFQ1VXVWZIUGRDNWpNSFBQQ2lRZGtwZE5rWnlrQk5QQUZLbzY2cElzSjBFUDJqNUpnby82djZJd29lSFBDSElaRExmZHFaRDhKR2lrRmtDRTM5R01XZ1Z6c0JyRTNkWEVhWm1HYXk2WVhraHozMmdTejNwbGJnTVJjYUIrQXEra2JSWWFEcmlURWRYeEthTEVSdSsvVEdIRWhwcVpvc0QweXY1cUpQK0VmMHFsaTVSUHQ3eUhGWkx5Z3pVTXpKU1JEU0dTZkFrYmptMmFnUlNpaVFjWTF5VXdTd0xpQ0UwOWFGMC82QU04bWF2UEFlWjRaYUI5ZkZ2b3Evb001cXl4cVNvRFNJNEk4ajladzFnL2FsSFVwOHUwbjhnMm90NEpYeVVrWHgySTRKS1Z0c21tS3BSblRZTjl3TWh1SE0rTThpc0U0dld2ekpaVUJhT1ppUTdBYTFtdW1SY2dDQXJndTNVbEdZemV6dUtRY09zVmUxYW9sUXdodmpwU3FqOGlobE10YVBJS0t6MjVtRFNCMDB4TU5MaTdaOHdYSXJyaHIrNzlWT3dSN0h1cTRrUkhwb01WY1JkdnZzOEpFWElSSkdSdjZKbjB6S1RIZUhoOVFWRVpaNmVRVkRNdHQ2UlJKYktNNkZ6TjhsaGdjMXpJZzcyR0RjTGdvcVhPUjM2aFVGMWplK3JVYlFuTXp4N3Jpa2wzcGhISjNRV2RRTFZqMXpiS05LbjVMLytHL3lSbFM0TEJrQUFBPT1cIl0sXCJleHRyYUF0dHJpYnV0ZXNcIjp7XCJ3aXgtZ3ppcHBlZC1zY29wZVwiOlwiXCJ9fSIsImlhdCI6MTcxNTc1NjUxMCwiZXhwIjoxNzE1NzU2ODEwfQ.qUHnO7NOLeCALcBEAi8YNaVgYWO6JKJjJ58zOS0SGDbqxXMZz_jETwtV3cWvaL3uON8vLGn1yhmKVKxQ-BlbEPkLgXaIpPWSPZiqnVgrCLFL3G-7t8qh0zFLJGyJ6OnSm8MDWgQDjPECtDNz3AaPF1XDnzvR8-inO_09aeigOXC3QkUv1jAVSDdPHGOAmCkU_bxHen5WAGUTfzg1pPTYoHvTrsntjW5ePf1TUP7M8eH4Gr1UBSJldoAu_6EykEDoQe8-nZsrls9gOhi990XNqSCWXrVGSSmofJ5tU3PfmuQ0HTuwOkEsl5UpJf85vcBwQn7TKVS-eX1-suCAzSysvQ
 2024-05-15 12:31:51,719.719 INFO token_repository - update_token: exist token
 2024-05-15 12:31:51,955.955 INFO token_repository - update_token: Updated token: <Token 1>
+2024-05-15 13:53:01,002.002 INFO post_routes - get: Received request to get Posts
+2024-05-15 13:53:01,100.100 INFO post_routes - get: Request headers: Authorization: Auth
+Content-Type: application/json
+User-Agent: PostmanRuntime/7.37.3
+Accept: */*
+Postman-Token: 05a7d9dc-8b58-46ce-97e5-eca574df8dc9
+Host: 127.0.0.1:5000
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Length: 116
+
+
+2024-05-15 13:53:01,103.103 INFO post_routes - get: Request body: {'post_ids': 'ef437cfc-e0fc-4243-8eae-259df8a4f8ea', 'wix_site': '87b8edcb-aed5-4651-a4ad-e1a4678a6891'}
+2024-05-15 13:53:01,106.106 INFO post_dtr - post_rest_response: Starting post_rest_response)
+2024-05-15 13:53:01,108.108 INFO post_dtr - post_rest_response: Getting posts by ids:ef437cfc-e0fc-4243-8eae-259df8a4f8ea
+2024-05-15 13:53:01,110.110 INFO post_controller - get_post_by_id: Sending request to Wix API to get post with ID: ef437cfc-e0fc-4243-8eae-259df8a4f8ea for store: 87b8edcb-aed5-4651-a4ad-e1a4678a6891
+2024-05-15 13:53:06,500.500 INFO post_controller - get_post_by_id: Wix API Response Status Code: 200
+2024-05-15 13:53:06,501.501 INFO post_controller - get_post_by_id: Retrieved post with ID ef437cfc-e0fc-4243-8eae-259df8a4f8ea from wix API
+2024-05-15 13:53:06,508.508 ERROR post_dtr - post_rest_response: An unexpected error occurred: 'str' object has no attribute 'id'
+2024-05-15 14:04:17,573.573 INFO post_routes - get: Received request to get Posts
+2024-05-15 14:04:17,903.903 INFO post_routes - get: Request headers: Authorization: Auth
+Content-Type: application/json
+User-Agent: PostmanRuntime/7.37.3
+Accept: */*
+Postman-Token: 60a0ba49-9bcf-428c-97da-91f91ec23127
+Host: 127.0.0.1:5000
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Length: 116
+
+
+2024-05-15 14:04:17,906.906 INFO post_routes - get: Request body: {'post_ids': 'ef437cfc-e0fc-4243-8eae-259df8a4f8ea', 'wix_site': '87b8edcb-aed5-4651-a4ad-e1a4678a6891'}
+2024-05-15 14:04:17,908.908 INFO post_dtr - post_rest_response: Starting post_rest_response)
+2024-05-15 14:04:17,909.909 INFO post_dtr - post_rest_response: Getting posts by ids:ef437cfc-e0fc-4243-8eae-259df8a4f8ea
+2024-05-15 14:04:17,913.913 INFO post_controller - get_post_by_id: Sending request to Wix API to get post with ID: ef437cfc-e0fc-4243-8eae-259df8a4f8ea for store: 87b8edcb-aed5-4651-a4ad-e1a4678a6891
+2024-05-15 14:04:19,090.090 INFO post_controller - get_post_by_id: Wix API Response Status Code: 200
+2024-05-15 14:04:19,092.092 INFO post_controller - get_post_by_id: Retrieved post with ID ef437cfc-e0fc-4243-8eae-259df8a4f8ea from wix API
+2024-05-15 14:04:19,096.096 INFO post_controller - get_post_by_id: Response of post data:{'post': {'id': 'ef437cfc-e0fc-4243-8eae-259df8a4f8ea', 'title': 'An introduction to Machine Learning', 'excerpt': 'Machine learning is programming computers to optimize a performance criterion using example data or past experience. We have a model...', 'firstPublishedDate': '2024-05-15T05:25:35.651Z', 'lastPublishedDate': '2024-05-15T05:25:35.651Z', 'slug': 'an-introduction-to-machine-learning', 'featured': False, 'pinned': False, 'categoryIds': [], 'memberId': '30a9382c-a184-41c7-90af-3c13e432947f', 'hashtags': [], 'commentingEnabled': True, 'minutesToRead': 1, 'tagIds': [], 'relatedPostIds': [], 'pricingPlanIds': [], 'language': 'en', 'preview': False, 'contentId': '6644474f7e10a8442685d7ec', 'mostRecentContributorId': '30a9382c-a184-41c7-90af-3c13e432947f', 'media': {'displayed': True, 'custom': False}, 'hasUnpublishedChanges': False, 'translations': [], 'customExcerpt': False, 'internalCategoryIds': [], 'internalRelatedPostIds': []}}
+2024-05-15 14:04:19,104.104 ERROR post_dtr - post_rest_response: An unexpected error occurred: 'str' object has no attribute 'id'
+2024-05-15 14:06:51,093.093 INFO post_routes - get: Received request to get Posts
+2024-05-15 14:06:51,095.095 INFO post_routes - get: Request headers: Authorization: Auth
+Content-Type: application/json
+User-Agent: PostmanRuntime/7.37.3
+Accept: */*
+Postman-Token: 25783e20-913f-47ca-8cc5-9b9ded75a950
+Host: 127.0.0.1:5000
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Length: 116
+
+
+2024-05-15 14:06:51,098.098 INFO post_routes - get: Request body: {'post_ids': 'ef437cfc-e0fc-4243-8eae-259df8a4f8ea', 'wix_site': '87b8edcb-aed5-4651-a4ad-e1a4678a6891'}
+2024-05-15 14:06:51,099.099 INFO post_dtr - post_rest_response: Starting post_rest_response)
+2024-05-15 14:06:51,100.100 INFO post_dtr - post_rest_response: Getting posts by ids:ef437cfc-e0fc-4243-8eae-259df8a4f8ea
+2024-05-15 14:06:51,100.100 INFO post_controller - get_post_by_id: Sending request to Wix API to get post with ID: ef437cfc-e0fc-4243-8eae-259df8a4f8ea for store: 87b8edcb-aed5-4651-a4ad-e1a4678a6891
+2024-05-15 14:06:52,800.800 INFO post_controller - get_post_by_id: Wix API Response Status Code: 200
+2024-05-15 14:06:52,801.801 INFO post_controller - get_post_by_id: Retrieved post with ID ef437cfc-e0fc-4243-8eae-259df8a4f8ea from wix API
+2024-05-15 14:06:52,803.803 INFO post_controller - get_post_by_id: Response of post data:{'post': {'id': 'ef437cfc-e0fc-4243-8eae-259df8a4f8ea', 'title': 'An introduction to Machine Learning', 'excerpt': 'Machine learning is programming computers to optimize a performance criterion using example data or past experience. We have a model...', 'firstPublishedDate': '2024-05-15T05:25:35.651Z', 'lastPublishedDate': '2024-05-15T05:25:35.651Z', 'slug': 'an-introduction-to-machine-learning', 'featured': False, 'pinned': False, 'categoryIds': [], 'memberId': '30a9382c-a184-41c7-90af-3c13e432947f', 'hashtags': [], 'commentingEnabled': True, 'minutesToRead': 1, 'tagIds': [], 'relatedPostIds': [], 'pricingPlanIds': [], 'language': 'en', 'preview': False, 'contentId': '6644474f7e10a8442685d7ec', 'mostRecentContributorId': '30a9382c-a184-41c7-90af-3c13e432947f', 'media': {'displayed': True, 'custom': False}, 'hasUnpublishedChanges': False, 'translations': [], 'customExcerpt': False, 'internalCategoryIds': [], 'internalRelatedPostIds': []}}
+2024-05-15 14:06:52,820.820 ERROR post_dtr - post_rest_response: An unexpected error occurred: 'dict' object has no attribute 'id'
+2024-05-15 14:10:03,548.548 INFO post_routes - get: Received request to get Posts
+2024-05-15 14:10:03,549.549 INFO post_routes - get: Request headers: Authorization: Auth
+Content-Type: application/json
+User-Agent: PostmanRuntime/7.37.3
+Accept: */*
+Postman-Token: 39456667-b942-46a8-bd58-7e8eb9963d6a
+Host: 127.0.0.1:5000
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Length: 116
+
+
+2024-05-15 14:10:03,549.549 INFO post_routes - get: Request body: {'post_ids': 'ef437cfc-e0fc-4243-8eae-259df8a4f8ea', 'wix_site': '87b8edcb-aed5-4651-a4ad-e1a4678a6891'}
+2024-05-15 14:10:03,550.550 INFO post_dtr - post_rest_response: Starting post_rest_response)
+2024-05-15 14:10:03,550.550 INFO post_dtr - post_rest_response: Getting posts by ids:ef437cfc-e0fc-4243-8eae-259df8a4f8ea
+2024-05-15 14:10:03,551.551 INFO post_controller - get_post_by_id: Sending request to Wix API to get post with ID: ef437cfc-e0fc-4243-8eae-259df8a4f8ea for store: 87b8edcb-aed5-4651-a4ad-e1a4678a6891
+2024-05-15 14:10:04,600.600 INFO post_controller - get_post_by_id: Wix API Response Status Code: 200
+2024-05-15 14:10:04,601.601 INFO post_controller - get_post_by_id: Retrieved post with ID ef437cfc-e0fc-4243-8eae-259df8a4f8ea from wix API
+2024-05-15 14:10:04,602.602 INFO post_controller - get_post_by_id: Response of post data:{'post': {'id': 'ef437cfc-e0fc-4243-8eae-259df8a4f8ea', 'title': 'An introduction to Machine Learning', 'excerpt': 'Machine learning is programming computers to optimize a performance criterion using example data or past experience. We have a model...', 'firstPublishedDate': '2024-05-15T05:25:35.651Z', 'lastPublishedDate': '2024-05-15T05:25:35.651Z', 'slug': 'an-introduction-to-machine-learning', 'featured': False, 'pinned': False, 'categoryIds': [], 'memberId': '30a9382c-a184-41c7-90af-3c13e432947f', 'hashtags': [], 'commentingEnabled': True, 'minutesToRead': 1, 'tagIds': [], 'relatedPostIds': [], 'pricingPlanIds': [], 'language': 'en', 'preview': False, 'contentId': '6644474f7e10a8442685d7ec', 'mostRecentContributorId': '30a9382c-a184-41c7-90af-3c13e432947f', 'media': {'displayed': True, 'custom': False}, 'hasUnpublishedChanges': False, 'translations': [], 'customExcerpt': False, 'internalCategoryIds': [], 'internalRelatedPostIds': []}}
+2024-05-15 14:10:04,612.612 INFO post_dtr - post_rest_response: Post response successfully generated
+2024-05-15 14:10:39,188.188 INFO post_routes - get: Received request to get Posts
+2024-05-15 14:10:39,189.189 INFO post_routes - get: Request headers: Authorization: Auth
+Content-Type: application/json
+User-Agent: PostmanRuntime/7.37.3
+Accept: */*
+Postman-Token: ea6903d5-58e8-4247-a8db-d6f26b0e32b2
+Host: 127.0.0.1:5000
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Length: 80
+
+
+2024-05-15 14:10:39,191.191 INFO post_routes - get: Request body: {'post_ids': '', 'wix_site': '87b8edcb-aed5-4651-a4ad-e1a4678a6891'}
+2024-05-15 14:10:39,193.193 INFO post_dtr - post_rest_response: Starting post_rest_response)
+2024-05-15 14:10:39,194.194 INFO post_dtr - post_rest_response: Getting all posts
+2024-05-15 14:10:39,195.195 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: 87b8edcb-aed5-4651-a4ad-e1a4678a6891
+2024-05-15 14:10:39,844.844 INFO token_controller - get_token_from_db: Found token: <Token 1>
+2024-05-15 14:10:39,844.844 INFO token_controller - get_token_from_db: Serializing token
+2024-05-15 14:10:39,845.845 INFO post_controller - get_all_post: Sending request to Wix API to get all post for wix site: 87b8edcb-aed5-4651-a4ad-e1a4678a6891
+2024-05-15 14:10:41,252.252 INFO post_controller - get_all_post: Wix API Response Status Code: 403
+2024-05-15 14:10:41,255.255 ERROR post_dtr - post_rest_response: An unexpected error occurred: Expecting value: line 1 column 3 (char 2)
+2024-05-15 14:13:20,927.927 INFO post_routes - get: Received request to get Posts
+2024-05-15 14:13:21,027.027 INFO post_routes - get: Request headers: Authorization: Auth
+Content-Type: application/json
+User-Agent: PostmanRuntime/7.37.3
+Accept: */*
+Postman-Token: c5692212-98b0-4085-aaa6-f5e75be8d2c4
+Host: 127.0.0.1:5000
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Length: 80
+
+
+2024-05-15 14:13:21,028.028 INFO post_routes - get: Request body: {'post_ids': '', 'wix_site': '87b8edcb-aed5-4651-a4ad-e1a4678a6891'}
+2024-05-15 14:13:21,028.028 INFO post_dtr - post_rest_response: Starting post_rest_response)
+2024-05-15 14:13:21,029.029 INFO post_dtr - post_rest_response: Getting all posts
+2024-05-15 14:13:21,032.032 INFO post_controller - get_all_post: Sending request to Wix API to get all post for wix site: 87b8edcb-aed5-4651-a4ad-e1a4678a6891
+2024-05-15 14:13:23,645.645 INFO post_controller - get_all_post: Wix API Response Status Code: 200
+2024-05-15 14:13:23,647.647 INFO post_controller - get_all_post: Wix API Response: {'posts': [{'id': 'ef437cfc-e0fc-4243-8eae-259df8a4f8ea', 'title': 'An introduction to Machine Learning', 'excerpt': 'Machine learning is programming computers to optimize a performance criterion using example data or past experience. We have a model...', 'firstPublishedDate': '2024-05-15T05:25:35.651Z', 'lastPublishedDate': '2024-05-15T05:25:35.651Z', 'slug': 'an-introduction-to-machine-learning', 'featured': False, 'pinned': False, 'categoryIds': [], 'memberId': '30a9382c-a184-41c7-90af-3c13e432947f', 'hashtags': [], 'commentingEnabled': True, 'minutesToRead': 1, 'tagIds': [], 'relatedPostIds': [], 'pricingPlanIds': [], 'language': 'en', 'preview': False, 'contentId': '6644474f7e10a8442685d7ec', 'mostRecentContributorId': '30a9382c-a184-41c7-90af-3c13e432947f', 'media': {'displayed': True, 'custom': False}, 'hasUnpublishedChanges': False, 'translations': [], 'customExcerpt': False, 'internalCategoryIds': [], 'internalRelatedPostIds': []}], 'metaData': {'count': 1, 'offset': 0, 'total': 1}}
+2024-05-15 14:13:23,657.657 INFO post_dtr - post_rest_response: Post response successfully generated

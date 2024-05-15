@@ -13,17 +13,7 @@ def post_rest_response(wix_site,post_ids):
             app_logger.info(f'Getting posts by ids:{post_ids}')
             post_data = get_post_by_id(wix_site,post_ids)
         
-
-        post_info = [
-            {
-                'id': post.id,
-                'title': post.title,
-                'description': post.excerpt
-            }
-            for post in post_data
-        ]
-
-        response = jsonify({"posts": post_info})
+        response = jsonify({"posts": post_data})
         app_logger.info('Post response successfully generated')
         return response
     except WixAPIException as e:

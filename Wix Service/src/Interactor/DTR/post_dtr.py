@@ -1,6 +1,5 @@
 from src.Interactor.Logger.custom_logger import app_logger
 from src.api.Controllers.post_controller import get_all_post,get_post_by_id
-
 from src.Interactor.Exception.custom_exceptions import TokenNotFoundException,WixAPIException
 from flask import jsonify
 
@@ -14,7 +13,6 @@ def post_rest_response(wix_site,post_ids):
             app_logger.info(f'Getting posts by ids:{post_ids}')
             post_data = get_post_by_id(wix_site,post_ids)
         
-
 
         post_info = [
             {

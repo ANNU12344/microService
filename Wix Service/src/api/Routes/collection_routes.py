@@ -14,6 +14,7 @@ collection_parser.add_argument('collection_id', type=str, help="collection", req
 @collection_ns .route('/collection')
 class Product(Resource):
     @collection_ns.expect(collection_parser)
+   
     def get(self):
 
         app_logger.info('Received request to get Collections')

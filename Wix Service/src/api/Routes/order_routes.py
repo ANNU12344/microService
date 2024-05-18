@@ -1,6 +1,6 @@
 from flask import request, jsonify
 from flask_restx import Resource, reqparse, Namespace
-from src.api.Controllers.order_controller import get_order_info
+from src.Interactor.DTR.order_dtr import order_rest_response
 from src.Interactor.Logger.custom_logger import app_logger
 import traceback
 order_ns = Namespace('Order Information', description='get order info with the help of order id')
@@ -28,7 +28,7 @@ class Order(Resource):
             return jsonify({'message': 'Invalid data format. Expected a list of order_ids.'})
         
         try:
-            response =  get_order_info(order_id,wix_site)
+            response =  order_rest_response(wix_site,order_id)
         except Exception as e:
             exception_track = traceback.format_exc()
             app_logger.error(f'An unexpected error occurred: {e}')

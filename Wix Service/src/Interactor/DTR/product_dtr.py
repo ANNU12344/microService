@@ -4,9 +4,6 @@ from src.Interactor.Exception.custom_exceptions import TokenNotFoundException,Wi
 from src.Interactor.Logger.custom_logger import app_logger
 def product_rest_response(wix_site,product_id):
     
-    
-
-
     try:
         app_logger.info(f'Received request to get Product with ID {product_id} for wix site: {wix_site}')
         product_data = get_product_by_id(wix_site,product_id)

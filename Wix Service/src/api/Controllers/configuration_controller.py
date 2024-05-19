@@ -3,32 +3,22 @@ from src.api.Controllers.site_data_controller import get_site_data
 from src.Domain.Constant.constant import Platform_name , Platfrom_id
 from src.Interactor.Logger.custom_logger import app_logger
 from src.Domain.Event_Loop.loop_init import loop
-
 from datetime import datetime
 import requests
 import aiohttp
 
 
-
-
-
-version = "1.0"
-
-
 async def _create_configuration(wix_site , token):
     try:
-        app_logger.info(f"Creating configuration for store: {wix_site}")
-
-        # Fetch shop data
-        shop_data = get_site_data(wix_site , token)
-
+        app_logger.info(f"Creating configuration for wix site: {wix_site}")
+        site_data = get_site_data(wix_site , token)
         today = datetime.now()
 
         # Create Configuration object
         configuration = Configuration(
-            store_id=shop_data.id,
-            email=shop_data.email,
-            store_name=shop_data.name,
+            store_id=site_data.properties.categories.businessTermID,
+            businessName=site_data.properties.businessName,
+            site_displace_name=site_data.properties.siteDisplayName,
             platform_name=Platform_name,
             platform_id=Platfrom_id,
             auth_token=token,
@@ -36,7 +26,7 @@ async def _create_configuration(wix_site , token):
             created_on=today
         )
 
-        url = f""
+        url = f""# I have to define the server url for create the configuration
 
         headers = {
             'accept': 'text/plain',
@@ -44,6 +34,7 @@ async def _create_configuration(wix_site , token):
         }
 
         data = configuration.serialize()
+        print(data)
 
         app_logger.info(f"Sending POST request to {url}")
          

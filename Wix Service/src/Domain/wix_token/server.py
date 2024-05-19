@@ -2,6 +2,8 @@ import os
 from src.Domain.wix_token import helpers
 from flask import redirect, request, Blueprint
 from src.Infra.Repositories.token_repository import TokenRepository
+from src.Interactor.Logger.custom_logger import app_logger
+from src.api.Controllers.configuration_controller import create_configuration
 from dotenv import load_dotenv
 from src.Domain.wix_token.wix_client import WixClientToken
 
@@ -23,6 +25,12 @@ def app_installed():
     wix_site=request.args.get('wix_site')
     access_token,refresh_token= WixClientToken.authenticate(code=code)
     new_token=TokenRepository.create_token(wix_site,access_token,refresh_token)
+    try:
+        app_logger.info(f'Creating configuration')
+        create_configuration(wix_site, access_token)
+        app_logger.info(f"Configuration created successfully")
+    except:
+        app_logger.error(f"Failed to create configuration")
     return access_token
     
 

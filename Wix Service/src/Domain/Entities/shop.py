@@ -1,90 +1,212 @@
 from datetime import datetime
 from typing import List
+class Categories:
+    primary:str
+    secondary:List[str]
+    businessTermID:str
+    def __init__(self, primary:str, secondary:List[str], businessTermID:str) -> None:
+        self.primary = primary
+        self.secondary = secondary
+        self.businessTermID = businessTermID
+
+class Local:
+    languageCode:str
+    country:str
+    def __init__(self,languageCode:str,country:str)->None:
+        self.languageCode=languageCode
+        self.country=country
+
+class Hint:
+    text:str
+    placement:str
+    def __init__(self,text:str,placement:str)->None:
+        self.text=text
+        self.placement=placement
 
 
-class Site:
-    # categories:object
-    # local:object
+class Coordinator:
+    latitude:int
+    longitude:int
+    def __init__(self,latitude:int,longitude:int)->None:
+        self.latitude=latitude
+        self.longitude=longitude
+
+
+class Address:
+    street:str
+    city:str
+    country:str
+    state:str
+    zip:str
+    hint:Hint
+    isPhysical:bool
+    googleFormattedAddress:str
+    streetNumber:str
+    apartmentNumber:str
+    coordinates:Coordinator
+    def __init__(self,street:str,city:str,country:str,state:str,zip:str,hint:Hint,isPhysical:bool,googleFormattedAddress:str,streetNumber:str,apartmentNumber:str,coordinates:Coordinator)->None:
+        self.street=street
+        self.city=city
+        self.country=country
+        self.state=state
+        self.zip=zip
+        self.hint=hint
+        self.isPhysical=isPhysical
+        self.googleFormattedAddress=googleFormattedAddress
+        self.streetNumber=streetNumber
+        self.apartmentNumber=apartmentNumber
+        self.coordinates=coordinates
+
+
+class TimePeriod:
+    openDay:str
+    openTime:str
+    closeDay:str
+    closeTime:str
+    def __init__(self, openDay: str, openTime: str, closeDay: str, closeTime: str):
+        self.openDay = openDay
+        self.openTime = openTime
+        self.closeDay = closeDay
+        self.closeTime = closeTime
+
+
+class SpecialHourPeriod:
+    startDate:str
+    endDate:str
+    isClosed:bool
+    comment:str
+    def __init__(self, startDate: str, endDate: str, isClosed: bool, comment: str):
+        self.startDate = startDate
+        self.endDate = endDate
+        self.isClosed = isClosed
+        self.comment = comment
+
+class BusinessSchedule:
+    periods:List[TimePeriod]
+    specialHourPeriod:List[SpecialHourPeriod]
+    def __init__(self, periods: List[TimePeriod], specialHourPeriod: List[SpecialHourPeriod]):
+        self.periods = periods
+        self.specialHourPeriod = specialHourPeriod
+
+class Locale:
+    languageCode:str
+    country:str
+    def __init__(self, languageCode: str, country: str):
+        self.languageCode = languageCode
+        self.country = country
+
+
+class SupportedLanguage:
+    langaugeCode:str
+    locale:Locale
+    isPrimary:bool
+    countryCode:str
+    resolutionMethod:str
+    def __init__(self, langaugeCode: str, locale: Locale, isPrimary: bool, countryCode: str, resolutionMethod: str):
+        self.langaugeCode = langaugeCode
+        self.locale = locale
+        self.isPrimary = isPrimary
+        self.countryCode = countryCode
+        self.resolutionMethod = resolutionMethod
+
+
+
+class Multilingual:
+    supportedLanguage:List[SupportedLanguage]
+    autoRedirect:bool
+    def __init__(self, supportedLanguage: List[SupportedLanguage], autoRedirect: bool):
+        self.supportedLanguage = supportedLanguage
+        self.autoRedirect = autoRedirect
+
+
+class ConsentPolicy:
+    essential:bool
+    functional:bool
+    analytics:bool
+    advertising:bool
+    dataToThirdParty:bool
+    def __init__(self, essential: bool, functional: bool, analytics: bool, advertising: bool, dataToThirdParty: bool):
+        self.essential = essential
+        self.functional = functional
+        self.analytics = analytics
+        self.advertising = advertising
+        self.dataToThirdParty = dataToThirdParty
+
+class Properties:
+    categories:Categories
+    local:Local
     language: str
-    paymentCurrency: float
+    paymentCurrency: str
     timeZone: str
     email: str
     phone: str
     fax: str
-    #address:object
+    address:Address
     siteDisplayName: str
     businessName: str
     logo: str
     description: str
-    # businessSchedule:object
-    # multilingual:object
-    # consentPolicy:object
+    businessSchedule:BusinessSchedule
+    multilingual:Multilingual
+    consentPolicy:ConsentPolicy
     businessConfig: str
     externalSiteUrl: str
     trackClicksAnalytics: bool
-   
-
-    def __init__(self, id: int, name: str, email: str, domain: str, province: str, country: str, address1: str, zip: int, city: str, source: None, phone: int, latitude: float, longitude: float, primary_locale: str, address2: str, created_at: datetime, updated_at: datetime, country_code: str, country_name: str, currency: str, customer_email: str, timezone: str, iana_timezone: str, shop_owner: str, money_format: str, money_with_currency_format: str, weight_unit: str, province_code: str, taxes_included: None, auto_configure_tax_inclusivity: None, tax_shipping: None, county_taxes: bool, plan_display_name: str, plan_name: str, has_discounts: bool, has_gift_cards: bool, myshopify_domain: str, google_apps_domain: None, google_apps_login_enabled: None, money_in_emails_format: str, money_with_currency_in_emails_format: str, eligible_for_payments: bool, requires_extra_payments_agreement: bool, password_enabled: bool, has_storefront: bool, finances: bool, primary_location_id: int, checkout_api_supported: bool, multi_location_enabled: bool, setup_required: bool, pre_launch_enabled: bool, enabled_presentment_currencies: List[str], transactional_sms_disabled: bool, marketing_sms_consent_enabled_at_checkout: bool) -> None:
-        self.id = id
-        self.name = name
+    def __init__(
+        self,
+        categories: Categories,
+        local: Local,
+        language: str,
+        paymentCurrency: str,
+        timeZone: str,
+        email: str,
+        phone: str,
+        fax: str,
+        address: Address,
+        siteDisplayName: str,
+        businessName: str,
+        logo: str,
+        description: str,
+        businessSchedule: BusinessSchedule,
+        multilingual: Multilingual,
+        consentPolicy: ConsentPolicy,
+        businessConfig: str,
+        externalSiteUrl: str,
+        trackClicksAnalytics: bool
+    ):
+        self.categories = categories
+        self.local = local
+        self.language = language
+        self.paymentCurrency = paymentCurrency
+        self.timeZone = timeZone
         self.email = email
-        self.domain = domain
-        self.province = province
-        self.country = country
-        self.address1 = address1
-        self.zip = zip
-        self.city = city
-        self.source = source
         self.phone = phone
-        self.latitude = latitude
-        self.longitude = longitude
-        self.primary_locale = primary_locale
-        self.address2 = address2
-        self.created_at = created_at
-        self.updated_at = updated_at
-        self.country_code = country_code
-        self.country_name = country_name
-        self.currency = currency
-        self.customer_email = customer_email
-        self.timezone = timezone
-        self.iana_timezone = iana_timezone
-        self.shop_owner = shop_owner
-        self.money_format = money_format
-        self.money_with_currency_format = money_with_currency_format
-        self.weight_unit = weight_unit
-        self.province_code = province_code
-        self.taxes_included = taxes_included
-        self.auto_configure_tax_inclusivity = auto_configure_tax_inclusivity
-        self.tax_shipping = tax_shipping
-        self.county_taxes = county_taxes
-        self.plan_display_name = plan_display_name
-        self.plan_name = plan_name
-        self.has_discounts = has_discounts
-        self.has_gift_cards = has_gift_cards
-        self.myshopify_domain = myshopify_domain
-        self.google_apps_domain = google_apps_domain
-        self.google_apps_login_enabled = google_apps_login_enabled
-        self.money_in_emails_format = money_in_emails_format
-        self.money_with_currency_in_emails_format = money_with_currency_in_emails_format
-        self.eligible_for_payments = eligible_for_payments
-        self.requires_extra_payments_agreement = requires_extra_payments_agreement
-        self.password_enabled = password_enabled
-        self.has_storefront = has_storefront
-        self.finances = finances
-        self.primary_location_id = primary_location_id
-        self.checkout_api_supported = checkout_api_supported
-        self.multi_location_enabled = multi_location_enabled
-        self.setup_required = setup_required
-        self.pre_launch_enabled = pre_launch_enabled
-        self.enabled_presentment_currencies = enabled_presentment_currencies
-        self.transactional_sms_disabled = transactional_sms_disabled
-        self.marketing_sms_consent_enabled_at_checkout = marketing_sms_consent_enabled_at_checkout
+        self.fax = fax
+        self.address = address
+        self.siteDisplayName = siteDisplayName
+        self.businessName = businessName
+        self.logo = logo
+        self.description = description
+        self.businessSchedule = businessSchedule
+        self.multilingual = multilingual
+        self.consentPolicy = consentPolicy
+        self.businessConfig = businessConfig
+        self.externalSiteUrl = externalSiteUrl
+        self.trackClicksAnalytics = trackClicksAnalytics
 
+    
+
+class Site:
+    properties:Properties
+    def __init__(self, properties: Properties):
+        self.properties = properties
+
+    
     def to_dict(self) -> dict:
         return {
-            "siteDisplayName": self.siteDisplayName,
-            "businessName": self.businessName,
-            "description": self.description,
-            "logo": self.logo
+            "siteDisplayName": self.properties.siteDisplayName,
+            "businessName": self.properties.businessName,
+            "description": self.properties.description,
+            "logo": self.properties.logo
             }
             

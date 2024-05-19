@@ -1,7 +1,7 @@
 from src.api.Controllers.token_controller import get_token_from_db
 from src.Interactor.Exception.custom_exceptions import UnauthorizedApiException , TokenNotFoundException
 from src.Interactor.Logger.custom_logger import app_logger
-from src.Interactor.Dto.shop_dto import shop_dto
+# from src.Interactor.Dto.shop_dto import shop_dto
 import requests
 
 def get_site_data(wix_site, token = None):
@@ -24,12 +24,13 @@ def get_site_data(wix_site, token = None):
     app_logger.info(f'Shopify API Response Status Code: {response.status_code}')
     
     if response.status_code == 200:
-        site_object = shop_dto(response.json().get('properties', []))   
+        # site_object = shop_dto(response.json().get('properties', []))   
         app_logger.info(f'Retrieved wix site info from Wix API')
-        return site_object
+        return response.json()
+
 
     elif response.status_code == 401:
         app_logger.error('Unauthorized API call. Invalid API key or access token.')
         raise UnauthorizedApiException
     app_logger.warning(f'Failed to retrieve site info from Wix. Status Code: {response.status_code}')
-    return []
+    return response

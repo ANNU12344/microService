@@ -16,9 +16,9 @@ async def _create_configuration(wix_site , token):
 
         # Create Configuration object
         configuration = Configuration(
-            store_id=site_data.properties.categories.businessTermID,
-            businessName=site_data.properties.businessName,
-            site_displace_name=site_data.properties.siteDisplayName,
+            store_id="site_data['properties']['categories']['businessTermID']",
+            businessName=site_data['properties']['businessName'],
+            site_display_name=site_data['properties']['siteDisplayName'],
             platform_name=Platform_name,
             platform_id=Platfrom_id,
             auth_token=token,
@@ -34,8 +34,6 @@ async def _create_configuration(wix_site , token):
         }
 
         data = configuration.serialize()
-        print(data)
-
         app_logger.info(f"Sending POST request to {url}")
          
 

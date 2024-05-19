@@ -197,16 +197,76 @@ class Properties:
     
 
 class Site:
-    properties:Properties
-    def __init__(self, properties: Properties):
-        self.properties = properties
+    # properties:Properties
+    # def __init__(self, properties: Properties):
+    #     self.properties = properties
+    categories:Categories
+    local:Local
+    language: str
+    paymentCurrency: str
+    timeZone: str
+    email: str
+    phone: str
+    fax: str
+    address:Address
+    siteDisplayName: str
+    businessName: str
+    logo: str
+    description: str
+    businessSchedule:BusinessSchedule
+    multilingual:Multilingual
+    consentPolicy:ConsentPolicy
+    businessConfig: str
+    externalSiteUrl: str
+    trackClicksAnalytics: bool
+    def __init__(
+        self,
+        categories: Categories,
+        local: Local,
+        language: str,
+        paymentCurrency: str,
+        timeZone: str,
+        email: str,
+        phone: str,
+        fax: str,
+        address: Address,
+        siteDisplayName: str,
+        businessName: str,
+        logo: str,
+        description: str,
+        businessSchedule: BusinessSchedule,
+        multilingual: Multilingual,
+        consentPolicy: ConsentPolicy,
+        businessConfig: str,
+        externalSiteUrl: str,
+        trackClicksAnalytics: bool
+    ):
+        self.categories = categories
+        self.local = local
+        self.language = language
+        self.paymentCurrency = paymentCurrency
+        self.timeZone = timeZone
+        self.email = email
+        self.phone = phone
+        self.fax = fax
+        self.address = address
+        self.siteDisplayName = siteDisplayName
+        self.businessName = businessName
+        self.logo = logo
+        self.description = description
+        self.businessSchedule = businessSchedule
+        self.multilingual = multilingual
+        self.consentPolicy = consentPolicy
+        self.businessConfig = businessConfig
+        self.externalSiteUrl = externalSiteUrl
+        self.trackClicksAnalytics = trackClicksAnalytics
 
     
-    def to_dict(self) -> dict:
-        return {
-            "siteDisplayName": self.properties.siteDisplayName,
-            "businessName": self.properties.businessName,
-            "description": self.properties.description,
-            "logo": self.properties.logo
-            }
+    # def to_dict(self) -> dict:
+    #     return {
+    #         "siteDisplayName": self.properties.siteDisplayName,
+    #         "businessName": self.properties.businessName,
+    #         "description": self.properties.description,
+    #         "logo": self.properties.logo
+    #         }
             

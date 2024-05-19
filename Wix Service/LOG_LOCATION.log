@@ -57,3 +57,74 @@
 2024-05-19 11:35:27,630.630 INFO site_data_controller - get_site_data: {'categories': {'primary': 'other', 'secondary': ['Local Business'], 'businessTermId': '38194ba8-1218-431c-a007-09c26c75ee0d'}, 'locale': {'languageCode': 'en', 'country': 'IN'}, 'language': 'en', 'paymentCurrency': 'INR', 'timeZone': 'Asia/Kolkata', 'siteDisplayName': 'simple_learning', 'businessName': 'simple_learning', 'trackClicksAnalytics': False}
 2024-05-19 11:35:27,635.635 ERROR configuration_controller - _create_configuration: An unexpected error occurred: Site.__init__() missing 1 required positional argument: 'properties'
 2024-05-19 11:35:27,643.643 INFO server - app_installed: Configuration created successfully
+2024-05-19 12:00:16,847.847 INFO token_repository - create_token: Adding token to database: <Token (transient 2409145007840)>
+2024-05-19 12:00:17,073.073 INFO server - app_installed: Creating configuration
+2024-05-19 12:00:17,081.081 INFO configuration_controller - _create_configuration: Creating configuration for wix site: simple_learning
+2024-05-19 12:00:17,083.083 INFO site_data_controller - get_site_data: Sending request to Wix API to get info for wix site: simple_learning
+2024-05-19 12:00:17,869.869 INFO site_data_controller - get_site_data: Shopify API Response: {'version': '8', 'properties': {'categories': {'primary': 'other', 'secondary': ['Local Business'], 'businessTermId': '38194ba8-1218-431c-a007-09c26c75ee0d'}, 'locale': {'languageCode': 'en', 'country': 'IN'}, 'language': 'en', 'paymentCurrency': 'INR', 'timeZone': 'Asia/Kolkata', 'siteDisplayName': 'simple_learning', 'businessName': 'simple_learning', 'trackClicksAnalytics': False}}
+2024-05-19 12:00:17,870.870 INFO site_data_controller - get_site_data: Shopify API Response Status Code: 200
+2024-05-19 12:00:17,877.877 ERROR configuration_controller - _create_configuration: An unexpected error occurred: Site.__init__() missing 12 required positional arguments: 'local', 'email', 'phone', 'fax', 'address', 'logo', 'description', 'businessSchedule', 'multilingual', 'consentPolicy', 'businessConfig', and 'externalSiteUrl'
+2024-05-19 12:00:17,888.888 INFO server - app_installed: Configuration created successfully
+2024-05-19 12:17:07,542.542 INFO token_repository - create_token: Adding token to database: <Token (transient 2195990936064)>
+2024-05-19 12:17:07,689.689 INFO server - app_installed: Creating configuration
+2024-05-19 12:17:07,692.692 INFO configuration_controller - _create_configuration: Creating configuration for wix site: simple_learning
+2024-05-19 12:17:07,693.693 INFO site_data_controller - get_site_data: Sending request to Wix API to get info for wix site: simple_learning
+2024-05-19 12:17:08,473.473 INFO site_data_controller - get_site_data: Shopify API Response: {'version': '8', 'properties': {'categories': {'primary': 'other', 'secondary': ['Local Business'], 'businessTermId': '38194ba8-1218-431c-a007-09c26c75ee0d'}, 'locale': {'languageCode': 'en', 'country': 'IN'}, 'language': 'en', 'paymentCurrency': 'INR', 'timeZone': 'Asia/Kolkata', 'siteDisplayName': 'simple_learning', 'businessName': 'simple_learning', 'trackClicksAnalytics': False}}
+2024-05-19 12:17:08,475.475 INFO site_data_controller - get_site_data: Shopify API Response Status Code: 200
+2024-05-19 12:17:08,477.477 INFO site_data_controller - get_site_data: Retrieved wix site info from Wix API
+2024-05-19 12:17:08,478.478 ERROR configuration_controller - _create_configuration: An unexpected error occurred: 'Response' object has no attribute 'properties'
+2024-05-19 12:17:08,488.488 INFO server - app_installed: Configuration created successfully
+2024-05-19 12:20:53,870.870 INFO token_repository - create_token: Adding token to database: <Token (transient 2653462903248)>
+2024-05-19 12:20:54,047.047 INFO server - app_installed: Creating configuration
+2024-05-19 12:20:54,049.049 INFO configuration_controller - _create_configuration: Creating configuration for wix site: simple_learning
+2024-05-19 12:20:54,052.052 INFO site_data_controller - get_site_data: Sending request to Wix API to get info for wix site: simple_learning
+2024-05-19 12:20:55,088.088 INFO site_data_controller - get_site_data: Shopify API Response: {'version': '8', 'properties': {'categories': {'primary': 'other', 'secondary': ['Local Business'], 'businessTermId': '38194ba8-1218-431c-a007-09c26c75ee0d'}, 'locale': {'languageCode': 'en', 'country': 'IN'}, 'language': 'en', 'paymentCurrency': 'INR', 'timeZone': 'Asia/Kolkata', 'siteDisplayName': 'simple_learning', 'businessName': 'simple_learning', 'trackClicksAnalytics': False}}
+2024-05-19 12:20:55,089.089 INFO site_data_controller - get_site_data: Shopify API Response Status Code: 200
+2024-05-19 12:20:55,090.090 INFO site_data_controller - get_site_data: Retrieved wix site info from Wix API
+2024-05-19 12:20:55,091.091 ERROR configuration_controller - _create_configuration: An unexpected error occurred: 'Response' object is not subscriptable
+2024-05-19 12:20:55,102.102 INFO server - app_installed: Configuration created successfully
+2024-05-19 12:26:07,322.322 INFO token_repository - create_token: Adding token to database: <Token (transient 1917670619504)>
+2024-05-19 12:26:07,677.677 INFO server - app_installed: Creating configuration
+2024-05-19 12:26:07,692.692 INFO configuration_controller - _create_configuration: Creating configuration for wix site: simple_learning
+2024-05-19 12:26:07,697.697 INFO site_data_controller - get_site_data: Sending request to Wix API to get info for wix site: simple_learning
+2024-05-19 12:26:08,869.869 INFO site_data_controller - get_site_data: Shopify API Response: {'version': '8', 'properties': {'categories': {'primary': 'other', 'secondary': ['Local Business'], 'businessTermId': '38194ba8-1218-431c-a007-09c26c75ee0d'}, 'locale': {'languageCode': 'en', 'country': 'IN'}, 'language': 'en', 'paymentCurrency': 'INR', 'timeZone': 'Asia/Kolkata', 'siteDisplayName': 'simple_learning', 'businessName': 'simple_learning', 'trackClicksAnalytics': False}}
+2024-05-19 12:26:08,870.870 INFO site_data_controller - get_site_data: Shopify API Response Status Code: 200
+2024-05-19 12:26:08,872.872 INFO site_data_controller - get_site_data: Retrieved wix site info from Wix API
+2024-05-19 12:26:08,893.893 ERROR configuration_controller - _create_configuration: An unexpected error occurred: 'businessTermID'
+2024-05-19 12:26:08,899.899 INFO server - app_installed: Configuration created successfully
+2024-05-19 12:32:01,762.762 INFO token_repository - create_token: Adding token to database: <Token (transient 1973112622336)>
+2024-05-19 12:32:02,477.477 INFO server - app_installed: Creating configuration
+2024-05-19 12:32:02,490.490 INFO configuration_controller - _create_configuration: Creating configuration for wix site: simple_learning
+2024-05-19 12:32:02,493.493 INFO site_data_controller - get_site_data: Sending request to Wix API to get info for wix site: simple_learning
+2024-05-19 12:32:03,347.347 INFO site_data_controller - get_site_data: Shopify API Response: {'version': '8', 'properties': {'categories': {'primary': 'other', 'secondary': ['Local Business'], 'businessTermId': '38194ba8-1218-431c-a007-09c26c75ee0d'}, 'locale': {'languageCode': 'en', 'country': 'IN'}, 'language': 'en', 'paymentCurrency': 'INR', 'timeZone': 'Asia/Kolkata', 'siteDisplayName': 'simple_learning', 'businessName': 'simple_learning', 'trackClicksAnalytics': False}}
+2024-05-19 12:32:03,354.354 INFO site_data_controller - get_site_data: Shopify API Response Status Code: 200
+2024-05-19 12:32:03,359.359 INFO site_data_controller - get_site_data: Retrieved wix site info from Wix API
+2024-05-19 12:32:03,373.373 ERROR configuration_controller - _create_configuration: An unexpected error occurred: Configuration.__init__() got an unexpected keyword argument 'store_id'
+2024-05-19 12:32:03,382.382 INFO server - app_installed: Configuration created successfully
+2024-05-19 12:40:08,246.246 INFO token_repository - create_token: Adding token to database: <Token (transient 1707877284208)>
+2024-05-19 12:40:08,501.501 INFO server - app_installed: Creating configuration
+2024-05-19 12:40:08,505.505 INFO configuration_controller - _create_configuration: Creating configuration for wix site: simple_learning
+2024-05-19 12:40:08,506.506 INFO site_data_controller - get_site_data: Sending request to Wix API to get info for wix site: simple_learning
+2024-05-19 12:40:09,315.315 INFO site_data_controller - get_site_data: Shopify API Response: {'version': '8', 'properties': {'categories': {'primary': 'other', 'secondary': ['Local Business'], 'businessTermId': '38194ba8-1218-431c-a007-09c26c75ee0d'}, 'locale': {'languageCode': 'en', 'country': 'IN'}, 'language': 'en', 'paymentCurrency': 'INR', 'timeZone': 'Asia/Kolkata', 'siteDisplayName': 'simple_learning', 'businessName': 'simple_learning', 'trackClicksAnalytics': False}}
+2024-05-19 12:40:09,315.315 INFO site_data_controller - get_site_data: Shopify API Response Status Code: 200
+2024-05-19 12:40:09,317.317 INFO site_data_controller - get_site_data: Retrieved wix site info from Wix API
+2024-05-19 12:40:09,325.325 ERROR configuration_controller - _create_configuration: An unexpected error occurred: Configuration.__init__() got an unexpected keyword argument 'site_displace_name'
+2024-05-19 12:40:09,330.330 INFO server - app_installed: Configuration created successfully
+2024-05-19 12:46:57,408.408 INFO token_repository - create_token: Adding token to database: <Token (transient 3056037547168)>
+2024-05-19 12:46:57,805.805 INFO server - app_installed: Creating configuration
+2024-05-19 12:46:57,815.815 INFO configuration_controller - _create_configuration: Creating configuration for wix site: simple_learning
+2024-05-19 12:46:57,820.820 INFO site_data_controller - get_site_data: Sending request to Wix API to get info for wix site: simple_learning
+2024-05-19 12:46:58,651.651 INFO site_data_controller - get_site_data: Shopify API Response: {'version': '8', 'properties': {'categories': {'primary': 'other', 'secondary': ['Local Business'], 'businessTermId': '38194ba8-1218-431c-a007-09c26c75ee0d'}, 'locale': {'languageCode': 'en', 'country': 'IN'}, 'language': 'en', 'paymentCurrency': 'INR', 'timeZone': 'Asia/Kolkata', 'siteDisplayName': 'simple_learning', 'businessName': 'simple_learning', 'trackClicksAnalytics': False}}
+2024-05-19 12:46:58,655.655 INFO site_data_controller - get_site_data: Shopify API Response Status Code: 200
+2024-05-19 12:46:58,658.658 INFO site_data_controller - get_site_data: Retrieved wix site info from Wix API
+2024-05-19 12:46:58,676.676 ERROR configuration_controller - _create_configuration: An unexpected error occurred: 'Configuration' object has no attribute 'serialize'
+2024-05-19 12:46:58,688.688 INFO server - app_installed: Configuration created successfully
+2024-05-19 12:51:04,594.594 INFO token_repository - create_token: Adding token to database: <Token (transient 2335917881856)>
+2024-05-19 12:51:04,690.690 INFO server - app_installed: Creating configuration
+2024-05-19 12:51:04,693.693 INFO configuration_controller - _create_configuration: Creating configuration for wix site: simple_learning
+2024-05-19 12:51:04,695.695 INFO site_data_controller - get_site_data: Sending request to Wix API to get info for wix site: simple_learning
+2024-05-19 12:51:05,635.635 INFO site_data_controller - get_site_data: Shopify API Response: {'version': '8', 'properties': {'categories': {'primary': 'other', 'secondary': ['Local Business'], 'businessTermId': '38194ba8-1218-431c-a007-09c26c75ee0d'}, 'locale': {'languageCode': 'en', 'country': 'IN'}, 'language': 'en', 'paymentCurrency': 'INR', 'timeZone': 'Asia/Kolkata', 'siteDisplayName': 'simple_learning', 'businessName': 'simple_learning', 'trackClicksAnalytics': False}}
+2024-05-19 12:51:05,636.636 INFO site_data_controller - get_site_data: Shopify API Response Status Code: 200
+2024-05-19 12:51:05,637.637 INFO site_data_controller - get_site_data: Retrieved wix site info from Wix API
+2024-05-19 12:51:05,670.670 INFO configuration_controller - _create_configuration: Sending POST request to 
+2024-05-19 12:51:05,672.672 INFO server - app_installed: Configuration created successfully

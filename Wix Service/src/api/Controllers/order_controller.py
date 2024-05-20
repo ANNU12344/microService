@@ -22,6 +22,7 @@ def get_order_by_id(wix_site,order_id):
    
     if response.status_code==200:
         order_data= response.json()
+        # I have to modify here how to use the mapper to map with the entities like for that I am working with entities
         return order_data
     elif response.status_code==401:
         app_logger.error('Unauthorized API call. Invalid API key or access token.')

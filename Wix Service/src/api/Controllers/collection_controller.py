@@ -1,11 +1,12 @@
-import json
-import requests
 from src.Interactor.Logger.custom_logger import app_logger
 from src.Interactor.Exception.custom_exceptions import TokenNotFoundException,UnauthorizedApiException
 from src.api.Controllers.token_controller import get_token_from_db
+import requests
+
 def get_collection_by_id(wix_site,collection_id):
     access_token = get_token_from_db(wix_site)
-    app_logger.info(f'Access token :{access_token}')
+    # app_logger.info(f'Access token :{access_token}')
+
     if not access_token:
         app_logger.error(f'No access token found for wix site :{wix_site}')
         raise TokenNotFoundException
@@ -23,6 +24,7 @@ def get_collection_by_id(wix_site,collection_id):
    
     if response.status_code==200:
         collection_data = response.json()
+        # I have to modify here how to use the mapper to map with the entities like for that I am working with entities
         return collection_data
     elif response.status_code==401:
         app_logger.error('Unauthorized API call. Invalid API key or access token.')

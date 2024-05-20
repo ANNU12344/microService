@@ -8,6 +8,7 @@ search_ns = Namespace('wix_rest', description='wix Rest APIs')
 
 search_parser = reqparse.RequestParser()
 search_parser.add_argument('Authorization', type=str, location='headers', help='Authorization header', required=True)
+search_parser.add_argument('wix_site', type=str, help="wix site Name.", required=True)
 search_parser.add_argument('optionType', type=str, help="Get Product Options Availability", required=True)
 search_parser.add_argument('Name', type=str, help="Get Product Options Availability", required=True)
 search_parser.add_argument('product_id', type=str, help="product id", required=True)
@@ -22,11 +23,13 @@ class Search(Resource):
         app_logger.info(f'Request body: {request.get_json()}') 
         
         args = request.get_json()
+        wix_site=args['wix_site']
         optionType = args['optionType']
         Name = args['Name']
         product_id=args['product_id']
+
         try:
-            response = search_rest_response(product_id,optionType,Name)
+            response = search_rest_response(product_id,optionType,Name,wix_site)
         except Exception as e:
             exception_track = traceback.format_exc()
             app_logger.error(f'An unexpected error occurred: {e}')

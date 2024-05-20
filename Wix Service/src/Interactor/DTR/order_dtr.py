@@ -13,7 +13,7 @@ def order_rest_response(wix_site, order_id):
         app_logger.error(f'Wix API Exception: {e}')
         return jsonify({'message': 'Wix API Exception'})
     except TokenNotFoundException as e:
-        app_logger.error(f'Store Not Found Exception: {e}')
+        app_logger.error(f'Token Not Found Exception: {e}')
         return jsonify({'error': 'Token Not Found Exception'}) 
     except Exception as e:
         app_logger.error(f'An unexpected error occurred: {e}')

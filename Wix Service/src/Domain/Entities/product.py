@@ -246,6 +246,7 @@ class Meta:
     def __init__(self, height=None, width=None):
         self.height = height
         self.width = width
+
 class Tags:
     type:str
     props:Props
@@ -253,6 +254,13 @@ class Tags:
     children:str
     custom:bool
     disabled:bool
+    def __init__(self, type: str, props: Props, meta: Meta, children: str, custom: bool, disabled: bool):
+        self.type = type
+        self.props = props
+        self.meta = meta
+        self.children = children
+        self.custom = custom
+        self.disabled = disabled
 
 class Settings:
     preventAutoRedirect:bool

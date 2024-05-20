@@ -26,6 +26,7 @@ def get_site_data(wix_site, token = None):
     if response.status_code == 200:
         # site_object = shop_dto(response.json().get('properties', []))   
         app_logger.info(f'Retrieved wix site info from Wix API')
+        # return site_object
         return response.json()
 
 

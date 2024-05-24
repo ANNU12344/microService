@@ -1,12 +1,20 @@
 from flask import jsonify
-from src.api.Controllers.collection_controller import get_collection_by_id
+from src.api.Controllers.collection_controller import get_collection_by_id, get_all_collection
 from src.Interactor.Exception.custom_exceptions import TokenNotFoundException,WixAPIException
 from src.Interactor.Logger.custom_logger import app_logger
 def collection_rest_response(wix_site,collection_id):
     try:
         app_logger.info(f'Received request to get Collection with ID {collection_id} for wix site: {wix_site}')
+        
         collection_data = get_collection_by_id(wix_site,collection_id)
         app_logger.info(f'collection_data -> {collection_data}')
+        if len(collection_id)==0:
+            app_logger.info(f'Received request to get all collection for wix site: {wix_site}')
+            collection_data = get_all_collection(wix_site)
+        else:
+            app_logger.info(f'Received request to get Product with ID {collection_id} for wix site : {wix_site}')
+            collection_data = get_collection_by_id(wix_site,collection_id)
+
         collection_info = [
             {
                 'id': collection.id,

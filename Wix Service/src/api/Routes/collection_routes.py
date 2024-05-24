@@ -4,20 +4,20 @@ from src.Interactor.Logger.custom_logger import app_logger
 from src.Interactor.DTR.collection_dtr import collection_rest_response
 import traceback
 
-collection_ns = Namespace('wix_token', description='create the collection')
+collection_ns = Namespace('wix_token', description='Wix Rest APIs')
 
 collection_parser = reqparse.RequestParser()
 collection_parser.add_argument('Authorization', type=str, location='headers', help='Authorization header', required=True)
 collection_parser.add_argument('wix_site', type=str, help="wix site Name.", required=True)
-collection_parser.add_argument('collection_id', type=str, help="collection", required=True)
+collection_parser.add_argument('collection_id', type=str, help="collection id", required=True)
 
 @collection_ns .route('/collection')
 class Product(Resource):
     @collection_ns.expect(collection_parser)
-   
+    #I have to write decorator for authentication the requests using the wix public key
     def get(self):
 
-        app_logger.info('Received request to get Collections')
+        app_logger.info('Received request to get Collection')
         app_logger.info(f'Request headers: {request.headers}')
         app_logger.info(f'Request body: {request.get_json()}') 
 

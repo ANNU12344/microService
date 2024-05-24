@@ -1,406 +1,338 @@
-from typing import List
-from typing import Dict
-class WeightRange:
-    minValue:int
-    maxValue:int
-    def __init(self,minValue:int,maxValue:int):
-        self.minValue=minValue
-        self.maxValue=maxValue
-class ProductInventory:
-    trackInventory:bool
-    quantity: int
-    inStock:bool
-    inventoryStatus:str
-    def __init(self,trackInventory:bool,quantity: int,inStock:bool,inventoryStatus:str):
-        self.trackInventory=trackInventory
-        self.quantity=quantity
-        self.inStock=inStock
-        self.inventoryStatus=inventoryStatus
+from enum import Enum
+from typing import List, Any, Optional
+from uuid import UUID
+from datetime import datetime
+class AdditionalInfoSection:
+    title: str
+    description: str
+
+    def __init__(self, title: str, description: str) -> None:
+        self.title = title
+        self.description = description
+
+
+class Currency(Enum):
+    USD = "USD"
+
+
+class DiscountedPrice(Enum):
+    THE_3000 = "$30.00"
+    THE_6000 = "$60.00"
+    THE_6500 = "$65.00"
+
+
+class Price(Enum):
+    THE_3500 = "$35.00"
+    THE_6500 = "$65.00"
+    THE_7000 = "$70.00"
+
+
+class PricePerUnit(Enum):
+    THE_012 = "$0.12"
+    THE_024 = "$0.24"
+    THE_026 = "$0.26"
+
 
 class Formatted:
-    price:int
-    discountedPrice:str
-    pricePerUnit:str
-    def __init__(self, price:int,discountedPrice:str,pricePerUnit:str):
-        self.price=price
-        self.discountedPrice=discountedPrice
-        self.pricePerUnit=pricePerUnit
+    price: Price
+    discountedPrice: DiscountedPrice
+    pricePerUnit: PricePerUnit
 
-class Price:
-    currency:str
-    price:int
-    discountedPrice:int
-    formatted:Formatted
-    pricePerUnit:int
-    def __init__(self,currency:str,price:int,discountedPrice:int,formatted:Formatted,pricePerUnit:int):
-        self.currency=currency
-        self.price=price
-        self.discountedPrice=discountedPrice
-        self.formatted=formatted
-        self.pricePerUnit=pricePerUnit
+    def __init__(self, price: Price, discountedPrice: DiscountedPrice, pricePerUnit: PricePerUnit) -> None:
+        self.price = price
+        self.discountedPrice = discountedPrice
+        self.pricePerUnit = pricePerUnit
 
-class PriceData:
-    currency:str
-    price:int
-    discountedPrice:int
-    formatted:Formatted
-    pricePerUnit:int
-    def __init__(self,currency:str,price:int,discountedPrice:int,formatted:Formatted,pricePerUnit:int):
-        self.currency=currency
-        self.price=price
-        self.discountedPrice=discountedPrice
-        self.formatted=formatted
-        self.pricePerUnit=pricePerUnit
+
 class ConvertedPriceData:
-    currency:str
-    price:int
-    discountedPrice:int
-    formatted:Formatted
-    pricePerUnit:int
-    def __init(self,currency:str,price:int,discountedPrice:int,formatted:Formatted,pricePerUnit:int):
-        self.currency=currency
-        self.price=price
-        self.discountedPrice=discountedPrice
-        self.formatted=formatted
-        self.pricePerUnit=pricePerUnit
+    currency: Currency
+    price: int
+    discountedPrice: int
+    formatted: Formatted
+    pricePerUnit: float
 
-class AdditionalInfoSection:
-    title:str
-    description:str
-    def __init(self,title:str,description:str):
-        self.title=title
-        self.description=description
+    def __init__(self, currency: Currency, price: int, discountedPrice: int, formatted: Formatted, pricePerUnit: float) -> None:
+        self.currency = currency
+        self.price = price
+        self.discountedPrice = discountedPrice
+        self.formatted = formatted
+        self.pricePerUnit = pricePerUnit
 
-class PricePerUnitData:
-    totalQuantity:int
-    totalMeasurementUnit:str
-    baseQuantity:int
-    baseMeasurementUnit:str
-    def __init__(self,totalQuantity:int,totalMeasurementUnit:str,baseQuantity:int,baseMeasurementUnit:str):
-        self.totalQuantity=totalQuantity
-        self.totalMeasurementUnit
-        self.baseQuantity=baseQuantity
-        self.baseMeasurementUnit=baseMeasurementUnit
 
-class CostRange:
-    minValue:int
-    maxValue:int
-    def __init__(self,minValue:int,maxValue:int):
-        self.minValue=minValue
-        self.maxValue=maxValue
+class Range:
+    minValue: float
+    maxValue: int
 
-class PriceRange:
-    minValue:int
-    maxValue:int
-    def __init__(self,minValue:int,maxValue:int):
-        self.minValue=minValue
-        self.maxValue=maxValue
+    def __init__(self, minValue: float, maxValue: int) -> None:
+        self.minValue = minValue
+        self.maxValue = maxValue
 
-class CostAndProfitData:
-    itemCost:int
-    formattedItemCost:str
-    profit:int
-    formattedProfit:str
-    profitMargin:int
-    def __init__(self,itemCost:int,formattedItemCost:str,profit:int,formattedProfit:str,profitMargin:int):
-        self.itemCost=itemCost
-        self.formattedItemCost=formattedItemCost
-        self.profit=profit
-        self.formattedProfit=formattedProfit
-        self.profitMargin=profitMargin
 
-class Thumbnail:
-    url:str
-    width:int
-    height:int
-    format:str
-    altText:str
-    def __init__(self,url:str,width:int,height:int,format:str,altText:str):
-        self.url:url
-        self.width=width
-        self.height=height
-        self.format=format
-        self.altText=altText
+class CustomTextField:
+    title: str
+    maxLength: int
+    mandatory: bool
+
+    def __init__(self, title: str, maxLength: int, mandatory: bool) -> None:
+        self.title = title
+        self.maxLength = maxLength
+        self.mandatory = mandatory
+
+
+class Discount:
+    type: str
+    value: int
+
+    def __init__(self, type: str, value: int) -> None:
+        self.type = type
+        self.value = value
+
+
 class Image:
-    url:str
-    width:int
-    height: str
-    format: str
-    altText:str
-    def __init__(self,url:str,width:int,height: str,format: str,altText:str):
-        self.url=url
-        self.width=width
-        self.height=height
-        self.format=format
-        self.altText=altText
+    url: str
+    width: int
+    height: int
 
-class MediaItemUrlAndSize:
-    url:str
-    width:int
-    height:int
-    format:str
-    altText:str
-    def __init__(self,url:str,width:int,height:int,format:str,altText:str):
-        self.url=url
-        self.width=width
-        self.height=height
-        self.format=format
-        self.altText=altText
+    def __init__(self, url: str, width: int, height: int) -> None:
+        self.url = url
+        self.width = width
+        self.height = height
 
-class Video:
-    files:List[MediaItemUrlAndSize]
-    stillFrameMediaId:str
-    def __init__(self,files:List[MediaItemUrlAndSize],stillFrameMediaId:str):
-        self.files=files
-        self.stillFrameMediaId=stillFrameMediaId
 
 class MainMedia:
-    thumbnail:Thumbnail
-    mediaType:str
-    title:str
-    id:str
-    image:Image
-    video:Video #one of select krna hai
-    def __init__(self,thumbnail:Thumbnail,mediaType:str,title:str,id:str,image:Image):
-        self.thumbnail=thumbnail
-        self.mediaType=mediaType
-        self.title=title
-        self.id=id
-        self.image:Image
+    thumbnail: Image
+    mediaType: str
+    title: str
+    image: Image
+    id: str
 
-class MediaItem:
-    thumbnail:Thumbnail
-    mediaType:str
-    title:str
-    id:str
-    image:Image
-    def __init__(self,thumbnail:Thumbnail,mediaType:str,title:str,id:str,image:Image):
-        self.thumbnail=thumbnail
-        self.mediaType=mediaType
-        self.title=title
-        self.id=id
-        self.image=image
-class Media:
-    mainMedia:MainMedia
-    items:List[MediaItem]
+    def __init__(self, thumbnail: Image, mediaType: str, title: str, image: Image, id: str) -> None:
+        self.thumbnail = thumbnail
+        self.mediaType = mediaType
+        self.title = title
+        self.image = image
+        self.id = id
 
-class CustomTextFields:
-    title:str
-    maxLength:int
-    mandatory:bool
-    def __init__(self,title:str,maxLength:int,mandatory:bool):
-        self.title=title
-        self.maxLength=maxLength
-        self.mandatory=mandatory
-class Ribbons:
-    text:str
-    def __init__(self,text:str):
-        self.text=text
-class Choices:
-    value:str
-    description:str
-    media:Media
-    inStock:bool
-    visible:bool
-    def __init__(self,value:str,description:str,media:Media,inStock:bool,visible:bool):
-        self.value=value
-        self.description=description
-        self.media=media
-        self.inStock=inStock
-        self.visible:visible
 
-class ProductOptions:
-    optionType:str
-    name:str
-    choices:Choices
-    def __init__(self,optionType:str,name:str,choices:Choices):
-        self.optionType=optionType
-        self.name=name
-        self.choices=choices
-        
-class ProductPageUrl:
-    base:str
-    path:str
-    def __init__(self,base:str,path:str):
-        self.base=base
-        self.path=path
-class Discount:
-    type:str
-    value:int
-    def __init__(self,type:str,value:int):
-        self.type=type
-        self.value=value
-class Keywords:
-    term:str
-    isMain:bool
-    def __init__(self,term:str,isMain:bool):
-        self.term=term
-        self.isMain=isMain
+class ProductMedia:
+    mainMedia: MainMedia
+    items: List[MainMedia]
+
+    def __init__(self, mediaMedia: MainMedia, items: List[MainMedia]) -> None:
+        self.mediaMedia = mediaMedia
+        self.items = items
+
+
+class PricePerUnitData:
+    totalQuantity: int
+    totalMeasurementUnit: str
+    baseQuantity: int
+    baseMeasurementUnit: str
+
+    def __init__(self, totalQuantity: int, totalMeasurementUnit: str, baseQuantity: int, baseMeasurementUnit: str) -> None:
+        self.totalQuantity = totalQuantity
+        self.totalMeasurementUnit = totalMeasurementUnit
+        self.baseQuantity = baseQuantity
+        self.baseMeasurementUnit = baseMeasurementUnit
+
+
+class ChoiceMedia:
+    items: List[Any]
+
+    def __init__(self, items: List[Any]) -> None:
+        self.items = items
+
+
+class Choice:
+    value: str
+    description: str
+    media: Optional[ChoiceMedia]
+    inStock: bool
+    visible: bool
+
+    def __init__(self, value: str, description: str, media: Optional[ChoiceMedia], inStock: bool, visible: bool) -> None:
+        self.value = value
+        self.description = description
+        self.media = media
+        self.inStock = inStock
+        self.visible = visible
+
+
+class ProductOption:
+    optionType: str
+    name: str
+    choices: List[Choice]
+
+    def __init__(self, optionType: str, name: str, choices: List[Choice]) -> None:
+        self.optionType = optionType
+        self.name = name
+        self.choices = choices
+
+
+class ProductPageURL:
+    base: str
+    path: str
+
+    def __init__(self, base: str, path: str) -> None:
+        self.base = base
+        self.path = path
+
+
+class Ribbon:
+    text: str
+
+    def __init__(self, text: str) -> None:
+        self.text = text
+
+
 class Props:
-    def __init__(self, name=None, content=None, rel=None, href=None):
+    name: str
+    content: str
+
+    def __init__(self, name: str, content: str) -> None:
         self.name = name
         self.content = content
-        self.rel = rel
-        self.href = href
-class Meta:
-    def __init__(self, height=None, width=None):
-        self.height = height
-        self.width = width
 
-class Tags:
-    type:str
-    props:Props
-    meta:Meta
-    children:str
-    custom:bool
-    disabled:bool
-    def __init__(self, type: str, props: Props, meta: Meta, children: str, custom: bool, disabled: bool):
+
+class Tag:
+    type: str
+    children: str
+    custom: bool
+    disabled: bool
+    props: Optional[Props]
+
+    def __init__(self, type: str, children: str, custom: bool, disabled: bool, props: Optional[Props]) -> None:
         self.type = type
-        self.props = props
-        self.meta = meta
         self.children = children
         self.custom = custom
         self.disabled = disabled
+        self.props = props
 
-class Settings:
-    preventAutoRedirect:bool
-    keywords:List[Keywords]
-    def __init__(self,preventAutoRedirect:bool, keywords:List[Keywords]):
-        self.preventAutoRedirect=preventAutoRedirect
-        self.keywords=keywords
-class SeoData:
-    tags:Tags
-    settings:Settings
-    def __init__(self,tags:Tags,settings:Settings):
-        self.tags:tags
-        self.settings:settings
+
+class SEOData:
+    tags: List[Tag]
+
+    def __init__(self, tags: List[Tag]) -> None:
+        self.tags = tags
+
 
 class Stock:
-    trackQuantity:bool
-    quantity:int
-    inStock:bool
-    def __init__(self,trackQuantity:bool,quantity:int,inStock:bool):
-        self.trackQuantity:trackQuantity
-        self.quantity:quantity
-        self.inStock:inStock
-class Variant:
-    priceData:PriceData
-    convertedPriceData:ConvertedPriceData
-    costAndProfitData:CostAndProfitData
-    weight:int
-    sku:str
-    visible:bool
-    def __init__(self,priceData:PriceData,convertedPriceData:ConvertedPriceData,costAndProfitData:CostAndProfitData,weight:int,sku:str,visible:bool):
-        self.priceData:priceData
-        self.convertedPriceData=convertedPriceData
-        self.costAndProfitData=costAndProfitData
-        self.weight=weight
-        self.sku=sku
-        self.visible=visible
+    trackInventory: bool
+    inStock: bool
+    inventoryStatus: str
 
-class Variants:
-    id:str
-    choices: Dict[str, str]
-    variant:Variant
-    stock:Stock
-    def __init__(self,id:str,choices:int,variant:Variant,stock:Stock):
-        self.id=id
-        self.choices=choices
-        self.variant=variant
-        self.stock=stock
+    def __init__(self, trackInventory: bool, inStock: bool, inventoryStatus: str) -> None:
+        self.trackInventory = trackInventory
+        self.inStock = inStock
+        self.inventoryStatus = inventoryStatus
+
+
+class Choices:
+    weight: str
+    groundFor: str
+
+    def __init__(self, weight: str, groundFor: str) -> None:
+        self.weight = weight
+        self.groundFor = groundFor
+
+
+class CostAndProfitData:
+    itemCost: int
+    formatted_itemCost: str
+    profit: int
+    formattedProfit: str
+    profitMargin: float
+
+    def __init__(self, itemCost: int, formatted_itemCost: str, profit: int, formattedProfit: str, profitMargin: float) -> None:
+        self.itemCost = itemCost
+        self.formatted_itemCost = formatted_itemCost
+        self.profit = profit
+        self.formattedProfit = formattedProfit
+        self.profitMargin = profitMargin
+
+
+class VariantVariant:
+    priceData: ConvertedPriceData
+    convertedPriceData: ConvertedPriceData
+    costAndProfitData: CostAndProfitData
+    weight: float
+    sku: int
+    visible: bool
+
+    def __init__(self, priceData: ConvertedPriceData, convertedPriceData: ConvertedPriceData, costAndProfitData: CostAndProfitData, weight: float, sku: int, visible: bool) -> None:
+        self.priceData = priceData
+        self.convertedPriceData = convertedPriceData
+        self.costAndProfitData = costAndProfitData
+        self.weight = weight
+        self.sku = sku
+        self.visible = visible
+
+
+class VariantElement:
+    id: UUID
+    choices: Choices
+    variant: VariantVariant
+
+    def __init__(self, id: UUID, choices: Choices, variant: VariantVariant) -> None:
+        self.id = id
+        self.choices = choices
+        self.variant = variant
+
+
 class Product:
-    id: str
+    id: UUID
     name: str
     slug: str
-    visible : bool
-    productType : str
+    visible: bool
+    productType: str
     description: str
-    sku : str
-    weight : int
-    weightRange:WeightRange
-    stock:ProductInventory
-    price:Price
-    priceData=PriceData
-    convertedPriceData:ConvertedPriceData
-    priceRange:PriceRange
-    costAndProfitData:CostAndProfitData
-    costRange:CostRange
-    pricePerUnitData:PricePerUnitData
-    additionalInfoSections:List[AdditionalInfoSection]
-    ribbons:List[Ribbons]
-    media:Media
-    customTextFields:CustomTextFields
-    manageVariants:bool
-    productPageUrl:ProductPageUrl
-    numericId:int
-    inventoryItemId:str
-    discount:Discount #kuch kuch change krna hai
-    collectionIds:List[str]
-    variants:List[Variants]
-    lastUpdated:str
-    createdDate=str
-    seoData:SeoData
-    ribbon:str
-    brand:str
+    stock: Stock
+    weightRange: Range
+    price: ConvertedPriceData
+    priceData: ConvertedPriceData
+    convertedPriceData: ConvertedPriceData
+    priceRange: Range
+    costRange: Range
+    # pricePerUnitData: PricePerUnitData
+    additionalInfoSections: List[AdditionalInfoSection]
+    ribbons: List[Ribbon]
+    media: ProductMedia
+    customTextFields: List[CustomTextField]
+    manageVariants: bool
+    productOptions: List[ProductOption]
+    productPageUrl: ProductPageURL
+    numericId: str
+    inventoryItemId: UUID
+    discount: Discount
+    collectionIds: List[str]
+    variants: List[VariantElement]
+    lastUpdated: datetime
+    createdDate: datetime
+    # seoData: SEOData
+    ribbon: str
+    # brand: str
 
-    def __init__(
-        self,
-        id: str,
-        name: str,
-        slug: str,
-        visible: bool,
-        productType: str,
-        description: str,
-        sku: str,
-        weight: int,
-        weightRange: WeightRange,
-        stock: ProductInventory,
-        price: Price,
-        priceData: PriceData,
-        convertedPriceData: ConvertedPriceData,
-        priceRange: PriceRange,
-        costAndProfitData: CostAndProfitData,
-        costRange: CostRange,
-        pricePerUnitData: PricePerUnitData,
-        additionalInfoSections: List[AdditionalInfoSection],
-        ribbons: List[Ribbons],
-        media: Media,
-        customTextFields: CustomTextFields,
-        manageVariants: bool,
-        productPageUrl: ProductPageUrl,
-        numericId: int,
-        inventoryItemId: str,
-        discount: Discount,
-        collectionIds: List[str],
-        variants: List[Variants],
-        lastUpdated: str,
-        createdDate: str,
-        seoData: SeoData,
-        ribbon: str,
-        brand: str
-    ):
+    def __init__(self, id: UUID, name: str, slug: str, visible: bool, productType: str, description: str, stock: Stock, weightRange: Range, price: ConvertedPriceData, priceData: ConvertedPriceData, convertedPriceData: ConvertedPriceData, priceRange: Range, costRange: Range, additionalInfoSections: List[AdditionalInfoSection], ribbons: List[Ribbon], media: ProductMedia, customTextFields: List[CustomTextField], manageVariants: bool, productOptions: List[ProductOption], productPageUrl: ProductPageURL, numericId: str, inventoryItemId: UUID, discount: Discount, collectionIds: List[str], variants: List[VariantElement], lastUpdated: datetime, createdDate: datetime, ribbon: str) -> None:
         self.id = id
         self.name = name
         self.slug = slug
         self.visible = visible
-        self.productType = productType
+        self.product_type = productType
         self.description = description
-        self.sku = sku
-        self.weight = weight
-        self.weightRange = weightRange
         self.stock = stock
+        self.weight_range = weightRange
         self.price = price
         self.priceData = priceData
         self.convertedPriceData = convertedPriceData
         self.priceRange = priceRange
-        self.costAndProfitData = costAndProfitData
-        self.costRange = costRange
-        self.pricePerUnitData = pricePerUnitData
+        self.costRange= costRange
+        # self.pricePerUnitData = pricePerUnitData
         self.additionalInfoSections = additionalInfoSections
         self.ribbons = ribbons
         self.media = media
-        self.customTextFields = customTextFields
+        self.customTextFields= customTextFields
         self.manageVariants = manageVariants
+        self.productOptions = productOptions
         self.productPageUrl = productPageUrl
         self.numericId = numericId
         self.inventoryItemId = inventoryItemId
@@ -409,43 +341,8 @@ class Product:
         self.variants = variants
         self.lastUpdated = lastUpdated
         self.createdDate = createdDate
-        self.seoData = seoData
+        # self.seoData = seoData
         self.ribbon = ribbon
-        self.brand = brand
+        # self.brand = brand
 
-    def serialize(self) -> dict:
-        return {
-            "id": self.id,
-            "name": self.name,
-            "slug": self.slug,
-            "visible": self.visible,
-            "productType": self.productType,
-            "description": self.description,
-            "sku": self.sku,
-            "weight": self.weight,
-            "weightRange": self.weightRange,
-            "stock": self.stock,
-            "price": self.price,
-            "priceData": self.priceData,
-            "convertedPriceData": self.convertedPriceData,
-            "priceRange": self.priceRange,
-            "costAndProfitData": self.costAndProfitData,
-            "costRange": self.costRange,
-            "pricePerUnitData": self.pricePerUnitData,
-            "additionalInfoSections": self.additionalInfoSections,
-            "ribbons": self.ribbons,
-            "media": self.media,
-            "customTextFields": self.customTextFields,
-            "manageVariants": self.manageVariants,
-            "productPageUrl": self.productPageUrl,
-            "numericId": self.numericId,
-            "inventoryItemId": self.inventoryItemId,
-            "discount": self.discount,
-            "collectionIds": self.collectionIds,
-            "variants": self.variants,
-            "lastUpdated": self.lastUpdated,
-            "createdDate": self.createdDate,
-            "seoData": self.seoData,
-            "ribbon": self.ribbon,
-            "brand": self.brand
-        }
+

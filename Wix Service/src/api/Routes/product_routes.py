@@ -5,6 +5,7 @@ from src.Interactor.DTR.product_dtr import product_rest_response
 import traceback
 
 product_ns = Namespace('wix_rest', description='Wix Rest APIs')
+
 product_parser = reqparse.RequestParser()
 product_parser.add_argument('Authorization', type=str, location='headers', help='Authorization header', required=True)
 product_parser.add_argument('wix_site', type=str, help="wix site Name.", required=True)
@@ -14,6 +15,7 @@ product_parser.add_argument('product_id', type=str, help="product id", required=
 @product_ns.route('/product', methods=['GET'])
 class Product(Resource):
     @product_ns.expect(product_parser)
+    #I have to write decorator for authentication the requests using the wix public key
     def get(self):
 
         app_logger.info('Received request to get Product')
@@ -23,6 +25,7 @@ class Product(Resource):
         args = request.get_json()
         product_id = args['product_id'] 
         wix_site=args['wix_site'] 
+        
         if not isinstance(product_id, str):
             return jsonify({'message': 'Invalid data format. Expected a list of product_ids.'}) , 501
         

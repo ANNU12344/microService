@@ -1,241 +1,341 @@
-from typing import List
+from datetime import datetime
+from uuid import UUID
+from typing import List, Any
 
-class BuyerInfo:
-    def __init__(self, info):
-        self.id = info['id']
-        self.type = info['type']
-        self.identityType = info['identityType']
-        self.firstName = info['firstName']
-        self.lastName = info['lastName']
-        self.phone = info['phone']
-        self.email = info['email']
 
-class Totals:
-    def __init__(self, totals):
-        self.subtotal = totals['subtotal']
-        self.shipping = totals['shipping']
-        self.tax = totals['tax']
-        self.discount = totals['discount']
-        self.total = totals['total']
-        self.weight = totals['weight']
-        self.quantity = totals['quantity']
-        self.refund= totals['refund']
-        self.giftCard=totals['giftCard']
+class Activity:
+    type: str
+    timestamp: datetime
+
+    def __init__(self, type: str, timestamp: datetime) -> None:
+        self.type = type
+        self.timestamp = timestamp
+
 
 class FullName:
-    def __init__(self, name):
-        self.firstName = name['firstName']
-        self.lastName = name['lastName']
+    first_name: str
+    last_name: str
 
-class VatId:
-    def __init__(self,vat):
-        self.number=vat['number']
-        self.type=vat['type']
+    def __init__(self, first_name: str, last_name: str) -> None:
+        self.first_name = first_name
+        self.last_name = last_name
+
 
 class Address:
-    def __init__(self, address):
-        self.fullName = FullName(address['fullName'])
-        self.country = address['country']
-        self.subdivision = address['subdivision']
-        self.city = address['city']
-        self.zipCode = address['zipCode']
-        self.phone = address['phone']
-        self.company=address['company']
-        self.email = address['email']
-        self.addressLine2 = address['addressLine2']
-        self.vatId=VatId(address['vatId'])
-        self.addressLine1= address['addressLine1']
+    full_name: FullName
+    country: str
+    subdivision: str
+    city: str
+    zip_code: int
+    phone: str
+    email: str
+    address_line1: str
+
+    def __init__(self, full_name: FullName, country: str, subdivision: str, city: str, zip_code: int, phone: str, email: str, address_line1: str) -> None:
+        self.full_name = full_name
+        self.country = country
+        self.subdivision = subdivision
+        self.city = city
+        self.zip_code = zip_code
+        self.phone = phone
+        self.email = email
+        self.address_line1 = address_line1
+
 
 class BillingInfo:
-    def __init__(self, info):
-        self.paymentMethod = info['paymentMethod']
-        self.paymentProviderTransactionId=info['paymentProviderTransactionId']
-        self.paymentGatewayTransactionId = info['paymentGatewayTransactionId']
-        self.address = Address(info['address'])
-        self.paidDate=info['paidDate']
-        self.refundableByPaymentProvider = info['refundableByPaymentProvider']
+    payment_method: str
+    payment_gateway_transaction_id: UUID
+    address: Address
+    refundable_by_payment_provider: bool
 
-class TrackingInfo:
-    def __init__(self, info):
-        self.trackingNumber = info['trackingNumber']
-        self.shippingProvider = info['shippingProvider']
-        self.trackingLink = info['trackingLink']
-
-class PriceData:
-    def __init__(self, data):
-        self.taxIncludedInPrice = data['taxIncludedInPrice']
-        self.price = data['price']
-        self.totalPrice=data['totalPrice']
-        
-
-class ShipmentDetails:
-    def __init__(self, details):
-        self.address = Address(details['address'])
-        self.trackingInfo = TrackingInfo(details['trackingInfo'])
-        self.discount = details['discount']
-        self.tax = details['tax']
-        self.priceData = PriceData(details['priceData'])
-
-class ShippingInfo:
-    def __init__(self, info):
-        self.deliveryOption = info['deliveryOption']
-        self.estimatedDeliveryTime=info['estimatedDeliveryTime']
-        self.shippingRegion = info['shippingRegion']
-        self.code = info['code']
-        self.shipmentDetails = ShipmentDetails(info['shipmentDetails'])
-
-class Option:
-    def __init__(self, option):
-        self.option = option['option']
-        self.selection = option['selection']
-
-class MediaItem:
-    def __init__(self, media):
-        self.mediaType = media['mediaType']
-        self.url = media['url']
-        self.width = media['width']
-        self.height = media['height']
-        self.mediaId = media['mediaId']
-        self.id = media['id']
-        self.externalImageUrl=media['externalImageUrl']
-        self.altText=media['altText']
-
-class LineItem:
-    def __init__(self, item):
-        self.index = item['index']
-        self.quantity = item['quantity']
-        self.price = item['price']
-        self.name = item['name']
-        self.translatedName = item['translatedName']
-        self.productId = item['productId']
-        self.totalPrice = item['totalPrice']
-        self.lineItemType = item['lineItemType']
-        self.options = [Option(opt) for opt in item.get('options', [])]
-        self.customTextFields = item['customTextFields']
-        self.weight=item['weight']
-        self.mediaItem = MediaItem(item['mediaItem'])
-        self.sku = item['sku']
-        self.notes=item['notes']
-        self.variantId = item['variantId']
-        self.fulfillerId=item['fulfillerId']
-        self.discount = item['discount']
-        self.tax = item['tax']
-        self.taxIncludedInPrice = item['taxIncludedInPrice']
-        self.taxGroupId=item['taxGroupId']
-        self.priceData = PriceData(item['priceData'])
-        
+    def __init__(self, payment_method: str, payment_gateway_transaction_id: UUID, address: Address, refundable_by_payment_provider: bool) -> None:
+        self.payment_method = payment_method
+        self.payment_gateway_transaction_id = payment_gateway_transaction_id
+        self.address = address
+        self.refundable_by_payment_provider = refundable_by_payment_provider
 
 
+class BuyerInfo:
+    id: UUID
+    type: str
+    identity_type: str
+    first_name: str
+    last_name: str
+    phone: str
+    email: str
+    contact_id: UUID
 
-class Activities:
-    def __init__(self, activity):
-        self.type = activity['type']
-        self.author=activity['author']
-        self.message=activity['message']
-        self.timestamp = activity['timestamp']
+    def __init__(self, id: UUID, type: str, identity_type: str, first_name: str, last_name: str, phone: str, email: str, contact_id: UUID) -> None:
+        self.id = id
+        self.type = type
+        self.identity_type = identity_type
+        self.first_name = first_name
+        self.last_name = last_name
+        self.phone = phone
+        self.email = email
+        self.contact_id = contact_id
 
-class InvoiceInfo:
-    def __init__(self,invoice):
-        self.id=invoice['id']
-        self.source=invoice['source']
-
-class FulfillmentLineItem:
-    def __init__(self,item):
-        self.index=item['index']
-        self.quantity=item['quantity']
-
-class Fulfillments:
-    def __init__(self, fulfillment):
-        self.id = fulfillment['id']
-        self.dateCreated = fulfillment['dateCreated']
-        self.lineItems = [FulfillmentLineItem(item) for item in fulfillment['lineItems']]
-        self.trackingLink=TrackingInfo(fulfillment['trackingLink'])
-
-class AppliedCoupon:
-    def __init__(self,coupon):
-        self.couponId=coupon['couponId']
-        self.name=coupon['name']
-        self.code=coupon['code']
-
-class Discount:
-    def __init__(self, discount):
-        self.value = discount['value']
-        self.appliedCoupon = AppliedCoupon(discount['appliedCoupon'])
-
-class CustomField:
-    def __init__(self,field):
-        self.value=field['value']
-        self.title=field['title']
-        self.translatedTitle=field['translatedTitle']
 
 class ChannelInfo:
-    def __init__(self, info):
-        self.type=info['type']
-        self.externalOrderId = info['externalOrderId']
-        self.externalOrderUrl= info['externalOrderUrl']
+    type: str
+
+    def __init__(self, type: str) -> None:
+        self.type = type
+
+
+class AppliedCoupon:
+    coupon_id: UUID
+    name: str
+    code: str
+
+    def __init__(self, coupon_id: UUID, name: str, code: str) -> None:
+        self.coupon_id = coupon_id
+        self.name = name
+        self.code = code
+
+
+class Discount:
+    value: str
+    applied_coupon: AppliedCoupon
+
+    def __init__(self, value: str, applied_coupon: AppliedCoupon) -> None:
+        self.value = value
+        self.applied_coupon = applied_coupon
+
 
 class EnteredBy:
-    def __init__(self, by):
-        self.id = by['id']
-        self.identityType = by['identityType']
+    id: UUID
+    identity_type: str
 
-class SubscriptionSettings:
-    def __init__(self,setting):
-        self.frequency=setting['frequency']
-        self.autoRenewal=setting['autoRenewal']
-        self.billingCycles=setting['billingCycles']
+    def __init__(self, id: UUID, identity_type: str) -> None:
+        self.id = id
+        self.identity_type = identity_type
 
-class SubscriptionOptionInfo:
-    def __init_(self,info):
-        self.title=info['title']
-        self.description=info['description']
 
-class SubscriptionInfo:
-    def __init__(self,subscription):
-        self.id=subscription['id']
-        self.cycleNumer=subscription['cycleNumber']
-        self.subscriptionSettings=SubscriptionSettings(subscription['subscriptionSettings'])
-        self.subscriptionOptionInfo=SubscriptionOptionInfo(subscription['subscriptionOptionInfo'])
+class FulfillmentLineItem:
+    index: int
+    quantity: int
 
-class Refunds:
-    def __init__(self,refund):
-        self.dateCreated=refund['dateCreated']
-        self.amount=refund['amount']
-        self.reason=refund['reason']
-        self.paymentProvidefTransactionId=refund['paymentProvidefTransactionId']
-        self.id=refund['id']
-        self.externalRefund=refund['paymentProvidefTransactionId']
+    def __init__(self, index: int, quantity: int) -> None:
+        self.index = index
+        self.quantity = quantity
+
+
+class TrackingInfo:
+    tracking_number: int
+    shipping_provider: str
+    tracking_link: str
+
+    def __init__(self, tracking_number: int, shipping_provider: str, tracking_link: str) -> None:
+        self.tracking_number = tracking_number
+        self.shipping_provider = shipping_provider
+        self.tracking_link = tracking_link
+
+
+class Fulfillment:
+    id: UUID
+    dateCreated: datetime
+    lineItems: List[FulfillmentLineItem]
+    tracking_info: TrackingInfo
+
+    def __init__(self, id: UUID, dateCreated: datetime, lineItems: List[FulfillmentLineItem], tracking_info: TrackingInfo) -> None:
+        self.id = id
+        self.dateCreated = dateCreated
+        self.lineItems = lineItems
+        self.tracking_info = tracking_info
+
+
+class MediaItem:
+    media_type: str
+    url: str
+    width: int
+    height: int
+    media_id: str
+    id: str
+
+    def __init__(self, media_type: str, url: str, width: int, height: int, media_id: str, id: str) -> None:
+        self.media_type = media_type
+        self.url = url
+        self.width = width
+        self.height = height
+        self.media_id = media_id
+        self.id = id
+
+
+class Option:
+    option: str
+    selection: str
+
+    def __init__(self, option: str, selection: str) -> None:
+        self.option = option
+        self.selection = selection
+
+
+class LineItemPriceData:
+    tax_included_in_price: bool
+    price: str
+    total_price: str
+
+    def __init__(self, tax_included_in_price: bool, price: str, total_price: str) -> None:
+        self.tax_included_in_price = tax_included_in_price
+        self.price = price
+        self.total_price = total_price
+
+
+class OrderLineItem:
+    index: int
+    quantity: int
+    price: str
+    name: str
+    translated_name: str
+    product_id: UUID
+    total_price: str
+    line_item_type: str
+    options: List[Option]
+    custom_text_fields: List[Any]
+    media_item: MediaItem
+    sku: str
+    variant_id: UUID
+    discount: str
+    tax: str
+    tax_included_in_price: bool
+    price_data: LineItemPriceData
+    refunded_quantity: int
+
+    def __init__(self, index: int, quantity: int, price: str, name: str, translated_name: str, product_id: UUID, total_price: str, line_item_type: str, options: List[Option], custom_text_fields: List[Any], media_item: MediaItem, sku: str, variant_id: UUID, discount: str, tax: str, tax_included_in_price: bool, price_data: LineItemPriceData, refunded_quantity: int) -> None:
+        self.index = index
+        self.quantity = quantity
+        self.price = price
+        self.name = name
+        self.translated_name = translated_name
+        self.product_id = product_id
+        self.total_price = total_price
+        self.line_item_type = line_item_type
+        self.options = options
+        self.custom_text_fields = custom_text_fields
+        self.media_item = media_item
+        self.sku = sku
+        self.variant_id = variant_id
+        self.discount = discount
+        self.tax = tax
+        self.tax_included_in_price = tax_included_in_price
+        self.price_data = price_data
+        self.refunded_quantity = refunded_quantity
+
+
+class ShipmentDetailsPriceData:
+    tax_included_in_price: bool
+    price: int
+
+    def __init__(self, tax_included_in_price: bool, price: int) -> None:
+        self.tax_included_in_price = tax_included_in_price
+        self.price = price
+
+
+class ShipmentDetails:
+    address: Address
+    tracking_info: TrackingInfo
+    discount: int
+    tax: str
+    price_data: ShipmentDetailsPriceData
+
+    def __init__(self, address: Address, tracking_info: TrackingInfo, discount: int, tax: str, price_data: ShipmentDetailsPriceData) -> None:
+        self.address = address
+        self.tracking_info = tracking_info
+        self.discount = discount
+        self.tax = tax
+        self.price_data = price_data
+
+
+class ShippingInfo:
+    delivery_option: str
+    shipping_region: str
+    code: UUID
+    shipment_details: ShipmentDetails
+
+    def __init__(self, delivery_option: str, shipping_region: str, code: UUID, shipment_details: ShipmentDetails) -> None:
+        self.delivery_option = delivery_option
+        self.shipping_region = shipping_region
+        self.code = code
+        self.shipment_details = shipment_details
+
+
+class Totals:
+    subtotal: str
+    shipping: str
+    tax: str
+    discount: str
+    total: str
+    weight: int
+    quantity: int
+
+    def __init__(self, subtotal: str, shipping: str, tax: str, discount: str, total: str, weight: int, quantity: int) -> None:
+        self.subtotal = subtotal
+        self.shipping = shipping
+        self.tax = tax
+        self.discount = discount
+        self.total = total
+        self.weight = weight
+        self.quantity = quantity
+
 
 class Order:
-    
-    def __init__(self, order_dict):
-        self.id = order_dict['id']
-        self.number = order_dict['number']
-        self.dateCreated = order_dict['dateCreated']
-        self.buyerInfo = BuyerInfo(order_dict['buyerInfo'])
-        self.currency = order_dict['currency']
-        self.weightUnit = order_dict['weightUnit']
-        self.totals = Totals(order_dict['totals'])
-        self.billingInfo = BillingInfo(order_dict['billingInfo'])
-        self.shippingInfo = ShippingInfo(order_dict['shippingInfo'])
-        self.buyerNote = order_dict['buyerNote']
-        self.read = order_dict['read']
-        self.archived = order_dict['archived']
-        self.paymentStatus = order_dict['paymentStatus']
-        self.fulfillmentStatus = order_dict['fulfillmentStatus']
-        self.lineItems = [LineItem(item) for item in order_dict['lineItems']]
-        self.activities = [Activities(act) for act in order_dict['activities']]
-        self.invoiceInfo=InvoiceInfo(order_dict['invoiceInfo'])
-        self.fulfillments = [Fulfillments(ful) for ful in order_dict['fulfillments']]
-        self.discount = Discount(order_dict['discount'])
-        self.customField=CustomField(order_dict['customField'])
-        self.cartId = order_dict['cartId']
-        self.buyerLanguage = order_dict['buyerLanguage']
-        self.channelInfo = ChannelInfo(order_dict['channelInfo'])
-        self.enteredBy = EnteredBy(order_dict['enteredBy'])
-        self.lastUpdated = order_dict['lastUpdated']
-        self.subscriptionInfo= SubscriptionInfo(order_dict['subscriptionInfo'])
-        self.numericId = order_dict['numericId']
-        self.refunds = order_dict['refunds']
-        
+    id: UUID
+    number: int
+    dateCreated: datetime
+    buyerInfo: BuyerInfo
+    currency: str
+    weightUnit: str
+    totals: Totals
+    billingInfo: BillingInfo
+    shippingInfo: ShippingInfo
+    buyerNote: str
+    read: bool
+    archived: bool
+    paymentStatus: str
+    fulfillmentStatus: str
+    lineItems: List[OrderLineItem]
+    activities: List[Activity]
+    fulfillments: List[Fulfillment]
+    discount: Discount
+    cartId: UUID
+    buyerLanguage: str
+    channelInfo: ChannelInfo
+    enteredBy: EnteredBy
+    lastUpdated: datetime
+    numericId: int
+    refunds: List[Any]
+    checkoutId: UUID
+    isInternalOrderCreate: bool
+
+    def __init__(self, id: UUID, number: int, dateCreated: datetime, buyerInfo: BuyerInfo, currency: str, weightUnit: str, totals: Totals, billingInfo: BillingInfo, shippingInfo: ShippingInfo, buyerNote: str, read: bool, archived: bool, paymentStatus: str, fulfillmentStatus: str, lineItems: List[OrderLineItem], activities: List[Activity], fulfillments: List[Fulfillment], discount: Discount, cartId: UUID, buyerLanguage: str, channelInfo: ChannelInfo, enteredBy: EnteredBy, lastUpdated: datetime, numericId: int, refunds: List[Any], checkoutId: UUID, isInternalOrderCreate: bool) -> None:
+        self.id = id
+        self.number = number
+        self.dateCreated = dateCreated
+        self.buyerInfo = buyerInfo
+        self.currency = currency
+        self.weightUnit = weightUnit
+        self.totals = totals
+        self.billingInfo = billingInfo
+        self.shippingInfo = shippingInfo
+        self.buyerNote = buyerNote
+        self.read = read
+        self.archived = archived
+        self.paymentStatus = paymentStatus
+        self.fulfillmentStatus = fulfillmentStatus
+        self.lineItems = lineItems
+        self.activities = activities
+        self.fulfillments = fulfillments
+        self.discount = discount
+        self.cartId = cartId
+        self.buyerLanguage = buyerLanguage
+        self.channelInfo = channelInfo
+        self.enteredBy = enteredBy
+        self.lastUpdated = lastUpdated
+        self.numericId = numericId
+        self.refunds = refunds
+        self.checkout_id = checkoutId
+        self.isInternalOrderCreate = isInternalOrderCreate
+
+
 

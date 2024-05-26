@@ -13,8 +13,8 @@ def get_all_order(wix_site):
     
     url=f"https://www.wixapis.com/stores/v2/orders/query"
     headers={
-        'X-Wix-Access-Token':access_token
-    }  
+        'Authorization':access_token
+    }   
     app_logger.info(f'Sending request to wix  API to get all order for wix _site: {wix_site}')
     response = requests.post(url, headers=headers)
 

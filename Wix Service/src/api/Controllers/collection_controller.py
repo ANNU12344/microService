@@ -9,7 +9,6 @@ def get_all_collection(wix_site):
     if not access_token:
         app_logger.error(f'No access token found for wix site :{wix_site}')
         raise TokenNotFoundException
-    collections = []
     
     url = f"https://www.wixapis.com/stores/v1/collections/query"
     headers = {
@@ -59,10 +58,31 @@ def get_collection_by_id(wix_site,collection_id):
         app_logger.info(f'Retrieved collection with ID {collection_id} from Wix API')
     elif response.status_code==401:
         app_logger.error('Unauthorized API call. Invalid API key or access token.')
-        app_logger.error('Update the access token')
         raise UnauthorizedApiException
     else:
         app_logger.warning(f'Failed to retrieve collection from Wix site. Status Code : {response.status_code}')
     return collections
+
+
+def deleteCollection(wix_site,id):
+    access_token = get_token_from_db(wix_site)
+    
+    if not access_token:
+        app_logger.error(f'No access token found for wix site :{wix_site}')
+        raise TokenNotFoundException
+    
+    url=f"https://www.wixapis.com/stores/v1/collections/{id}"
+    headers = {'Authorization': access_token}
+    response = requests.delete(url, headers=headers)
+    if response.status_code==200:
+        return {}
+    elif response.status_code==401:
+        app_logger.error('Unauthorized API call. Invalid API key or access token.')
+        app_logger.error('Update the access token')
+        raise UnauthorizedApiException
+    else:
+        app_logger.warning(f'Failed to delete the collection from the Wix site. Status Code : {response.status_code}')
+    return {}
+
 
     

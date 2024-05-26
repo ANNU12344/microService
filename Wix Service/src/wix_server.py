@@ -8,6 +8,7 @@ from src.api.Routes.collection_routes import collection_ns
 from src.api.Routes.search_routes import search_ns 
 from src.api.Routes.token_routes import token_ns
 from src.api.Routes.post_routes import post_ns
+from src.api.Routes.delete_routes import delete_ns
 from src.Domain.Constant.constant import SQLALCHEMY_DATABASE_URI
 from flask_restx import Api
 
@@ -26,5 +27,6 @@ api.add_namespace(collection_ns) #getting the collection information
 api.add_namespace(search_ns ) #search product availablity
 api.add_namespace(token_ns) #update the token
 api.add_namespace(post_ns) #get the post 
+api.add_namespace(delete_ns)
 
 

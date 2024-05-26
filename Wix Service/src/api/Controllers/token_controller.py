@@ -51,7 +51,6 @@ def update_access_token(wix_site):
             response = requests.post(url, json=payload)
             app_logger.info(f'Response status :{response.status_code}')
             new_access_token=response.json()['access_token']
-            app_logger.info(f'New Access Token: {new_access_token}')
             new_token=TokenRepository.update_token(wix_site,new_access_token,refresh_token)
             return "Updated"
         except HTTPError as ex:

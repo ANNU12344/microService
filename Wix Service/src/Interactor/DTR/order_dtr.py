@@ -14,8 +14,6 @@ def order_rest_response(wix_site, order_id):
         order_info = [
             {
                 'id': order.id
-                # 'title': order.name,
-                # 'description': order.description
             }
             for order in order_data
         ]

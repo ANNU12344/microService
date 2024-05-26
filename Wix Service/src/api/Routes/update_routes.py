@@ -2,7 +2,7 @@ from flask import Blueprint, app, request, jsonify
 from src.api.Controllers.product_update_controller import update_products
 from src.api.Controllers.collection_update_controller import update_collections
 from src.Interactor.Logger.custom_logger import app_logger
-from flask_restx import Api, Resource, reqparse, Namespace,fields
+from flask_restx import Api, Resource, reqparse, Namespace
 import traceback
 
 

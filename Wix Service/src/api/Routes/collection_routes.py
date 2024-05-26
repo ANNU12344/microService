@@ -4,7 +4,7 @@ from src.Interactor.Logger.custom_logger import app_logger
 from src.Interactor.DTR.collection_dtr import collection_rest_response
 import traceback
 
-collection_ns = Namespace('wix_token', description='Wix Rest APIs')
+collection_ns = Namespace('wix_rest', description='Wix Rest APIs')
 
 collection_parser = reqparse.RequestParser()
 collection_parser.add_argument('Authorization', type=str, location='headers', help='Authorization header', required=True)

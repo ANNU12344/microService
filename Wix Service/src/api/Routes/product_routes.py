@@ -2,6 +2,8 @@ from flask import request, jsonify
 from flask_restx import Resource, reqparse, Namespace
 from src.Interactor.Logger.custom_logger import app_logger
 from src.Interactor.DTR.product_dtr import product_rest_response
+from src.api.Auth.jwt import jwt_wrapper
+
 import traceback
 
 product_ns = Namespace('wix_rest', description='Wix Rest APIs')
@@ -15,7 +17,7 @@ product_parser.add_argument('product_id', type=str, help="product id", required=
 @product_ns.route('/product', methods=['GET'])
 class Product(Resource):
     @product_ns.expect(product_parser)
-    #I have to write decorator for authentication the requests using the wix public key
+    # @jwt_wrapper
     def get(self):
 
         app_logger.info('Received request to get Product')

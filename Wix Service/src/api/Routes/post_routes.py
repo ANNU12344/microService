@@ -2,9 +2,10 @@ from flask import request, jsonify
 from flask_restx import Resource, reqparse, Namespace
 from src.Interactor.Logger.custom_logger import app_logger
 from src.Interactor.DTR.post_dtr import post_rest_response
+from src.api.Auth.jwt import jwt_wrapper
 import traceback
 
-post_ns = Namespace('wix_token', description='Wix Rest APIs')
+post_ns = Namespace('wix_rest', description='Wix Rest APIs')
 
 post_parser = reqparse.RequestParser()
 post_parser.add_argument('Authorization', type=str, location='headers', help='Authorization header', required=True)
@@ -14,6 +15,7 @@ post_parser.add_argument('post_ids', type=str, help="post ids", required=True)
 @post_ns .route('/post')
 class Post(Resource):
     @post_ns.expect(post_parser)
+    # @jwt_wrapper
     def get(self):
 
         app_logger.info('Received request to get Posts')

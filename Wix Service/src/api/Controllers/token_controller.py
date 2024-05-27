@@ -1,5 +1,5 @@
 from src.Infra.Repositories.token_repository import TokenRepository
-from src.Interactor.Exception.custom_exceptions import UnauthorizedApiException , TokenNotFoundException
+from src.Interactor.Exception.custom_exceptions import UnauthorizedApiException , SiteNotFoundException
 from src.Interactor.Logger.custom_logger import app_logger
 import logging
 from requests.exceptions import HTTPError

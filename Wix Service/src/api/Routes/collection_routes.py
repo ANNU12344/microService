@@ -2,6 +2,7 @@ from flask import request, jsonify
 from flask_restx import Resource, reqparse, Namespace
 from src.Interactor.Logger.custom_logger import app_logger
 from src.Interactor.DTR.collection_dtr import collection_rest_response
+from src.api.Auth.jwt import jwt_wrapper
 import traceback
 
 collection_ns = Namespace('wix_rest', description='Wix Rest APIs')
@@ -14,7 +15,7 @@ collection_parser.add_argument('collection_id', type=str, help="collection id", 
 @collection_ns .route('/collection')
 class Product(Resource):
     @collection_ns.expect(collection_parser)
-    #I have to write decorator for authentication the requests using the wix public key
+    #@jwt_wrapper
     def get(self):
 
         app_logger.info('Received request to get Collection')

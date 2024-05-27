@@ -1,6 +1,6 @@
 from flask import jsonify
 from src.api.Controllers.product_controller import get_product_by_id, get_all_product
-from src.Interactor.Exception.custom_exceptions import TokenNotFoundException,WixAPIException
+from src.Interactor.Exception.custom_exceptions import SiteNotFoundException,WixAPIException
 from src.Interactor.Logger.custom_logger import app_logger
 def product_rest_response(wix_site,product_id):
     try:
@@ -33,9 +33,9 @@ def product_rest_response(wix_site,product_id):
         app_logger.error(f'Wix API Exception: {e}')
         return jsonify({'message': 'Wix API Exception'})
     
-    except TokenNotFoundException as e:
-        app_logger.error(f'Store Not Found Exception: {e}')
-        return jsonify({'error': 'Token Not Found Exception'}) 
+    except SiteNotFoundException as e:
+        app_logger.error(f'Site Not Found Exception: {e}')
+        return jsonify({'error': 'Site Not Found Exception'}) 
     
     except Exception as e:
         app_logger.error(f'An unexpected error occurred: {e}')

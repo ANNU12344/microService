@@ -5,6 +5,7 @@ from src.Interactor.Logger.custom_logger import app_logger
 from src.api.Controllers.configuration_controller import create_configuration
 from src.api.Controllers.site_user_controller import create_site_user
 from src.Domain.wix_token.wix_client import WixClientToken
+from src.Domain.wix_token import helpers
 from dotenv import load_dotenv
 
 # from src.Infra.Repositories.token_repository import TokenRepository
@@ -21,6 +22,7 @@ def app_launched():
 
 
 @wix_token_bp.route('/app_install', methods=['GET'])
+@helpers.verify_web_call
 def app_installed():
     code = request.args.get('code')
     wix_site=request.args.get('wix_site')

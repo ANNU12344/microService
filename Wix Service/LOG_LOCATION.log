@@ -1,629 +1,239 @@
-2024-05-26 13:32:26,245.245 INFO token_routes - post: Received request to get token
-2024-05-26 13:32:26,483.483 INFO token_routes - post: Request headers: Content-Type: application/json
+2024-05-27 12:42:23,929.929 INFO token_routes - post: Received request to get token
+2024-05-27 12:42:24,379.379 INFO token_routes - post: Request headers: Authorization: oauth
+Content-Type: application/json
 User-Agent: PostmanRuntime/7.37.3
 Accept: */*
-Postman-Token: 505e0f75-9aca-499d-a3c6-a2c52c4bf946
+Postman-Token: 4ead97d3-6942-4512-bcc6-3a8df9827061
 Host: 127.0.0.1:5000
 Accept-Encoding: gzip, deflate, br
 Connection: keep-alive
 Content-Length: 42
 
 
-2024-05-26 13:32:26,523.523 INFO token_routes - post: Request body: {'wix_site': 'simple_learning'}
-2024-05-26 13:32:26,523.523 INFO token_routes - post: Received request to get token for store: simple_learning
-2024-05-26 13:32:26,526.526 INFO token_controller - token_exist: Checking if token exists for store: simple_learning
-2024-05-26 13:32:26,564.564 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 13:32:28,501.501 INFO token_controller - get_token_from_db: Found token: <Token 20>
-2024-05-26 13:32:28,502.502 INFO token_controller - get_token_from_db: Serializing token
-2024-05-26 13:32:28,502.502 INFO token_controller - token_exist: Token exists for store: simple_learning
-2024-05-26 13:32:28,503.503 INFO token_routes - post: Retrieved token for store: simple_learning
-2024-05-26 13:32:28,505.505 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 13:32:28,511.511 INFO token_controller - update_access_token: Found token: <Token 20>
-2024-05-26 13:32:28,511.511 INFO token_controller - update_access_token: Serializing token
-2024-05-26 13:32:28,512.512 INFO token_controller - update_access_token: APP id :43d91ee0-0523-4804-ad9c-38cec7fa766b
-2024-05-26 13:32:28,513.513 INFO token_controller - update_access_token: APP secret id :9ba86959-c39d-462d-a44d-ee99622d885d
-2024-05-26 13:32:28,513.513 INFO token_controller - update_access_token: Refresh token from the data base: OAUTH2.eyJraWQiOiJkZ0x3cjNRMCIsImFsZyI6IkhTMjU2In0.eyJkYXRhIjoie1wiaWRcIjpcIjQzNDZjN2NmLWI3MWItNGNjMS04ZjA4LTUxMzMyMzZkMDJlMVwifSIsImlhdCI6MTcxNjIwNzE2OSwiZXhwIjoxNzc5Mjc5MTY5fQ.8x6SAFkjrqiHXYymk1iFCvVQ8xC9wlEY7tS_rTb_-Yg
-2024-05-26 13:32:31,117.117 INFO token_controller - update_access_token: Response status :200
-2024-05-26 13:32:31,118.118 INFO token_controller - update_access_token: New Access Token: OAUTH2.eyJraWQiOiJLaUp3NXZpeSIsImFsZyI6IlJTMjU2In0.eyJkYXRhIjoie1wiYXBwSWRcIjpcIjQzZDkxZWUwLTA1MjMtNDgwNC1hZDljLTM4Y2VjN2ZhNzY2YlwiLFwiaW5zdGFuY2VJZFwiOlwiM2YxMTY4M2QtNzMwOS00ZWQ1LWI1YzQtMzEwMWUyYzE1ZmQ3XCIsXCJzY29wZVwiOltcIkg0c0lBQUFBQUFBQV81MVoyM0xjS0JEOUlXZi1nWkdZR2NwSWFBRk43SDJoWEZ1dWJCNDJsVnJuXzJzYmFDUXVqY2JacDB3a0JIMDVmZm8wTnNKeVo3aTFZcjZhMDEzd3IwOWZ4WXN6Vm1sdVRzTUtQeWJ4SjdOQ3pXNWRSbVo1X243UmFsd0g2elJubzV1NEhtNXN0ZzVXc1h6VldiTjVER3VlLUtDbVUxaHQ0YUZoZzlfWXhNY2psLUxPOWFzYm1OYUNhLUs4U1kzaTh1cVVIcmsyVDJjaEpaaDlzdXpGWGJWYUZ6ZXhaWUVuYm9BamFFdmhFRTZfd2ROS1V6U19IbnRlT0IxOXpGWnBjVDd2bjdQVjNwVEdhSjZFY1F2WGs3Q1dqLTc4NnNCMEoyWmoyVHgwckVDdjloaENvT3dlQm5abmttbm10bkNZRkEtVDNCN2cteXVZNEZNYmY3NjZTZDI1QXhSTW5TeXdjVXVibUVmLVVrY19QM2FMQnBnNjh0a0tKZzBSUERGZkZJQXVKRF9EeGFqWnhlTDJhTEViaFJuVU9sc3EyMjB1TWQ0WXFMX2VQdjctX3Y3djZaLTNIMl9mM3VNWmlDQXgzNVVZdUtGU3FoWmJSenRaNGZRcXVVbXZra1ZTR092RXRFZy1nYzgwTWc5MlF6ZDZJZWdHN3NyOXluTG5fSE40QU9qcVpGVnpuX2VpSHNYMTZtM3ZSd1FUU1lHb05UVVVfWmI4UENEZWE2SkNjOTlNVVkyWXM0ajIzZUxMS2ktd3JZLTVlUnBXcmZrOHdDbzFnNk9RQlN5Ui1CeU1qVl9HYzkyWkRjOEFBbjgyX0ppVkZSY3hNTVRqSHlzM25icktjWTAtcDJVRGs4TXFfZWF3a0lwaWhacUhkYk1YQmdhZ3hBM05FUVdZMGp1d0FDTEZhNHUzWklTVFBtMFhlVVRDMWNndEU0WHhJUTBJeWRSb1FuaEdmdWRTQVFjQ3I4T0cydE5ndE1IQm9mcktjUmVnVFRXRjNFQ0I4MFZwNi1ETDJYWUxveVdjMklFT1NEQ1dRMGFEWmFjcFlIamp3N05hYlFtbzlOUmR0Sm9DVkF0ZThqRzRpUkZpNk14Nk5vTVdzYVJpWlprbVVpUlJGQjFxcjNSODd2aUw1VURRVUJpQ3l4RzNNRGNSVzJMSmFyVnRpTkdTdVZLMmlNYXp4YUJLcE9ja1BncllHWjd5eGNGZXp3UWJkaktVdzhhQUwtamZCSWdxay0zVG45Rk95MzNRdExMVzBWTXNNd1RrTG93NFM4cTVFcTFsaDNuRXZmQ3B0MEg0bURQcExyeHNOYVd1S3NxdkZUTkUxU2F1VVJwRFJtTTZ4UkxER1BHN2FIR1BMQVdlVWQ5UjFKd0MzaVl1aF9hR29sYXliVnMwMzBxRnhMc3ZhV1BSRVFrLXpiQXlGcTdwNUtIRVFRYldBTEd6aUd3QzBKZnFHa3o2c3F4bmllMkFMTVNHbVgtbm5RVFdMY2o2N2VmUEx4X3Z2MzU5X19IdEk0bVZubExMd3hmXzJRTllxOC15bzFZd3ltay1lcldKeFM2aVVqUGZBcFhlRUpXY2wyWkJwaVVBaWFoMEtDb25SdU9uRnEya0RHVnFtVjN6cElCVkRFd01vR2lMQzBfSkVGVzN5VWZhcEgyUFRRQk5yR0RtaGYyeS1rWnFPRlNLYVNDLThXeXZjZVhFdjdFVE9MY0V1VUhKeEZTdkRYTlR3cmYwTG90ajRkV2hQamdlRFotZ2VoWVlNNkdyYzdkcWVacll6SzRrNThLVFJSbGdLd09QSnZaUWhPV2g4YVFNd2ZhbEM0eE9LdHBDSnlSQnRzSFpfeUs0YTZNMUdpNTd3RHdkWVlDSmJmcU5uMURuNUJ6NW9GRlFXanVBdlpsWWprWkZYSnFycnNIUHBCSlZGMFVNd1hHdm5UNXpRUFFpQlIzNC01a2ZPTlZoX2h6WTdBeEZvbWFld2FoVDlWU0pZWGFJTmxRelVCeEFtdW9rNkFBYzhJY2h6T3Q5LWtBSThrbUtxeWp3U3dvNVFoVk00cXFURHdEenJxcXZFMExNV3NWc1JUTExucGRBczN1SHJLQmJTcDBESEZaTnFQSVBXcWlZOHVFcUk5aEtndmRQNzB5cGxKcHJhZmJBOUdacS00Ul9SSmVMUlU0MHpvZnNXSFNST2dQVkZKOEZJWl9BQWxTSlM2aU5WS0c4QW8yM0ZXQ3FBTGJGaFhEYXdKeDNGcHlZVXZMQ2U1eG9XaVhlRWtIU2wwRUF0cFoxeEVSdEVNRXRSX3E5YUNQOUswVWNNdXcyWkJ4VWF3Ni11dGE3Yk5iMENXenhoSTZ1anN0UjFtSTk3QnR1Tk1OUWFmeG5FWEtucjFyOHppVkc3aGFtcXJqNWJlNGlrSXdBbW00SXQybFI3QzNzMVpNUkhHSnZLdW1UVU53YlQtYktwZkVvNXpnMlRxRFZpMXVsZzBnZGROWER5NWEtSk1xenVrdWdfM3NsVmZIS3NWYXNxWktlbUJMLVBqdmpsT1dKVkZLMGhjeFBKbVdoNWNORDZtb0xTYUMtT2lJNUwxM3R4TWFMUXluemQ2RGhRUXN6NHU0NEdMZExpUVlYNWQ4Q0duSnNiNnA3TGFKN2E0QjMzalh4dEF2amhJYk9vc3JZRlJVTVZrOVdQWE5zdDBxZnN2OTFLQ1o2OVI5UmNDLVZEaG9BQUE9PVwiXSxcImV4dHJhQXR0cmlidXRlc1wiOntcIndpeC1nemlwcGVkLXNjb3BlXCI6XCJcIn19IiwiaWF0IjoxNzE2NzEwNTUwLCJleHAiOjE3MTY3MTA4NTB9.MCSZauzzK6Woci38L0SZyFDW7HPVYsGovCc8P1eG4davesf0qlyX3ksDdAdEI6LLuLnzpfhZ_7dtIhCTO1yofiABlfuOZlyDWkijHbiVUJXnQlqzm4P2IvdSqJfFkHvHvX6W-Jp6cGnnPwF5TRRXho4AuCPR8r2e0hdOxbdTrR-FrwWwrWGwOxs9WXZvx0LbLbrSBxdKMYJNkN6_7_rWlG0cYqlZ0GlYFDOX89XcEyjSkXwds4LrnZriG1lCA3DPXZxTY3czDdowqVNRUXlvWeSKuNT1IrNpO1_G8SnIK1omPBmSRztCm8R0RWAdgntDTl5QQMqBOvnSokj5lAFYHg
-2024-05-26 13:32:31,128.128 INFO token_repository - update_token: New access_token: OAUTH2.eyJraWQiOiJLaUp3NXZpeSIsImFsZyI6IlJTMjU2In0.eyJkYXRhIjoie1wiYXBwSWRcIjpcIjQzZDkxZWUwLTA1MjMtNDgwNC1hZDljLTM4Y2VjN2ZhNzY2YlwiLFwiaW5zdGFuY2VJZFwiOlwiM2YxMTY4M2QtNzMwOS00ZWQ1LWI1YzQtMzEwMWUyYzE1ZmQ3XCIsXCJzY29wZVwiOltcIkg0c0lBQUFBQUFBQV81MVoyM0xjS0JEOUlXZi1nWkdZR2NwSWFBRk43SDJoWEZ1dWJCNDJsVnJuXzJzYmFDUXVqY2JacDB3a0JIMDVmZm8wTnNKeVo3aTFZcjZhMDEzd3IwOWZ4WXN6Vm1sdVRzTUtQeWJ4SjdOQ3pXNWRSbVo1X243UmFsd0g2elJubzV1NEhtNXN0ZzVXc1h6VldiTjVER3VlLUtDbVUxaHQ0YUZoZzlfWXhNY2psLUxPOWFzYm1OYUNhLUs4U1kzaTh1cVVIcmsyVDJjaEpaaDlzdXpGWGJWYUZ6ZXhaWUVuYm9BamFFdmhFRTZfd2ROS1V6U19IbnRlT0IxOXpGWnBjVDd2bjdQVjNwVEdhSjZFY1F2WGs3Q1dqLTc4NnNCMEoyWmoyVHgwckVDdjloaENvT3dlQm5abmttbm10bkNZRkEtVDNCN2cteXVZNEZNYmY3NjZTZDI1QXhSTW5TeXdjVXVibUVmLVVrY19QM2FMQnBnNjh0a0tKZzBSUERGZkZJQXVKRF9EeGFqWnhlTDJhTEViaFJuVU9sc3EyMjB1TWQ0WXFMX2VQdjctX3Y3djZaLTNIMl9mM3VNWmlDQXgzNVVZdUtGU3FoWmJSenRaNGZRcXVVbXZra1ZTR092RXRFZy1nYzgwTWc5MlF6ZDZJZWdHN3NyOXluTG5fSE40QU9qcVpGVnpuX2VpSHNYMTZtM3ZSd1FUU1lHb05UVVVfWmI4UENEZWE2SkNjOTlNVVkyWXM0ajIzZUxMS2ktd3JZLTVlUnBXcmZrOHdDbzFnNk9RQlN5Ui1CeU1qVl9HYzkyWkRjOEFBbjgyX0ppVkZSY3hNTVRqSHlzM25icktjWTAtcDJVRGs4TXFfZWF3a0lwaWhacUhkYk1YQmdhZ3hBM05FUVdZMGp1d0FDTEZhNHUzWklTVFBtMFhlVVRDMWNndEU0WHhJUTBJeWRSb1FuaEdmdWRTQVFjQ3I4T0cydE5ndE1IQm9mcktjUmVnVFRXRjNFQ0I4MFZwNi1ETDJYWUxveVdjMklFT1NEQ1dRMGFEWmFjcFlIamp3N05hYlFtbzlOUmR0Sm9DVkF0ZThqRzRpUkZpNk14Nk5vTVdzYVJpWlprbVVpUlJGQjFxcjNSODd2aUw1VURRVUJpQ3l4RzNNRGNSVzJMSmFyVnRpTkdTdVZLMmlNYXp4YUJLcE9ja1BncllHWjd5eGNGZXp3UWJkaktVdzhhQUwtamZCSWdxay0zVG45Rk95MzNRdExMVzBWTXNNd1RrTG93NFM4cTVFcTFsaDNuRXZmQ3B0MEg0bURQcExyeHNOYVd1S3NxdkZUTkUxU2F1VVJwRFJtTTZ4UkxER1BHN2FIR1BMQVdlVWQ5UjFKd0MzaVl1aF9hR29sYXliVnMwMzBxRnhMc3ZhV1BSRVFrLXpiQXlGcTdwNUtIRVFRYldBTEd6aUd3QzBKZnFHa3o2c3F4bmllMkFMTVNHbVgtbm5RVFdMY2o2N2VmUEx4X3Z2MzU5X19IdEk0bVZubExMd3hmXzJRTllxOC15bzFZd3ltay1lcldKeFM2aVVqUGZBcFhlRUpXY2wyWkJwaVVBaWFoMEtDb25SdU9uRnEya0RHVnFtVjN6cElCVkRFd01vR2lMQzBfSkVGVzN5VWZhcEgyUFRRQk5yR0RtaGYyeS1rWnFPRlNLYVNDLThXeXZjZVhFdjdFVE9MY0V1VUhKeEZTdkRYTlR3cmYwTG90ajRkV2hQamdlRFotZ2VoWVlNNkdyYzdkcWVacll6SzRrNThLVFJSbGdLd09QSnZaUWhPV2g4YVFNd2ZhbEM0eE9LdHBDSnlSQnRzSFpfeUs0YTZNMUdpNTd3RHdkWVlDSmJmcU5uMURuNUJ6NW9GRlFXanVBdlpsWWprWkZYSnFycnNIUHBCSlZGMFVNd1hHdm5UNXpRUFFpQlIzNC01a2ZPTlZoX2h6WTdBeEZvbWFld2FoVDlWU0pZWGFJTmxRelVCeEFtdW9rNkFBYzhJY2h6T3Q5LWtBSThrbUtxeWp3U3dvNVFoVk00cXFURHdEenJxcXZFMExNV3NWc1JUTExucGRBczN1SHJLQmJTcDBESEZaTnFQSVBXcWlZOHVFcUk5aEtndmRQNzB5cGxKcHJhZmJBOUdacS00Ul9SSmVMUlU0MHpvZnNXSFNST2dQVkZKOEZJWl9BQWxTSlM2aU5WS0c4QW8yM0ZXQ3FBTGJGaFhEYXdKeDNGcHlZVXZMQ2U1eG9XaVhlRWtIU2wwRUF0cFoxeEVSdEVNRXRSX3E5YUNQOUswVWNNdXcyWkJ4VWF3Ni11dGE3Yk5iMENXenhoSTZ1anN0UjFtSTk3QnR1Tk1OUWFmeG5FWEtucjFyOHppVkc3aGFtcXJqNWJlNGlrSXdBbW00SXQybFI3QzNzMVpNUkhHSnZLdW1UVU53YlQtYktwZkVvNXpnMlRxRFZpMXVsZzBnZGROWER5NWEtSk1xenVrdWdfM3NsVmZIS3NWYXNxWktlbUJMLVBqdmpsT1dKVkZLMGhjeFBKbVdoNWNORDZtb0xTYUMtT2lJNUwxM3R4TWFMUXluemQ2RGhRUXN6NHU0NEdMZExpUVlYNWQ4Q0duSnNiNnA3TGFKN2E0QjMzalh4dEF2amhJYk9vc3JZRlJVTVZrOVdQWE5zdDBxZnN2OTFLQ1o2OVI5UmNDLVZEaG9BQUE9PVwiXSxcImV4dHJhQXR0cmlidXRlc1wiOntcIndpeC1nemlwcGVkLXNjb3BlXCI6XCJcIn19IiwiaWF0IjoxNzE2NzEwNTUwLCJleHAiOjE3MTY3MTA4NTB9.MCSZauzzK6Woci38L0SZyFDW7HPVYsGovCc8P1eG4davesf0qlyX3ksDdAdEI6LLuLnzpfhZ_7dtIhCTO1yofiABlfuOZlyDWkijHbiVUJXnQlqzm4P2IvdSqJfFkHvHvX6W-Jp6cGnnPwF5TRRXho4AuCPR8r2e0hdOxbdTrR-FrwWwrWGwOxs9WXZvx0LbLbrSBxdKMYJNkN6_7_rWlG0cYqlZ0GlYFDOX89XcEyjSkXwds4LrnZriG1lCA3DPXZxTY3czDdowqVNRUXlvWeSKuNT1IrNpO1_G8SnIK1omPBmSRztCm8R0RWAdgntDTl5QQMqBOvnSokj5lAFYHg
-2024-05-26 13:32:31,137.137 INFO token_repository - update_token: exist token
-2024-05-26 13:32:31,434.434 INFO token_repository - update_token: Updated token: <Token 20>
-2024-05-26 13:34:24,704.704 INFO delete_routes - delete: Received request  delete the product 
-2024-05-26 13:34:24,712.712 INFO delete_routes - delete: Request headers: Authorization: Oauth
+2024-05-27 12:42:24,578.578 INFO token_routes - post: Request body: {'wix_site': 'simple_learning'}
+2024-05-27 12:42:24,586.586 INFO token_routes - post: Received request to get token for store: simple_learning
+2024-05-27 12:42:24,590.590 INFO token_controller - token_exist: Checking if token exists for store: simple_learning
+2024-05-27 12:42:24,955.955 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
+2024-05-27 12:42:25,961.961 INFO token_controller - get_token_from_db: Found token: <Token 20>
+2024-05-27 12:42:25,963.963 INFO token_controller - get_token_from_db: Serializing token
+2024-05-27 12:42:25,964.964 INFO token_controller - token_exist: Token exists for store: simple_learning
+2024-05-27 12:42:25,965.965 INFO token_routes - post: Retrieved token for store: simple_learning
+2024-05-27 12:42:25,966.966 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
+2024-05-27 12:42:25,978.978 INFO token_controller - update_access_token: Found token: <Token 20>
+2024-05-27 12:42:25,979.979 INFO token_controller - update_access_token: Serializing token
+2024-05-27 12:42:25,981.981 INFO token_controller - update_access_token: APP id :43d91ee0-0523-4804-ad9c-38cec7fa766b
+2024-05-27 12:42:25,982.982 INFO token_controller - update_access_token: APP secret id :9ba86959-c39d-462d-a44d-ee99622d885d
+2024-05-27 12:42:25,982.982 INFO token_controller - update_access_token: Refresh token from the data base: OAUTH2.eyJraWQiOiJkZ0x3cjNRMCIsImFsZyI6IkhTMjU2In0.eyJkYXRhIjoie1wiaWRcIjpcIjQzNDZjN2NmLWI3MWItNGNjMS04ZjA4LTUxMzMyMzZkMDJlMVwifSIsImlhdCI6MTcxNjIwNzE2OSwiZXhwIjoxNzc5Mjc5MTY5fQ.8x6SAFkjrqiHXYymk1iFCvVQ8xC9wlEY7tS_rTb_-Yg
+2024-05-27 12:42:27,208.208 INFO token_controller - update_access_token: Response status :200
+2024-05-27 12:42:27,214.214 INFO token_repository - update_token: New access_token: OAUTH2.eyJraWQiOiJLaUp3NXZpeSIsImFsZyI6IlJTMjU2In0.eyJkYXRhIjoie1wiYXBwSWRcIjpcIjQzZDkxZWUwLTA1MjMtNDgwNC1hZDljLTM4Y2VjN2ZhNzY2YlwiLFwiaW5zdGFuY2VJZFwiOlwiM2YxMTY4M2QtNzMwOS00ZWQ1LWI1YzQtMzEwMWUyYzE1ZmQ3XCIsXCJzY29wZVwiOltcIkg0c0lBQUFBQUFBQV81MVoyM0xjS0JEOUlXZi1nWkdZR2NwSWFBRk43SDJoWEZ1dWJCNDJsVnJuXzJzYmFDUXVqY2JacDB3a0JIMDVmZm8wTnNKeVo3aTFZcjZhMDEzd3IwOWZ4WXN6Vm1sdVRzTUtQeWJ4SjdOQ3pXNWRSbVo1X243UmFsd0g2elJubzV1NEhtNXN0ZzVXc1h6VldiTjVER3VlLUtDbVUxaHQ0YUZoZzlfWXhNY2psLUxPOWFzYm1OYUNhLUs4U1kzaTh1cVVIcmsyVDJjaEpaaDlzdXpGWGJWYUZ6ZXhaWUVuYm9BamFFdmhFRTZfd2ROS1V6U19IbnRlT0IxOXpGWnBjVDd2bjdQVjNwVEdhSjZFY1F2WGs3Q1dqLTc4NnNCMEoyWmoyVHgwckVDdjloaENvT3dlQm5abmttbm10bkNZRkEtVDNCN2cteXVZNEZNYmY3NjZTZDI1QXhSTW5TeXdjVXVibUVmLVVrY19QM2FMQnBnNjh0a0tKZzBSUERGZkZJQXVKRF9EeGFqWnhlTDJhTEViaFJuVU9sc3EyMjB1TWQ0WXFMX2VQdjctX3Y3djZaLTNIMl9mM3VNWmlDQXgzNVVZdUtGU3FoWmJSenRaNGZRcXVVbXZra1ZTR092RXRFZy1nYzgwTWc5MlF6ZDZJZWdHN3NyOXluTG5fSE40QU9qcVpGVnpuX2VpSHNYMTZtM3ZSd1FUU1lHb05UVVVfWmI4UENEZWE2SkNjOTlNVVkyWXM0ajIzZUxMS2ktd3JZLTVlUnBXcmZrOHdDbzFnNk9RQlN5Ui1CeU1qVl9HYzkyWkRjOEFBbjgyX0ppVkZSY3hNTVRqSHlzM25icktjWTAtcDJVRGs4TXFfZWF3a0lwaWhacUhkYk1YQmdhZ3hBM05FUVdZMGp1d0FDTEZhNHUzWklTVFBtMFhlVVRDMWNndEU0WHhJUTBJeWRSb1FuaEdmdWRTQVFjQ3I4T0cydE5ndE1IQm9mcktjUmVnVFRXRjNFQ0I4MFZwNi1ETDJYWUxveVdjMklFT1NEQ1dRMGFEWmFjcFlIamp3N05hYlFtbzlOUmR0Sm9DVkF0ZThqRzRpUkZpNk14Nk5vTVdzYVJpWlprbVVpUlJGQjFxcjNSODd2aUw1VURRVUJpQ3l4RzNNRGNSVzJMSmFyVnRpTkdTdVZLMmlNYXp4YUJLcE9ja1BncllHWjd5eGNGZXp3UWJkaktVdzhhQUwtamZCSWdxay0zVG45Rk95MzNRdExMVzBWTXNNd1RrTG93NFM4cTVFcTFsaDNuRXZmQ3B0MEg0bURQcExyeHNOYVd1S3NxdkZUTkUxU2F1VVJwRFJtTTZ4UkxER1BHN2FIR1BMQVdlVWQ5UjFKd0MzaVl1aF9hR29sYXliVnMwMzBxRnhMc3ZhV1BSRVFrLXpiQXlGcTdwNUtIRVFRYldBTEd6aUd3QzBKZnFHa3o2c3F4bmllMkFMTVNHbVgtbm5RVFdMY2o2N2VmUEx4X3Z2MzU5X19IdEk0bVZubExMd3hmXzJRTllxOC15bzFZd3ltay1lcldKeFM2aVVqUGZBcFhlRUpXY2wyWkJwaVVBaWFoMEtDb25SdU9uRnEya0RHVnFtVjN6cElCVkRFd01vR2lMQzBfSkVGVzN5VWZhcEgyUFRRQk5yR0RtaGYyeS1rWnFPRlNLYVNDLThXeXZjZVhFdjdFVE9MY0V1VUhKeEZTdkRYTlR3cmYwTG90ajRkV2hQamdlRFotZ2VoWVlNNkdyYzdkcWVacll6SzRrNThLVFJSbGdLd09QSnZaUWhPV2g4YVFNd2ZhbEM0eE9LdHBDSnlSQnRzSFpfeUs0YTZNMUdpNTd3RHdkWVlDSmJmcU5uMURuNUJ6NW9GRlFXanVBdlpsWWprWkZYSnFycnNIUHBCSlZGMFVNd1hHdm5UNXpRUFFpQlIzNC01a2ZPTlZoX2h6WTdBeEZvbWFld2FoVDlWU0pZWGFJTmxRelVCeEFtdW9rNkFBYzhJY2h6T3Q5LWtBSThrbUtxeWp3U3dvNVFoVk00cXFURHdEenJxcXZFMExNV3NWc1JUTExucGRBczN1SHJLQmJTcDBESEZaTnFQSVBXcWlZOHVFcUk5aEtndmRQNzB5cGxKcHJhZmJBOUdacS00Ul9SSmVMUlU0MHpvZnNXSFNST2dQVkZKOEZJWl9BQWxTSlM2aU5WS0c4QW8yM0ZXQ3FBTGJGaFhEYXdKeDNGcHlZVXZMQ2U1eG9XaVhlRWtIU2wwRUF0cFoxeEVSdEVNRXRSX3E5YUNQOUswVWNNdXcyWkJ4VWF3Ni11dGE3Yk5iMENXenhoSTZ1anN0UjFtSTk3QnR1Tk1OUWFmeG5FWEtucjFyOHppVkc3aGFtcXJqNWJlNGlrSXdBbW00SXQybFI3QzNzMVpNUkhHSnZLdW1UVU53YlQtYktwZkVvNXpnMlRxRFZpMXVsZzBnZGROWER5NWEtSk1xenVrdWdfM3NsVmZIS3NWYXNxWktlbUJMLVBqdmpsT1dKVkZLMGhjeFBKbVdoNWNORDZtb0xTYUMtT2lJNUwxM3R4TWFMUXluemQ2RGhRUXN6NHU0NEdMZExpUVlYNWQ4Q0duSnNiNnA3TGFKN2E0QjMzalh4dEF2amhJYk9vc3JZRlJVTVZrOVdQWE5zdDBxZnN2OTFLQ1o2OVI5UmNDLVZEaG9BQUE9PVwiXSxcImV4dHJhQXR0cmlidXRlc1wiOntcIndpeC1nemlwcGVkLXNjb3BlXCI6XCJcIn19IiwiaWF0IjoxNzE2NzkzOTQ3LCJleHAiOjE3MTY3OTQyNDd9.VD8JQNfvdHDvuXdrILy3BkdBGdlirBD5lPPgpMjvi-aCFYZXM06LYw1ybpK17qlgIAYYYYXiRDbMk5nyKlqdtMkk_qyardondrFGEhPgc954aNFnPPXvdsRNUfD6xENjggyRCi87cWRuCgCuYIa-NyFb9aeU32uxiv4v6XA4U68IOWrAbTal_pm6Ag58RdOXOhVkW7DWD48ZTJeStvDCgXTS-yUnDZs1JvO8DgX3wCgMeml69TNUvU1TEl8MAc6EWSChejVUpQay55incnagOKPrtrcG6JQeU75Rw98fDblhGGG92-Hg5uo8oH0mRviV_FjJERekEuFKg2G0NMxRUQ
+2024-05-27 12:42:27,216.216 INFO token_repository - update_token: exist token
+2024-05-27 12:42:27,320.320 INFO token_repository - update_token: Updated token: <Token 20>
+2024-05-27 12:42:36,942.942 INFO collection_routes - get: Received request to get Collection
+2024-05-27 12:42:36,943.943 INFO collection_routes - get: Request headers: Authorization: OAUTH2.eyJraWQiOiJLaUp3NXZpeSIsImFsZyI6IlJTMjU2In0.eyJkYXRhIjoie1wiYXBwSWRcIjpcIjdiMjA5Mzg0LWU2NTctNGI1OS1iOTJlLTU0ZTYxZDNmYWZlY1wiLFwiaW5zdGFuY2VJZFwiOlwiODUzNGU4MDEtMDEyMy00YmQ1LTk4YTgtYjBmNmZiNDczNjk5XCIsXCJzY29wZVwiOltcIkg0c0lBQUFBQUFBQS81MVkyM0xrS0F6OW9Vei9BMjNURGhWc3ZJQjdrbjJoVWx1cDJYbllxYW5OL0grdEFHRnpFVTVtbjlLeE1VaEhSMGNTUmxqdURMZFdMSk81M0FYLyt2QlZQRHRqbGVibU1tendZeFovTWl2VTRyWjFaSmJuNzFldHhtMndUbk0ydXBucjRaRXQxc0VxbHErNmFyYU1ZYzBESDlSOENhc3RQRFJzOEJ1YitIamtVdHk1Zm5FRDAxcHdUWnczcTFIY1hwelNJOWZtNFNxa0JMTXZsajI3U2F0dGRUTmJWM2ppQmppQ3RoUU80ZlFiUEswMFJmUHAzUFBDNmVoanRrcUw2L1g0bkczMlVXbEU4eUtNVzdtZWhiVjhkTmNYQjZZN3NSakxscUZqQlhwMVlBaEEyUU1HZG1lU2FlWjJPRXpDd3lTM0IvaCtBaE44YU9QUEZ6ZXJPM2ZBZ3JrVEJUYnVZUlBMeUo5cjlQTmpkelRBMUpFdlZqQnBDUERFY2xOQXVoRDhqQmVqWmplTDI2UEZiaFJtVU50aXFXaTNzVVM4RWFpL1h0Ly8vdjcyNytXZjF4K3YzOTdpR2NnZ3NkeVZHTGloUXFwV1c2T2RySEI2azl5a1Y4a2lLWXgxWWw0bG44Rm5tcGtudTZFYlBRaTZ3RTNjcnl4M3pqK0hCOEN1VGxRMTkzRXY4bEZNazdlOWp3Z0draUpSYTJwSStqMzRPU0RlYXlKRGM5OU1rWTBZczhqMncrTGJKbSt3cmNmY1BBeWIxbndaWUpWYXdGR0lBcVpJZkE3R3hpL2p1ZTdLaGljZ2dUOGJmaXpLaXBzWUdQTHhqNDJiVGw3bHZFYWYwN0tCeVdHVGZuTllTS0ZZc2ViRHZEa1NBd0VvZVVOclJFR205QTRzQUtSNGJmRWVqSERTcCswaWowaThHcmxsb2pBK2hBRXBtUXBOZ0dma2R5NFZhQ0RvT215b3ZReEdHeHdjcWllT3U0QnNxam5FQmhLY3IwcGJCMTh1dHBzWXJlREVDblFpZ2pFZE1oa3NLMDFCdzBjK1BLbk5sb1JLVDkxTnF6bFF0ZEFsajhHakdBRkRaN2FyR2JTSUtSVXp5elJJa1VKUlZLZ2owL0c1NDgrV2cwQkRZZ2d1UjlPY2p6d3MxU2xGaENndXU1OVZzTHp1OEZIQXp2Q1VydzcyZWlJVXJ4T0ZuQm9HN0VVZlptQk5HVkFmNGt4YVduMkR3cFNWaDE1WHNnREtkMkhFVlZMT2xZd3NxOGhIK2dxZmVodUVqeUNUN3NiTGNsTDJUa1dLdFEwTGtabEpUNVJHeUdqZWRsNVErcG9RYlNPVDgzT25TZHQzN1ZzMDMwcUY2bmtzYVozdFZIb2ZSMWdaczg5MGdDNERuYkV4Y09ncW9pUUF0NldhZ2tsZjF1MHFVZFBKYkdyazlYZHFRcERPUW5GZmYvNzg4djcyNjlmM0g5L2VVOGZSYTdkeStPS2ZBOEM2aFN6TFlzV1RYS3VqVjN2SDEyVkdxc2c3VU9rTmthcDU3aFdLQ0N3UjkxanJKaEtWbG4rTnVoay9lbWdsWmNoRHkreVdCd1dzWW1CaUlFV2JQWGhLeHFpNjFuM1VZTFR2VWNuUnhJcG12anRmTjE4TkRZZE1NUTNGZHlIdFZaOWN2WGY1QWVmVzBETlF2VjdLMTBhYXFlNjE5QzdEc2ZEcXRNaWZ6M2NQa0QwcnpJcFFtcm5idEx6TWJHRVRLYXJ3WkZVR1ZOM0FvNWw5MkVubDBIalZCYkI5Nm9Ka2syMXBVZXhUVjdYVDJmOGl0R3VYTlpvdUIyQmVqaEJnWXB0KzlTWmFiSElZL0tBU1VBMXpJSHN6ZHB6TmU3ZzBiNTBHUDFoS2JKMG9ZUWlPK3dib013ZEVMeExvb045UC9NU3BqdkxueEdaWFNCSzE4SXhHbmF5blVneWpRNVNoV29IaUZORmtKeUVINElBL0RHbGU3OU1uUXVpUHBKaEV3ZC9jajFsTU90a0pWTzYyM3pYb3hGQlVERUdrZWh6WUJ5azlxbUJGejdKZk9lRmFWV2lxa2dSbFVzejVGSlNKYU5VcjkwL3ZqSk5VUzlaSzZZbnB6WGoxQ2YrSVNoWVRtU2lPSHlwZ1VTbnFDRlRqZGdaQ1Bpb0ZPaEszUmJ0d1Fnb0ZxVzVaYmlvQTJ3UkNPdTAxT3E4ZU9OcWs0SVgzT0hxMDdYU2I3S21IREUxZWExbW5ZYWdOSXZUanJBa3ZTa1gvN2c4bkJidFBDaWZaV3RFcjE2Vkc4YkZZRXgxeHRXbk9wWmJSWWQ5d3dSaG1QT00vaThTNmZOWGlkKzRVOHN6QmdCUVhzYzNWQUVvT0VOQU40WElydG0wcmUvR1NBNGZZUjVVNmpaREN1K0xsUFVqalVhNWtiSnloNnk0dWVVNlFPcW1QcDNjZi9lWUcwNjI2c2ZpL04wU1ZlcHgzZmJVZzByT1BlUlJodDg5T0syVVNvbUFVNHAvNXlhUXN1dkx3a0xwcHdsU3ZiM0pJWlVzM0xiR0U0bmpKL0pWa2VORFNqTGpLRGNZZFRVSERpL0pxdnBIQTl1SzRWd2k2QXo1ZVFkZnkwaTZNc3hZNmkvM0MwUnZCaVBSZzFSUEhvcXIwSmZ1UC93Y3NwZ3B2Z1JrQUFBPT1cIl0sXCJleHRyYUF0dHJpYnV0ZXNcIjp7XCJ3aXgtZ3ppcHBlZC1zY29wZVwiOlwiXCJ9fSIsImlhdCI6MTcxNjAxNDc4OSwiZXhwIjoxNzE2MDE1MDg5fQ.Gjwa6wiuNHK5J9oJx_yceEa3yvf_-RPM9WXOgoG6CFZOWp_nd3XJsJMx4G47Z-H0EwEK1zPCbfIo2XA5PqjNkBzk39rfztpg-hCylPNrmoUKwsPeHcZZUNqprifnqo2p9np4bG17CKLbY5oc8aOT7LFlBXxwt1mcdq9Qgk0LcQm0u6nvDcp5sz55Rq5DX1uwdg4fP13HaLct0aJ_aFm3QbwX1hrYz6Dqz2ewyuhlNjh63nGhcHGC6IevAjQl_slsZI-7EmVHydxdcmvl103G-36CGxhhC4SuhDHd_KwbTvKYuIAfvpgWYX1wJVXxu77jmeEZ49fIjg2xnr9l
 Content-Type: application/json
 User-Agent: PostmanRuntime/7.37.3
 Accept: */*
-Postman-Token: b07a3e49-bdd2-4237-bc8b-ab9097111d8a
+Postman-Token: f94dc670-08e3-4be6-82f7-6c7f4af127d3
+Host: 127.0.0.1:5000
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Length: 99
+
+
+2024-05-27 12:42:37,056.056 INFO collection_routes - get: Request body: {'collection_id': '00000000-000000-000000-000000000001', 'wix_site': 'simple_learning'}
+2024-05-27 12:42:37,062.062 INFO collection_dtr - collection_rest_response: Received request to get with collection 00000000-000000-000000-000000000001 for wix site : simple_learning
+2024-05-27 12:42:37,071.071 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
+2024-05-27 12:42:37,084.084 INFO token_controller - get_token_from_db: Found token: <Token 20>
+2024-05-27 12:42:37,088.088 INFO token_controller - get_token_from_db: Serializing token
+2024-05-27 12:42:37,091.091 INFO collection_controller - get_collection_by_id: Sending request to Wix Api to get collection from the wix site:simple_learning
+2024-05-27 12:42:37,737.737 INFO collection_controller - get_collection_by_id: Wix API Response: {'collection': {'id': '00000000-000000-000000-000000000001', 'name': 'All Products', 'media': {'mainMedia': {'thumbnail': {'url': 'https://static.wixstatic.com/media/22e53e_ef2ebbf33af24b7fba34e44589f3dc38~mv2.jpg/v1/fit/w_50,h_50,q_90/file.jpg', 'width': 50, 'height': 50}, 'mediaType': 'image', 'title': '', 'image': {'url': 'https://static.wixstatic.com/media/22e53e_ef2ebbf33af24b7fba34e44589f3dc38~mv2.jpg/v1/fit/w_5000,h_3652,q_90/file.jpg', 'width': 5000, 'height': 3652}, 'id': ''}, 'items': [{'thumbnail': {'url': 'https://static.wixstatic.com/media/22e53e_ef2ebbf33af24b7fba34e44589f3dc38~mv2.jpg/v1/fit/w_50,h_50,q_90/file.jpg', 'width': 50, 'height': 50}, 'mediaType': 'image', 'title': '', 'image': {'url': 'https://static.wixstatic.com/media/22e53e_ef2ebbf33af24b7fba34e44589f3dc38~mv2.jpg/v1/fit/w_5000,h_3652,q_90/file.jpg', 'width': 5000, 'height': 3652}, 'id': ''}]}, 'numberOfProducts': 9, 'description': 'This is your category description. It’s a great place to tell customers what this category is about, connect with your audience and draw attention to your products.', 'slug': 'all-products', 'visible': True}}
+2024-05-27 12:42:37,740.740 INFO collection_controller - get_collection_by_id: Wix API Response Status Code: 200
+2024-05-27 12:42:37,784.784 INFO collection_controller - get_collection_by_id: Retrieved collection with ID 00000000-000000-000000-000000000001 from Wix API
+2024-05-27 12:42:37,795.795 INFO collection_dtr - collection_rest_response: Collection response successfully generated
+2024-05-27 12:42:46,229.229 INFO product_routes - get: Received request to get Product
+2024-05-27 12:42:46,233.233 INFO product_routes - get: Request headers: Authorization: oauth
+Content-Type: application/json
+User-Agent: PostmanRuntime/7.37.3
+Accept: */*
+Postman-Token: d8d560d2-5377-45ec-9212-cbfd5952a213
 Host: 127.0.0.1:5000
 Accept-Encoding: gzip, deflate, br
 Connection: keep-alive
 Content-Length: 97
 
 
-2024-05-26 13:34:24,719.719 INFO delete_routes - delete: Request body: {'product_id': 'a668ef33-f5b8-6569-d04c-1d123be68441', 'wix_site': 'simple_learning'}
-2024-05-26 13:37:54,232.232 INFO token_routes - post: Received request to get token
-2024-05-26 13:37:54,233.233 INFO token_routes - post: Request headers: Content-Type: application/json
-User-Agent: PostmanRuntime/7.37.3
-Accept: */*
-Postman-Token: ddf25f2c-8519-4035-a330-25f075b0d5d9
-Host: 127.0.0.1:5000
-Accept-Encoding: gzip, deflate, br
-Connection: keep-alive
-Content-Length: 42
-
-
-2024-05-26 13:37:54,235.235 INFO token_routes - post: Request body: {'wix_site': 'simple_learning'}
-2024-05-26 13:37:54,237.237 INFO token_routes - post: Received request to get token for store: simple_learning
-2024-05-26 13:37:54,240.240 INFO token_controller - token_exist: Checking if token exists for store: simple_learning
-2024-05-26 13:37:54,241.241 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 13:37:54,792.792 INFO token_controller - get_token_from_db: Found token: <Token 20>
-2024-05-26 13:37:54,792.792 INFO token_controller - get_token_from_db: Serializing token
-2024-05-26 13:37:54,793.793 INFO token_controller - token_exist: Token exists for store: simple_learning
-2024-05-26 13:37:54,793.793 INFO token_routes - post: Retrieved token for store: simple_learning
-2024-05-26 13:37:54,794.794 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 13:37:54,800.800 INFO token_controller - update_access_token: Found token: <Token 20>
-2024-05-26 13:37:54,801.801 INFO token_controller - update_access_token: Serializing token
-2024-05-26 13:37:54,804.804 INFO token_controller - update_access_token: APP id :43d91ee0-0523-4804-ad9c-38cec7fa766b
-2024-05-26 13:37:54,806.806 INFO token_controller - update_access_token: APP secret id :9ba86959-c39d-462d-a44d-ee99622d885d
-2024-05-26 13:37:54,807.807 INFO token_controller - update_access_token: Refresh token from the data base: OAUTH2.eyJraWQiOiJkZ0x3cjNRMCIsImFsZyI6IkhTMjU2In0.eyJkYXRhIjoie1wiaWRcIjpcIjQzNDZjN2NmLWI3MWItNGNjMS04ZjA4LTUxMzMyMzZkMDJlMVwifSIsImlhdCI6MTcxNjIwNzE2OSwiZXhwIjoxNzc5Mjc5MTY5fQ.8x6SAFkjrqiHXYymk1iFCvVQ8xC9wlEY7tS_rTb_-Yg
-2024-05-26 13:37:56,176.176 INFO token_controller - update_access_token: Response status :200
-2024-05-26 13:37:56,185.185 INFO token_repository - update_token: New access_token: OAUTH2.eyJraWQiOiJLaUp3NXZpeSIsImFsZyI6IlJTMjU2In0.eyJkYXRhIjoie1wiYXBwSWRcIjpcIjQzZDkxZWUwLTA1MjMtNDgwNC1hZDljLTM4Y2VjN2ZhNzY2YlwiLFwiaW5zdGFuY2VJZFwiOlwiM2YxMTY4M2QtNzMwOS00ZWQ1LWI1YzQtMzEwMWUyYzE1ZmQ3XCIsXCJzY29wZVwiOltcIkg0c0lBQUFBQUFBQV81MVoyM0xjS0JEOUlXZi1nWkdZR2NwSWFBRk43SDJoWEZ1dWJCNDJsVnJuXzJzYmFDUXVqY2JacDB3a0JIMDVmZm8wTnNKeVo3aTFZcjZhMDEzd3IwOWZ4WXN6Vm1sdVRzTUtQeWJ4SjdOQ3pXNWRSbVo1X243UmFsd0g2elJubzV1NEhtNXN0ZzVXc1h6VldiTjVER3VlLUtDbVUxaHQ0YUZoZzlfWXhNY2psLUxPOWFzYm1OYUNhLUs4U1kzaTh1cVVIcmsyVDJjaEpaaDlzdXpGWGJWYUZ6ZXhaWUVuYm9BamFFdmhFRTZfd2ROS1V6U19IbnRlT0IxOXpGWnBjVDd2bjdQVjNwVEdhSjZFY1F2WGs3Q1dqLTc4NnNCMEoyWmoyVHgwckVDdjloaENvT3dlQm5abmttbm10bkNZRkEtVDNCN2cteXVZNEZNYmY3NjZTZDI1QXhSTW5TeXdjVXVibUVmLVVrY19QM2FMQnBnNjh0a0tKZzBSUERGZkZJQXVKRF9EeGFqWnhlTDJhTEViaFJuVU9sc3EyMjB1TWQ0WXFMX2VQdjctX3Y3djZaLTNIMl9mM3VNWmlDQXgzNVVZdUtGU3FoWmJSenRaNGZRcXVVbXZra1ZTR092RXRFZy1nYzgwTWc5MlF6ZDZJZWdHN3NyOXluTG5fSE40QU9qcVpGVnpuX2VpSHNYMTZtM3ZSd1FUU1lHb05UVVVfWmI4UENEZWE2SkNjOTlNVVkyWXM0ajIzZUxMS2ktd3JZLTVlUnBXcmZrOHdDbzFnNk9RQlN5Ui1CeU1qVl9HYzkyWkRjOEFBbjgyX0ppVkZSY3hNTVRqSHlzM25icktjWTAtcDJVRGs4TXFfZWF3a0lwaWhacUhkYk1YQmdhZ3hBM05FUVdZMGp1d0FDTEZhNHUzWklTVFBtMFhlVVRDMWNndEU0WHhJUTBJeWRSb1FuaEdmdWRTQVFjQ3I4T0cydE5ndE1IQm9mcktjUmVnVFRXRjNFQ0I4MFZwNi1ETDJYWUxveVdjMklFT1NEQ1dRMGFEWmFjcFlIamp3N05hYlFtbzlOUmR0Sm9DVkF0ZThqRzRpUkZpNk14Nk5vTVdzYVJpWlprbVVpUlJGQjFxcjNSODd2aUw1VURRVUJpQ3l4RzNNRGNSVzJMSmFyVnRpTkdTdVZLMmlNYXp4YUJLcE9ja1BncllHWjd5eGNGZXp3UWJkaktVdzhhQUwtamZCSWdxay0zVG45Rk95MzNRdExMVzBWTXNNd1RrTG93NFM4cTVFcTFsaDNuRXZmQ3B0MEg0bURQcExyeHNOYVd1S3NxdkZUTkUxU2F1VVJwRFJtTTZ4UkxER1BHN2FIR1BMQVdlVWQ5UjFKd0MzaVl1aF9hR29sYXliVnMwMzBxRnhMc3ZhV1BSRVFrLXpiQXlGcTdwNUtIRVFRYldBTEd6aUd3QzBKZnFHa3o2c3F4bmllMkFMTVNHbVgtbm5RVFdMY2o2N2VmUEx4X3Z2MzU5X19IdEk0bVZubExMd3hmXzJRTllxOC15bzFZd3ltay1lcldKeFM2aVVqUGZBcFhlRUpXY2wyWkJwaVVBaWFoMEtDb25SdU9uRnEya0RHVnFtVjN6cElCVkRFd01vR2lMQzBfSkVGVzN5VWZhcEgyUFRRQk5yR0RtaGYyeS1rWnFPRlNLYVNDLThXeXZjZVhFdjdFVE9MY0V1VUhKeEZTdkRYTlR3cmYwTG90ajRkV2hQamdlRFotZ2VoWVlNNkdyYzdkcWVacll6SzRrNThLVFJSbGdLd09QSnZaUWhPV2g4YVFNd2ZhbEM0eE9LdHBDSnlSQnRzSFpfeUs0YTZNMUdpNTd3RHdkWVlDSmJmcU5uMURuNUJ6NW9GRlFXanVBdlpsWWprWkZYSnFycnNIUHBCSlZGMFVNd1hHdm5UNXpRUFFpQlIzNC01a2ZPTlZoX2h6WTdBeEZvbWFld2FoVDlWU0pZWGFJTmxRelVCeEFtdW9rNkFBYzhJY2h6T3Q5LWtBSThrbUtxeWp3U3dvNVFoVk00cXFURHdEenJxcXZFMExNV3NWc1JUTExucGRBczN1SHJLQmJTcDBESEZaTnFQSVBXcWlZOHVFcUk5aEtndmRQNzB5cGxKcHJhZmJBOUdacS00Ul9SSmVMUlU0MHpvZnNXSFNST2dQVkZKOEZJWl9BQWxTSlM2aU5WS0c4QW8yM0ZXQ3FBTGJGaFhEYXdKeDNGcHlZVXZMQ2U1eG9XaVhlRWtIU2wwRUF0cFoxeEVSdEVNRXRSX3E5YUNQOUswVWNNdXcyWkJ4VWF3Ni11dGE3Yk5iMENXenhoSTZ1anN0UjFtSTk3QnR1Tk1OUWFmeG5FWEtucjFyOHppVkc3aGFtcXJqNWJlNGlrSXdBbW00SXQybFI3QzNzMVpNUkhHSnZLdW1UVU53YlQtYktwZkVvNXpnMlRxRFZpMXVsZzBnZGROWER5NWEtSk1xenVrdWdfM3NsVmZIS3NWYXNxWktlbUJMLVBqdmpsT1dKVkZLMGhjeFBKbVdoNWNORDZtb0xTYUMtT2lJNUwxM3R4TWFMUXluemQ2RGhRUXN6NHU0NEdMZExpUVlYNWQ4Q0duSnNiNnA3TGFKN2E0QjMzalh4dEF2amhJYk9vc3JZRlJVTVZrOVdQWE5zdDBxZnN2OTFLQ1o2OVI5UmNDLVZEaG9BQUE9PVwiXSxcImV4dHJhQXR0cmlidXRlc1wiOntcIndpeC1nemlwcGVkLXNjb3BlXCI6XCJcIn19IiwiaWF0IjoxNzE2NzEwODc2LCJleHAiOjE3MTY3MTExNzZ9.KCLDBupHRjdu7QwjEUmM9kxKvLCQGusWgeFctJLVPZ2ycAFJVrfJBkWsQEKvTZ-ONcyrKM1BaEJwBtyTmn9rOaT9Fwmve6e_p1Mmjvz6FdWH_2MmQRpqrKZD2PVpO-Zi_8JOMWTAAGnN98luHkpavjr_MKuSTW9_DLzP1OgIAGD6wPo_qxWwXFdhH2VrJlSUD77zsBohJvpbxVT-U9kiULCMe8uCx0wXcKBvUeGw6zCAyirOMfIC4qKcHJzGne2sZCfo-WgZNOPLTcVFHuYt9JreuDElXSf6z9sS-39Ts6-EEn5nxkVC_LtiujavKAs3kP9uKiPbPNUgkeaf8AinJA
-2024-05-26 13:37:56,190.190 INFO token_repository - update_token: exist token
-2024-05-26 13:37:56,296.296 INFO token_repository - update_token: Updated token: <Token 20>
-2024-05-26 13:38:01,337.337 INFO delete_routes - delete: Received request  delete the product 
-2024-05-26 13:38:01,339.339 INFO delete_routes - delete: Request headers: Authorization: Oauth
+2024-05-27 12:42:46,237.237 INFO product_routes - get: Request body: {'product_id': 'df19c1f7-07d8-a265-42f8-e8dfa824cc6e', 'wix_site': 'simple_learning'}
+2024-05-27 12:42:46,242.242 INFO product_dtr - product_rest_response: Received request to get Product with ID df19c1f7-07d8-a265-42f8-e8dfa824cc6e for wix site : simple_learning
+2024-05-27 12:42:46,250.250 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
+2024-05-27 12:42:46,258.258 INFO token_controller - get_token_from_db: Found token: <Token 20>
+2024-05-27 12:42:46,258.258 INFO token_controller - get_token_from_db: Serializing token
+2024-05-27 12:42:46,259.259 INFO product_controller - get_product_by_id: Sending request to wix API to get product with ID: df19c1f7-07d8-a265-42f8-e8dfa824cc6e for wix site: simple_learning
+2024-05-27 12:42:48,269.269 INFO product_controller - get_product_by_id: Wix API Response Status Code: 200
+2024-05-27 12:42:48,280.280 INFO product_controller - get_product_by_id: Retrieved product with ID df19c1f7-07d8-a265-42f8-e8dfa824cc6e from Wix APIs
+2024-05-27 12:42:48,290.290 INFO product_dtr - product_rest_response: Generated REST response for products
+2024-05-27 12:43:26,692.692 INFO post_routes - get: Received request to get Posts
+2024-05-27 12:43:26,692.692 INFO post_routes - get: Request headers: Authorization: Auth
 Content-Type: application/json
 User-Agent: PostmanRuntime/7.37.3
 Accept: */*
-Postman-Token: caa8763e-2cbf-49ed-a1b6-678aba0f787d
+Postman-Token: 73ffeb81-8392-4ea7-9bbf-bf95a0945879
+Host: 127.0.0.1:5000
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Length: 99
+
+
+2024-05-27 12:43:26,693.693 INFO post_routes - get: Request body: {'post_ids': 'ef437cfc-e0fc-4243-8eae-259df8a4f8ea', 'wix_site': 'simple_learning'}
+2024-05-27 12:43:26,696.696 INFO post_dtr - post_rest_response: Starting post_rest_response)
+2024-05-27 12:43:26,697.697 INFO post_dtr - post_rest_response: Getting posts by ids:ef437cfc-e0fc-4243-8eae-259df8a4f8ea
+2024-05-27 12:43:26,698.698 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
+2024-05-27 12:43:26,704.704 INFO token_controller - get_token_from_db: Found token: <Token 20>
+2024-05-27 12:43:26,705.705 INFO token_controller - get_token_from_db: Serializing token
+2024-05-27 12:43:26,705.705 INFO post_controller - get_post_by_id: Sending request to Wix API to get post with ID: ef437cfc-e0fc-4243-8eae-259df8a4f8ea for store: simple_learning
+2024-05-27 12:43:27,803.803 INFO post_controller - get_post_by_id: Wix API Response Status Code: 200
+2024-05-27 12:43:27,809.809 ERROR post_dtr - post_rest_response: An unexpected error occurred: Post.__init__() missing 2 required positional arguments: 'url' and 'translationId'
+2024-05-27 12:44:44,824.824 INFO post_routes - get: Received request to get Posts
+2024-05-27 12:44:44,908.908 INFO post_routes - get: Request headers: Authorization: Auth
+Content-Type: application/json
+User-Agent: PostmanRuntime/7.37.3
+Accept: */*
+Postman-Token: ec74fd5c-242b-4b4e-be09-893a5be37c52
 Host: 127.0.0.1:5000
 Accept-Encoding: gzip, deflate, br
 Connection: keep-alive
 Content-Length: 97
 
 
-2024-05-26 13:38:01,340.340 INFO delete_routes - delete: Request body: {'product_id': 'a668ef33-f5b8-6569-d04c-1d123be68441', 'wix_site': 'simple_learning'}
-2024-05-26 13:38:08,949.949 INFO delete_routes - delete: Received request  delete the product 
-2024-05-26 13:38:08,951.951 INFO delete_routes - delete: Request headers: Authorization: Oauth
+2024-05-27 12:44:44,909.909 INFO post_routes - get: Request body: {'post_ids': 'ef437cfc-e0fc-4243-8eae-259df8a4f8ea', 'wix_site': 'simple_learning'}
+2024-05-27 12:44:44,910.910 INFO post_dtr - post_rest_response: Starting post_rest_response)
+2024-05-27 12:44:44,911.911 INFO post_dtr - post_rest_response: Getting posts by ids:ef437cfc-e0fc-4243-8eae-259df8a4f8ea
+2024-05-27 12:44:44,913.913 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
+2024-05-27 12:44:45,290.290 INFO token_controller - get_token_from_db: Found token: <Token 20>
+2024-05-27 12:44:45,292.292 INFO token_controller - get_token_from_db: Serializing token
+2024-05-27 12:44:45,293.293 INFO post_controller - get_post_by_id: Sending request to Wix API to get post with ID: ef437cfc-e0fc-4243-8eae-259df8a4f8ea for store: simple_learning
+2024-05-27 12:44:46,777.777 INFO post_controller - get_post_by_id: Wix API Response Status Code: 200
+2024-05-27 12:44:46,785.785 ERROR post_dtr - post_rest_response: An unexpected error occurred: Post.__init__() missing 2 required positional arguments: 'url' and 'translationId'
+2024-05-27 12:48:49,961.961 INFO token_routes - post: Received request to get token
+2024-05-27 12:48:49,994.994 INFO token_routes - post: Request headers: Authorization: oauth
 Content-Type: application/json
 User-Agent: PostmanRuntime/7.37.3
 Accept: */*
-Postman-Token: 44dd49e8-afa2-4e72-acee-54dc4dc177d5
-Host: 127.0.0.1:5000
-Accept-Encoding: gzip, deflate, br
-Connection: keep-alive
-Content-Length: 89
-
-
-2024-05-26 13:38:08,953.953 INFO delete_routes - delete: Request body: {'id': 'a668ef33-f5b8-6569-d04c-1d123be68441', 'wix_site': 'simple_learning'}
-2024-05-26 13:38:08,954.954 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 13:38:08,958.958 INFO token_controller - get_token_from_db: Found token: <Token 20>
-2024-05-26 13:38:08,959.959 INFO token_controller - get_token_from_db: Serializing token
-2024-05-26 13:43:48,915.915 INFO token_routes - post: Received request to get token
-2024-05-26 13:43:49,015.015 INFO token_routes - post: Request headers: Content-Type: application/json
-User-Agent: PostmanRuntime/7.37.3
-Accept: */*
-Postman-Token: 490e054e-861d-47ae-a397-548fc37f2e65
+Postman-Token: ac2fadff-a570-4f91-bfa1-db875a039fd9
 Host: 127.0.0.1:5000
 Accept-Encoding: gzip, deflate, br
 Connection: keep-alive
 Content-Length: 42
 
 
-2024-05-26 13:43:49,019.019 INFO token_routes - post: Request body: {'wix_site': 'simple_learning'}
-2024-05-26 13:43:49,021.021 INFO token_routes - post: Received request to get token for store: simple_learning
-2024-05-26 13:43:49,022.022 INFO token_controller - token_exist: Checking if token exists for store: simple_learning
-2024-05-26 13:43:49,023.023 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 13:43:49,291.291 INFO token_controller - get_token_from_db: Found token: <Token 20>
-2024-05-26 13:43:49,292.292 INFO token_controller - get_token_from_db: Serializing token
-2024-05-26 13:43:49,293.293 INFO token_controller - token_exist: Token exists for store: simple_learning
-2024-05-26 13:43:49,293.293 INFO token_routes - post: Retrieved token for store: simple_learning
-2024-05-26 13:43:49,293.293 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 13:43:49,303.303 INFO token_controller - update_access_token: Found token: <Token 20>
-2024-05-26 13:43:49,305.305 INFO token_controller - update_access_token: Serializing token
-2024-05-26 13:43:49,305.305 INFO token_controller - update_access_token: APP id :43d91ee0-0523-4804-ad9c-38cec7fa766b
-2024-05-26 13:43:49,305.305 INFO token_controller - update_access_token: APP secret id :9ba86959-c39d-462d-a44d-ee99622d885d
-2024-05-26 13:43:49,306.306 INFO token_controller - update_access_token: Refresh token from the data base: OAUTH2.eyJraWQiOiJkZ0x3cjNRMCIsImFsZyI6IkhTMjU2In0.eyJkYXRhIjoie1wiaWRcIjpcIjQzNDZjN2NmLWI3MWItNGNjMS04ZjA4LTUxMzMyMzZkMDJlMVwifSIsImlhdCI6MTcxNjIwNzE2OSwiZXhwIjoxNzc5Mjc5MTY5fQ.8x6SAFkjrqiHXYymk1iFCvVQ8xC9wlEY7tS_rTb_-Yg
-2024-05-26 13:43:50,273.273 INFO token_controller - update_access_token: Response status :200
-2024-05-26 13:43:50,276.276 INFO token_repository - update_token: New access_token: OAUTH2.eyJraWQiOiJLaUp3NXZpeSIsImFsZyI6IlJTMjU2In0.eyJkYXRhIjoie1wiYXBwSWRcIjpcIjQzZDkxZWUwLTA1MjMtNDgwNC1hZDljLTM4Y2VjN2ZhNzY2YlwiLFwiaW5zdGFuY2VJZFwiOlwiM2YxMTY4M2QtNzMwOS00ZWQ1LWI1YzQtMzEwMWUyYzE1ZmQ3XCIsXCJzY29wZVwiOltcIkg0c0lBQUFBQUFBQV81MVoyM0xjS0JEOUlXZi1nWkdZR2NwSWFBRk43SDJoWEZ1dWJCNDJsVnJuXzJzYmFDUXVqY2JacDB3a0JIMDVmZm8wTnNKeVo3aTFZcjZhMDEzd3IwOWZ4WXN6Vm1sdVRzTUtQeWJ4SjdOQ3pXNWRSbVo1X243UmFsd0g2elJubzV1NEhtNXN0ZzVXc1h6VldiTjVER3VlLUtDbVUxaHQ0YUZoZzlfWXhNY2psLUxPOWFzYm1OYUNhLUs4U1kzaTh1cVVIcmsyVDJjaEpaaDlzdXpGWGJWYUZ6ZXhaWUVuYm9BamFFdmhFRTZfd2ROS1V6U19IbnRlT0IxOXpGWnBjVDd2bjdQVjNwVEdhSjZFY1F2WGs3Q1dqLTc4NnNCMEoyWmoyVHgwckVDdjloaENvT3dlQm5abmttbm10bkNZRkEtVDNCN2cteXVZNEZNYmY3NjZTZDI1QXhSTW5TeXdjVXVibUVmLVVrY19QM2FMQnBnNjh0a0tKZzBSUERGZkZJQXVKRF9EeGFqWnhlTDJhTEViaFJuVU9sc3EyMjB1TWQ0WXFMX2VQdjctX3Y3djZaLTNIMl9mM3VNWmlDQXgzNVVZdUtGU3FoWmJSenRaNGZRcXVVbXZra1ZTR092RXRFZy1nYzgwTWc5MlF6ZDZJZWdHN3NyOXluTG5fSE40QU9qcVpGVnpuX2VpSHNYMTZtM3ZSd1FUU1lHb05UVVVfWmI4UENEZWE2SkNjOTlNVVkyWXM0ajIzZUxMS2ktd3JZLTVlUnBXcmZrOHdDbzFnNk9RQlN5Ui1CeU1qVl9HYzkyWkRjOEFBbjgyX0ppVkZSY3hNTVRqSHlzM25icktjWTAtcDJVRGs4TXFfZWF3a0lwaWhacUhkYk1YQmdhZ3hBM05FUVdZMGp1d0FDTEZhNHUzWklTVFBtMFhlVVRDMWNndEU0WHhJUTBJeWRSb1FuaEdmdWRTQVFjQ3I4T0cydE5ndE1IQm9mcktjUmVnVFRXRjNFQ0I4MFZwNi1ETDJYWUxveVdjMklFT1NEQ1dRMGFEWmFjcFlIamp3N05hYlFtbzlOUmR0Sm9DVkF0ZThqRzRpUkZpNk14Nk5vTVdzYVJpWlprbVVpUlJGQjFxcjNSODd2aUw1VURRVUJpQ3l4RzNNRGNSVzJMSmFyVnRpTkdTdVZLMmlNYXp4YUJLcE9ja1BncllHWjd5eGNGZXp3UWJkaktVdzhhQUwtamZCSWdxay0zVG45Rk95MzNRdExMVzBWTXNNd1RrTG93NFM4cTVFcTFsaDNuRXZmQ3B0MEg0bURQcExyeHNOYVd1S3NxdkZUTkUxU2F1VVJwRFJtTTZ4UkxER1BHN2FIR1BMQVdlVWQ5UjFKd0MzaVl1aF9hR29sYXliVnMwMzBxRnhMc3ZhV1BSRVFrLXpiQXlGcTdwNUtIRVFRYldBTEd6aUd3QzBKZnFHa3o2c3F4bmllMkFMTVNHbVgtbm5RVFdMY2o2N2VmUEx4X3Z2MzU5X19IdEk0bVZubExMd3hmXzJRTllxOC15bzFZd3ltay1lcldKeFM2aVVqUGZBcFhlRUpXY2wyWkJwaVVBaWFoMEtDb25SdU9uRnEya0RHVnFtVjN6cElCVkRFd01vR2lMQzBfSkVGVzN5VWZhcEgyUFRRQk5yR0RtaGYyeS1rWnFPRlNLYVNDLThXeXZjZVhFdjdFVE9MY0V1VUhKeEZTdkRYTlR3cmYwTG90ajRkV2hQamdlRFotZ2VoWVlNNkdyYzdkcWVacll6SzRrNThLVFJSbGdLd09QSnZaUWhPV2g4YVFNd2ZhbEM0eE9LdHBDSnlSQnRzSFpfeUs0YTZNMUdpNTd3RHdkWVlDSmJmcU5uMURuNUJ6NW9GRlFXanVBdlpsWWprWkZYSnFycnNIUHBCSlZGMFVNd1hHdm5UNXpRUFFpQlIzNC01a2ZPTlZoX2h6WTdBeEZvbWFld2FoVDlWU0pZWGFJTmxRelVCeEFtdW9rNkFBYzhJY2h6T3Q5LWtBSThrbUtxeWp3U3dvNVFoVk00cXFURHdEenJxcXZFMExNV3NWc1JUTExucGRBczN1SHJLQmJTcDBESEZaTnFQSVBXcWlZOHVFcUk5aEtndmRQNzB5cGxKcHJhZmJBOUdacS00Ul9SSmVMUlU0MHpvZnNXSFNST2dQVkZKOEZJWl9BQWxTSlM2aU5WS0c4QW8yM0ZXQ3FBTGJGaFhEYXdKeDNGcHlZVXZMQ2U1eG9XaVhlRWtIU2wwRUF0cFoxeEVSdEVNRXRSX3E5YUNQOUswVWNNdXcyWkJ4VWF3Ni11dGE3Yk5iMENXenhoSTZ1anN0UjFtSTk3QnR1Tk1OUWFmeG5FWEtucjFyOHppVkc3aGFtcXJqNWJlNGlrSXdBbW00SXQybFI3QzNzMVpNUkhHSnZLdW1UVU53YlQtYktwZkVvNXpnMlRxRFZpMXVsZzBnZGROWER5NWEtSk1xenVrdWdfM3NsVmZIS3NWYXNxWktlbUJMLVBqdmpsT1dKVkZLMGhjeFBKbVdoNWNORDZtb0xTYUMtT2lJNUwxM3R4TWFMUXluemQ2RGhRUXN6NHU0NEdMZExpUVlYNWQ4Q0duSnNiNnA3TGFKN2E0QjMzalh4dEF2amhJYk9vc3JZRlJVTVZrOVdQWE5zdDBxZnN2OTFLQ1o2OVI5UmNDLVZEaG9BQUE9PVwiXSxcImV4dHJhQXR0cmlidXRlc1wiOntcIndpeC1nemlwcGVkLXNjb3BlXCI6XCJcIn19IiwiaWF0IjoxNzE2NzExMjMwLCJleHAiOjE3MTY3MTE1MzB9.dqE2fVA59IOpH1oQouOKMNqOtAYAIo4EAr00iGqQGE1qt4KqRmUBi2d-crjzQIcU07LGJrqBispxmW2C5qylpBtx66X4vakPJPW83l9sQhwrgsMIwZcfrIhZLxMqoLTlt5R6fGLwhX0xCgYpdHuTZfEs6Sb-TUPKN5bK6-YCi_bMMz3H3gQBFZQoQFukwqOkztrxYvf0yal_9awsxaTWTlT8G9njzilxsnMXLbTEgLcWZCiIRFiO4-0a5k-lIbLFXi974MPrSvyCZVThtZaQ6fePkbtGj81ho4tvbGHz14or-jiy0rfC_wyx-5W5GmIDj1uuoWMtw4t_96JQc-1WqQ
-2024-05-26 13:43:50,277.277 INFO token_repository - update_token: exist token
-2024-05-26 13:43:50,333.333 INFO token_repository - update_token: Updated token: <Token 20>
-2024-05-26 13:43:53,804.804 INFO delete_routes - delete: Received request  delete the product 
-2024-05-26 13:43:53,805.805 INFO delete_routes - delete: Request headers: Authorization: Oauth
+2024-05-27 12:48:50,016.016 INFO token_routes - post: Request body: {'wix_site': 'simple_learning'}
+2024-05-27 12:48:50,018.018 INFO token_routes - post: Received request to get token for store: simple_learning
+2024-05-27 12:48:50,020.020 INFO token_controller - token_exist: Checking if token exists for store: simple_learning
+2024-05-27 12:48:50,026.026 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
+2024-05-27 12:48:50,691.691 INFO token_controller - get_token_from_db: Found token: <Token 20>
+2024-05-27 12:48:50,692.692 INFO token_controller - get_token_from_db: Serializing token
+2024-05-27 12:48:50,696.696 INFO token_controller - token_exist: Token exists for store: simple_learning
+2024-05-27 12:48:50,697.697 INFO token_routes - post: Retrieved token for store: simple_learning
+2024-05-27 12:48:50,699.699 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
+2024-05-27 12:48:50,706.706 INFO token_controller - update_access_token: Found token: <Token 20>
+2024-05-27 12:48:50,709.709 INFO token_controller - update_access_token: Serializing token
+2024-05-27 12:48:50,710.710 INFO token_controller - update_access_token: APP id :43d91ee0-0523-4804-ad9c-38cec7fa766b
+2024-05-27 12:48:50,712.712 INFO token_controller - update_access_token: APP secret id :9ba86959-c39d-462d-a44d-ee99622d885d
+2024-05-27 12:48:50,713.713 INFO token_controller - update_access_token: Refresh token from the data base: OAUTH2.eyJraWQiOiJkZ0x3cjNRMCIsImFsZyI6IkhTMjU2In0.eyJkYXRhIjoie1wiaWRcIjpcIjQzNDZjN2NmLWI3MWItNGNjMS04ZjA4LTUxMzMyMzZkMDJlMVwifSIsImlhdCI6MTcxNjIwNzE2OSwiZXhwIjoxNzc5Mjc5MTY5fQ.8x6SAFkjrqiHXYymk1iFCvVQ8xC9wlEY7tS_rTb_-Yg
+2024-05-27 12:48:52,145.145 INFO token_controller - update_access_token: Response status :200
+2024-05-27 12:48:52,151.151 INFO token_repository - update_token: New access_token: OAUTH2.eyJraWQiOiJLaUp3NXZpeSIsImFsZyI6IlJTMjU2In0.eyJkYXRhIjoie1wiYXBwSWRcIjpcIjQzZDkxZWUwLTA1MjMtNDgwNC1hZDljLTM4Y2VjN2ZhNzY2YlwiLFwiaW5zdGFuY2VJZFwiOlwiM2YxMTY4M2QtNzMwOS00ZWQ1LWI1YzQtMzEwMWUyYzE1ZmQ3XCIsXCJzY29wZVwiOltcIkg0c0lBQUFBQUFBQV81MVoyM0xjS0JEOUlXZi1nWkdZR2NwSWFBRk43SDJoWEZ1dWJCNDJsVnJuXzJzYmFDUXVqY2JacDB3a0JIMDVmZm8wTnNKeVo3aTFZcjZhMDEzd3IwOWZ4WXN6Vm1sdVRzTUtQeWJ4SjdOQ3pXNWRSbVo1X243UmFsd0g2elJubzV1NEhtNXN0ZzVXc1h6VldiTjVER3VlLUtDbVUxaHQ0YUZoZzlfWXhNY2psLUxPOWFzYm1OYUNhLUs4U1kzaTh1cVVIcmsyVDJjaEpaaDlzdXpGWGJWYUZ6ZXhaWUVuYm9BamFFdmhFRTZfd2ROS1V6U19IbnRlT0IxOXpGWnBjVDd2bjdQVjNwVEdhSjZFY1F2WGs3Q1dqLTc4NnNCMEoyWmoyVHgwckVDdjloaENvT3dlQm5abmttbm10bkNZRkEtVDNCN2cteXVZNEZNYmY3NjZTZDI1QXhSTW5TeXdjVXVibUVmLVVrY19QM2FMQnBnNjh0a0tKZzBSUERGZkZJQXVKRF9EeGFqWnhlTDJhTEViaFJuVU9sc3EyMjB1TWQ0WXFMX2VQdjctX3Y3djZaLTNIMl9mM3VNWmlDQXgzNVVZdUtGU3FoWmJSenRaNGZRcXVVbXZra1ZTR092RXRFZy1nYzgwTWc5MlF6ZDZJZWdHN3NyOXluTG5fSE40QU9qcVpGVnpuX2VpSHNYMTZtM3ZSd1FUU1lHb05UVVVfWmI4UENEZWE2SkNjOTlNVVkyWXM0ajIzZUxMS2ktd3JZLTVlUnBXcmZrOHdDbzFnNk9RQlN5Ui1CeU1qVl9HYzkyWkRjOEFBbjgyX0ppVkZSY3hNTVRqSHlzM25icktjWTAtcDJVRGs4TXFfZWF3a0lwaWhacUhkYk1YQmdhZ3hBM05FUVdZMGp1d0FDTEZhNHUzWklTVFBtMFhlVVRDMWNndEU0WHhJUTBJeWRSb1FuaEdmdWRTQVFjQ3I4T0cydE5ndE1IQm9mcktjUmVnVFRXRjNFQ0I4MFZwNi1ETDJYWUxveVdjMklFT1NEQ1dRMGFEWmFjcFlIamp3N05hYlFtbzlOUmR0Sm9DVkF0ZThqRzRpUkZpNk14Nk5vTVdzYVJpWlprbVVpUlJGQjFxcjNSODd2aUw1VURRVUJpQ3l4RzNNRGNSVzJMSmFyVnRpTkdTdVZLMmlNYXp4YUJLcE9ja1BncllHWjd5eGNGZXp3UWJkaktVdzhhQUwtamZCSWdxay0zVG45Rk95MzNRdExMVzBWTXNNd1RrTG93NFM4cTVFcTFsaDNuRXZmQ3B0MEg0bURQcExyeHNOYVd1S3NxdkZUTkUxU2F1VVJwRFJtTTZ4UkxER1BHN2FIR1BMQVdlVWQ5UjFKd0MzaVl1aF9hR29sYXliVnMwMzBxRnhMc3ZhV1BSRVFrLXpiQXlGcTdwNUtIRVFRYldBTEd6aUd3QzBKZnFHa3o2c3F4bmllMkFMTVNHbVgtbm5RVFdMY2o2N2VmUEx4X3Z2MzU5X19IdEk0bVZubExMd3hmXzJRTllxOC15bzFZd3ltay1lcldKeFM2aVVqUGZBcFhlRUpXY2wyWkJwaVVBaWFoMEtDb25SdU9uRnEya0RHVnFtVjN6cElCVkRFd01vR2lMQzBfSkVGVzN5VWZhcEgyUFRRQk5yR0RtaGYyeS1rWnFPRlNLYVNDLThXeXZjZVhFdjdFVE9MY0V1VUhKeEZTdkRYTlR3cmYwTG90ajRkV2hQamdlRFotZ2VoWVlNNkdyYzdkcWVacll6SzRrNThLVFJSbGdLd09QSnZaUWhPV2g4YVFNd2ZhbEM0eE9LdHBDSnlSQnRzSFpfeUs0YTZNMUdpNTd3RHdkWVlDSmJmcU5uMURuNUJ6NW9GRlFXanVBdlpsWWprWkZYSnFycnNIUHBCSlZGMFVNd1hHdm5UNXpRUFFpQlIzNC01a2ZPTlZoX2h6WTdBeEZvbWFld2FoVDlWU0pZWGFJTmxRelVCeEFtdW9rNkFBYzhJY2h6T3Q5LWtBSThrbUtxeWp3U3dvNVFoVk00cXFURHdEenJxcXZFMExNV3NWc1JUTExucGRBczN1SHJLQmJTcDBESEZaTnFQSVBXcWlZOHVFcUk5aEtndmRQNzB5cGxKcHJhZmJBOUdacS00Ul9SSmVMUlU0MHpvZnNXSFNST2dQVkZKOEZJWl9BQWxTSlM2aU5WS0c4QW8yM0ZXQ3FBTGJGaFhEYXdKeDNGcHlZVXZMQ2U1eG9XaVhlRWtIU2wwRUF0cFoxeEVSdEVNRXRSX3E5YUNQOUswVWNNdXcyWkJ4VWF3Ni11dGE3Yk5iMENXenhoSTZ1anN0UjFtSTk3QnR1Tk1OUWFmeG5FWEtucjFyOHppVkc3aGFtcXJqNWJlNGlrSXdBbW00SXQybFI3QzNzMVpNUkhHSnZLdW1UVU53YlQtYktwZkVvNXpnMlRxRFZpMXVsZzBnZGROWER5NWEtSk1xenVrdWdfM3NsVmZIS3NWYXNxWktlbUJMLVBqdmpsT1dKVkZLMGhjeFBKbVdoNWNORDZtb0xTYUMtT2lJNUwxM3R4TWFMUXluemQ2RGhRUXN6NHU0NEdMZExpUVlYNWQ4Q0duSnNiNnA3TGFKN2E0QjMzalh4dEF2amhJYk9vc3JZRlJVTVZrOVdQWE5zdDBxZnN2OTFLQ1o2OVI5UmNDLVZEaG9BQUE9PVwiXSxcImV4dHJhQXR0cmlidXRlc1wiOntcIndpeC1nemlwcGVkLXNjb3BlXCI6XCJcIn19IiwiaWF0IjoxNzE2Nzk0MzMyLCJleHAiOjE3MTY3OTQ2MzJ9.LmqvjtcDXqEnr6v1vas3DW7eQVJt0PKKD-zxfskBYVhHRm5I8LuR0GKRtk2evpHjQQi7RAEPHSrV1CfMMG47aW1c-uwKwBowUHOZr4XhEU0xf0JoHubdJA4vbDyD-hMGrMnOrTbQAnHZfKcmfS0PT9TPr-b4LiIo4rpOAu0IQ7iNVAf-re4d3AfTNmGBNYqrtXygaw5kbYz_y3M6DRzwwCDD8AL-cwI1d3EmjKcZD0z1Z0LG5NYLrq0StxKRMFm_yUwkLV1C-TJOo7sNwTt7zslm75P-DWsbdBOb51-PQgd6SeA5FFZfmkxE1JPzp3_oUNycmUEQowmsb6qsLtdh9A
+2024-05-27 12:48:52,166.166 INFO token_repository - update_token: exist token
+2024-05-27 12:48:52,402.402 INFO token_repository - update_token: Updated token: <Token 20>
+2024-05-27 12:50:09,781.781 INFO search_routes - get: Received request to search Products
+2024-05-27 12:50:09,883.883 INFO search_routes - get: Request headers: Authorization: Oauth
 Content-Type: application/json
 User-Agent: PostmanRuntime/7.37.3
 Accept: */*
-Postman-Token: b30c937e-60ad-4711-9546-8151d3b1ced4
+Postman-Token: 60bd61ce-5100-4b9b-9942-95ad620d5304
 Host: 127.0.0.1:5000
 Accept-Encoding: gzip, deflate, br
 Connection: keep-alive
-Content-Length: 89
+Content-Length: 66
 
 
-2024-05-26 13:43:53,805.805 INFO delete_routes - delete: Request body: {'id': 'a668ef33-f5b8-6569-d04c-1d123be68441', 'wix_site': 'simple_learning'}
-2024-05-26 13:43:53,806.806 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 13:43:53,813.813 INFO token_controller - get_token_from_db: Found token: <Token 20>
-2024-05-26 13:43:53,814.814 INFO token_controller - get_token_from_db: Serializing token
-2024-05-26 13:43:54,648.648 WARNING product_controller - deleteProduct: Failed to delete the product from the Wix site. Status Code : 404
-2024-05-26 13:49:13,209.209 INFO token_routes - post: Received request to get token
-2024-05-26 13:49:13,313.313 INFO token_routes - post: Request headers: Content-Type: application/json
-User-Agent: PostmanRuntime/7.37.3
-Accept: */*
-Postman-Token: 43c674a4-f0aa-4be3-b3b9-d29112707936
-Host: 127.0.0.1:5000
-Accept-Encoding: gzip, deflate, br
-Connection: keep-alive
-Content-Length: 42
-
-
-2024-05-26 13:49:13,314.314 INFO token_routes - post: Request body: {'wix_site': 'simple_learning'}
-2024-05-26 13:49:13,315.315 INFO token_routes - post: Received request to get token for store: simple_learning
-2024-05-26 13:49:13,316.316 INFO token_controller - token_exist: Checking if token exists for store: simple_learning
-2024-05-26 13:49:13,325.325 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 13:49:13,579.579 INFO token_controller - get_token_from_db: Found token: <Token 20>
-2024-05-26 13:49:13,581.581 INFO token_controller - get_token_from_db: Serializing token
-2024-05-26 13:49:13,582.582 INFO token_controller - token_exist: Token exists for store: simple_learning
-2024-05-26 13:49:13,583.583 INFO token_routes - post: Retrieved token for store: simple_learning
-2024-05-26 13:49:13,585.585 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 13:49:13,596.596 INFO token_controller - update_access_token: Found token: <Token 20>
-2024-05-26 13:49:13,598.598 INFO token_controller - update_access_token: Serializing token
-2024-05-26 13:49:13,599.599 INFO token_controller - update_access_token: APP id :43d91ee0-0523-4804-ad9c-38cec7fa766b
-2024-05-26 13:49:13,600.600 INFO token_controller - update_access_token: APP secret id :9ba86959-c39d-462d-a44d-ee99622d885d
-2024-05-26 13:49:13,602.602 INFO token_controller - update_access_token: Refresh token from the data base: OAUTH2.eyJraWQiOiJkZ0x3cjNRMCIsImFsZyI6IkhTMjU2In0.eyJkYXRhIjoie1wiaWRcIjpcIjQzNDZjN2NmLWI3MWItNGNjMS04ZjA4LTUxMzMyMzZkMDJlMVwifSIsImlhdCI6MTcxNjIwNzE2OSwiZXhwIjoxNzc5Mjc5MTY5fQ.8x6SAFkjrqiHXYymk1iFCvVQ8xC9wlEY7tS_rTb_-Yg
-2024-05-26 13:49:14,673.673 INFO token_controller - update_access_token: Response status :200
-2024-05-26 13:49:14,678.678 INFO token_repository - update_token: New access_token: OAUTH2.eyJraWQiOiJLaUp3NXZpeSIsImFsZyI6IlJTMjU2In0.eyJkYXRhIjoie1wiYXBwSWRcIjpcIjQzZDkxZWUwLTA1MjMtNDgwNC1hZDljLTM4Y2VjN2ZhNzY2YlwiLFwiaW5zdGFuY2VJZFwiOlwiM2YxMTY4M2QtNzMwOS00ZWQ1LWI1YzQtMzEwMWUyYzE1ZmQ3XCIsXCJzY29wZVwiOltcIkg0c0lBQUFBQUFBQV81MVoyM0xjS0JEOUlXZi1nWkdZR2NwSWFBRk43SDJoWEZ1dWJCNDJsVnJuXzJzYmFDUXVqY2JacDB3a0JIMDVmZm8wTnNKeVo3aTFZcjZhMDEzd3IwOWZ4WXN6Vm1sdVRzTUtQeWJ4SjdOQ3pXNWRSbVo1X243UmFsd0g2elJubzV1NEhtNXN0ZzVXc1h6VldiTjVER3VlLUtDbVUxaHQ0YUZoZzlfWXhNY2psLUxPOWFzYm1OYUNhLUs4U1kzaTh1cVVIcmsyVDJjaEpaaDlzdXpGWGJWYUZ6ZXhaWUVuYm9BamFFdmhFRTZfd2ROS1V6U19IbnRlT0IxOXpGWnBjVDd2bjdQVjNwVEdhSjZFY1F2WGs3Q1dqLTc4NnNCMEoyWmoyVHgwckVDdjloaENvT3dlQm5abmttbm10bkNZRkEtVDNCN2cteXVZNEZNYmY3NjZTZDI1QXhSTW5TeXdjVXVibUVmLVVrY19QM2FMQnBnNjh0a0tKZzBSUERGZkZJQXVKRF9EeGFqWnhlTDJhTEViaFJuVU9sc3EyMjB1TWQ0WXFMX2VQdjctX3Y3djZaLTNIMl9mM3VNWmlDQXgzNVVZdUtGU3FoWmJSenRaNGZRcXVVbXZra1ZTR092RXRFZy1nYzgwTWc5MlF6ZDZJZWdHN3NyOXluTG5fSE40QU9qcVpGVnpuX2VpSHNYMTZtM3ZSd1FUU1lHb05UVVVfWmI4UENEZWE2SkNjOTlNVVkyWXM0ajIzZUxMS2ktd3JZLTVlUnBXcmZrOHdDbzFnNk9RQlN5Ui1CeU1qVl9HYzkyWkRjOEFBbjgyX0ppVkZSY3hNTVRqSHlzM25icktjWTAtcDJVRGs4TXFfZWF3a0lwaWhacUhkYk1YQmdhZ3hBM05FUVdZMGp1d0FDTEZhNHUzWklTVFBtMFhlVVRDMWNndEU0WHhJUTBJeWRSb1FuaEdmdWRTQVFjQ3I4T0cydE5ndE1IQm9mcktjUmVnVFRXRjNFQ0I4MFZwNi1ETDJYWUxveVdjMklFT1NEQ1dRMGFEWmFjcFlIamp3N05hYlFtbzlOUmR0Sm9DVkF0ZThqRzRpUkZpNk14Nk5vTVdzYVJpWlprbVVpUlJGQjFxcjNSODd2aUw1VURRVUJpQ3l4RzNNRGNSVzJMSmFyVnRpTkdTdVZLMmlNYXp4YUJLcE9ja1BncllHWjd5eGNGZXp3UWJkaktVdzhhQUwtamZCSWdxay0zVG45Rk95MzNRdExMVzBWTXNNd1RrTG93NFM4cTVFcTFsaDNuRXZmQ3B0MEg0bURQcExyeHNOYVd1S3NxdkZUTkUxU2F1VVJwRFJtTTZ4UkxER1BHN2FIR1BMQVdlVWQ5UjFKd0MzaVl1aF9hR29sYXliVnMwMzBxRnhMc3ZhV1BSRVFrLXpiQXlGcTdwNUtIRVFRYldBTEd6aUd3QzBKZnFHa3o2c3F4bmllMkFMTVNHbVgtbm5RVFdMY2o2N2VmUEx4X3Z2MzU5X19IdEk0bVZubExMd3hmXzJRTllxOC15bzFZd3ltay1lcldKeFM2aVVqUGZBcFhlRUpXY2wyWkJwaVVBaWFoMEtDb25SdU9uRnEya0RHVnFtVjN6cElCVkRFd01vR2lMQzBfSkVGVzN5VWZhcEgyUFRRQk5yR0RtaGYyeS1rWnFPRlNLYVNDLThXeXZjZVhFdjdFVE9MY0V1VUhKeEZTdkRYTlR3cmYwTG90ajRkV2hQamdlRFotZ2VoWVlNNkdyYzdkcWVacll6SzRrNThLVFJSbGdLd09QSnZaUWhPV2g4YVFNd2ZhbEM0eE9LdHBDSnlSQnRzSFpfeUs0YTZNMUdpNTd3RHdkWVlDSmJmcU5uMURuNUJ6NW9GRlFXanVBdlpsWWprWkZYSnFycnNIUHBCSlZGMFVNd1hHdm5UNXpRUFFpQlIzNC01a2ZPTlZoX2h6WTdBeEZvbWFld2FoVDlWU0pZWGFJTmxRelVCeEFtdW9rNkFBYzhJY2h6T3Q5LWtBSThrbUtxeWp3U3dvNVFoVk00cXFURHdEenJxcXZFMExNV3NWc1JUTExucGRBczN1SHJLQmJTcDBESEZaTnFQSVBXcWlZOHVFcUk5aEtndmRQNzB5cGxKcHJhZmJBOUdacS00Ul9SSmVMUlU0MHpvZnNXSFNST2dQVkZKOEZJWl9BQWxTSlM2aU5WS0c4QW8yM0ZXQ3FBTGJGaFhEYXdKeDNGcHlZVXZMQ2U1eG9XaVhlRWtIU2wwRUF0cFoxeEVSdEVNRXRSX3E5YUNQOUswVWNNdXcyWkJ4VWF3Ni11dGE3Yk5iMENXenhoSTZ1anN0UjFtSTk3QnR1Tk1OUWFmeG5FWEtucjFyOHppVkc3aGFtcXJqNWJlNGlrSXdBbW00SXQybFI3QzNzMVpNUkhHSnZLdW1UVU53YlQtYktwZkVvNXpnMlRxRFZpMXVsZzBnZGROWER5NWEtSk1xenVrdWdfM3NsVmZIS3NWYXNxWktlbUJMLVBqdmpsT1dKVkZLMGhjeFBKbVdoNWNORDZtb0xTYUMtT2lJNUwxM3R4TWFMUXluemQ2RGhRUXN6NHU0NEdMZExpUVlYNWQ4Q0duSnNiNnA3TGFKN2E0QjMzalh4dEF2amhJYk9vc3JZRlJVTVZrOVdQWE5zdDBxZnN2OTFLQ1o2OVI5UmNDLVZEaG9BQUE9PVwiXSxcImV4dHJhQXR0cmlidXRlc1wiOntcIndpeC1nemlwcGVkLXNjb3BlXCI6XCJcIn19IiwiaWF0IjoxNzE2NzExNTU0LCJleHAiOjE3MTY3MTE4NTR9.rDzATHTTzzqp1MIAKvzah5r8goYtHMVPWUpR4-FmPEHII_BwiwoW2CnaLJoOsyYsBFHAKlYxlkczYVAa0_znD1_Bv4D0yWWZbSTdrTGYL-xwgZ7yHx0FCzePGr-X-fSUBzqtPkkx8uU2dHsU1MwdEFJ2h1ex_CJRI0cu58MKQvBQ4_EFAKCNeQqyNFrYFmPqw_7dvvTliRif5sFmsYsfEvfJ_L4Ed38jx8qQtSndH04SV4Zh7kJw68Ur4fd2z7nl9op5agweFuWo_AuiyXcGq-XTHmWC5nu58RiKO80tpgG6o5T9CyElxm7xw3Wc5cvOJoYqjzps_dinavKOWmVqKA
-2024-05-26 13:49:14,680.680 INFO token_repository - update_token: exist token
-2024-05-26 13:49:14,732.732 INFO token_repository - update_token: Updated token: <Token 20>
-2024-05-26 13:49:23,690.690 INFO delete_routes - delete: Received request  delete the product 
-2024-05-26 13:49:23,690.690 INFO delete_routes - delete: Request headers: Authorization: Oauth
+2024-05-27 12:50:09,885.885 INFO search_routes - get: Request body: {'search_term': 'modern', 'wix_site': 'simple_learning'}
+2024-05-27 12:50:09,885.885 INFO search_dtr - search_rest_response: Received REST search request for site: simple_learning, search query: modern
+2024-05-27 12:50:09,887.887 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
+2024-05-27 12:50:10,464.464 INFO token_controller - get_token_from_db: Found token: <Token 20>
+2024-05-27 12:50:10,466.466 INFO token_controller - get_token_from_db: Serializing token
+2024-05-27 12:50:10,468.468 INFO product_controller - get_all_product: Sending request to wix  API to get all products for wix _site: simple_learning
+2024-05-27 12:50:11,872.872 INFO product_controller - get_all_product: Wix API Response Status Code: 200
+2024-05-27 12:50:11,902.902 INFO product_controller - get_all_product: Retrieved 9 products from wix API
+2024-05-27 12:50:11,918.918 ERROR search_dtr - search_rest_response: An unexpected error occurred: 'Product' object has no attribute 'title'
+2024-05-27 12:51:55,296.296 INFO token_routes - post: Received request to get token
+2024-05-27 12:51:55,400.400 INFO token_routes - post: Request headers: Authorization: oauth
 Content-Type: application/json
 User-Agent: PostmanRuntime/7.37.3
 Accept: */*
-Postman-Token: b2cbda38-778e-4b28-92aa-2e821fea5241
-Host: 127.0.0.1:5000
-Accept-Encoding: gzip, deflate, br
-Connection: keep-alive
-Content-Length: 89
-
-
-2024-05-26 13:49:23,692.692 INFO delete_routes - delete: Request body: {'id': 'a668ef33-f5b8-6569-d04c-1d123be68441', 'wix_site': 'simple_learning'}
-2024-05-26 13:49:23,692.692 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 13:49:23,701.701 INFO token_controller - get_token_from_db: Found token: <Token 20>
-2024-05-26 13:49:23,702.702 INFO token_controller - get_token_from_db: Serializing token
-2024-05-26 13:49:25,421.421 WARNING product_controller - deleteProduct: Failed to delete the product from the Wix site. Status Code : 404
-2024-05-26 13:51:15,441.441 INFO token_routes - post: Received request to get token
-2024-05-26 13:51:15,442.442 INFO token_routes - post: Request headers: Content-Type: application/json
-User-Agent: PostmanRuntime/7.37.3
-Accept: */*
-Postman-Token: 0b5d626b-a2df-4f3a-b2b2-a0bc2263e8e7
+Postman-Token: 0c94ef83-ef41-4ff7-9a77-6d07ebd2750c
 Host: 127.0.0.1:5000
 Accept-Encoding: gzip, deflate, br
 Connection: keep-alive
 Content-Length: 42
 
 
-2024-05-26 13:51:15,443.443 INFO token_routes - post: Request body: {'wix_site': 'simple_learning'}
-2024-05-26 13:51:15,443.443 INFO token_routes - post: Received request to get token for store: simple_learning
-2024-05-26 13:51:15,444.444 INFO token_controller - token_exist: Checking if token exists for store: simple_learning
-2024-05-26 13:51:15,446.446 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 13:51:15,599.599 INFO token_controller - get_token_from_db: Found token: <Token 20>
-2024-05-26 13:51:15,600.600 INFO token_controller - get_token_from_db: Serializing token
-2024-05-26 13:51:15,601.601 INFO token_controller - token_exist: Token exists for store: simple_learning
-2024-05-26 13:51:15,602.602 INFO token_routes - post: Retrieved token for store: simple_learning
-2024-05-26 13:51:15,604.604 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 13:51:15,612.612 INFO token_controller - update_access_token: Found token: <Token 20>
-2024-05-26 13:51:15,617.617 INFO token_controller - update_access_token: Serializing token
-2024-05-26 13:51:15,619.619 INFO token_controller - update_access_token: APP id :43d91ee0-0523-4804-ad9c-38cec7fa766b
-2024-05-26 13:51:15,622.622 INFO token_controller - update_access_token: APP secret id :9ba86959-c39d-462d-a44d-ee99622d885d
-2024-05-26 13:51:15,624.624 INFO token_controller - update_access_token: Refresh token from the data base: OAUTH2.eyJraWQiOiJkZ0x3cjNRMCIsImFsZyI6IkhTMjU2In0.eyJkYXRhIjoie1wiaWRcIjpcIjQzNDZjN2NmLWI3MWItNGNjMS04ZjA4LTUxMzMyMzZkMDJlMVwifSIsImlhdCI6MTcxNjIwNzE2OSwiZXhwIjoxNzc5Mjc5MTY5fQ.8x6SAFkjrqiHXYymk1iFCvVQ8xC9wlEY7tS_rTb_-Yg
-2024-05-26 13:51:16,300.300 INFO token_controller - update_access_token: Response status :200
-2024-05-26 13:51:16,304.304 INFO token_repository - update_token: New access_token: OAUTH2.eyJraWQiOiJLaUp3NXZpeSIsImFsZyI6IlJTMjU2In0.eyJkYXRhIjoie1wiYXBwSWRcIjpcIjQzZDkxZWUwLTA1MjMtNDgwNC1hZDljLTM4Y2VjN2ZhNzY2YlwiLFwiaW5zdGFuY2VJZFwiOlwiM2YxMTY4M2QtNzMwOS00ZWQ1LWI1YzQtMzEwMWUyYzE1ZmQ3XCIsXCJzY29wZVwiOltcIkg0c0lBQUFBQUFBQV81MVoyM0xjS0JEOUlXZi1nWkdZR2NwSWFBRk43SDJoWEZ1dWJCNDJsVnJuXzJzYmFDUXVqY2JacDB3a0JIMDVmZm8wTnNKeVo3aTFZcjZhMDEzd3IwOWZ4WXN6Vm1sdVRzTUtQeWJ4SjdOQ3pXNWRSbVo1X243UmFsd0g2elJubzV1NEhtNXN0ZzVXc1h6VldiTjVER3VlLUtDbVUxaHQ0YUZoZzlfWXhNY2psLUxPOWFzYm1OYUNhLUs4U1kzaTh1cVVIcmsyVDJjaEpaaDlzdXpGWGJWYUZ6ZXhaWUVuYm9BamFFdmhFRTZfd2ROS1V6U19IbnRlT0IxOXpGWnBjVDd2bjdQVjNwVEdhSjZFY1F2WGs3Q1dqLTc4NnNCMEoyWmoyVHgwckVDdjloaENvT3dlQm5abmttbm10bkNZRkEtVDNCN2cteXVZNEZNYmY3NjZTZDI1QXhSTW5TeXdjVXVibUVmLVVrY19QM2FMQnBnNjh0a0tKZzBSUERGZkZJQXVKRF9EeGFqWnhlTDJhTEViaFJuVU9sc3EyMjB1TWQ0WXFMX2VQdjctX3Y3djZaLTNIMl9mM3VNWmlDQXgzNVVZdUtGU3FoWmJSenRaNGZRcXVVbXZra1ZTR092RXRFZy1nYzgwTWc5MlF6ZDZJZWdHN3NyOXluTG5fSE40QU9qcVpGVnpuX2VpSHNYMTZtM3ZSd1FUU1lHb05UVVVfWmI4UENEZWE2SkNjOTlNVVkyWXM0ajIzZUxMS2ktd3JZLTVlUnBXcmZrOHdDbzFnNk9RQlN5Ui1CeU1qVl9HYzkyWkRjOEFBbjgyX0ppVkZSY3hNTVRqSHlzM25icktjWTAtcDJVRGs4TXFfZWF3a0lwaWhacUhkYk1YQmdhZ3hBM05FUVdZMGp1d0FDTEZhNHUzWklTVFBtMFhlVVRDMWNndEU0WHhJUTBJeWRSb1FuaEdmdWRTQVFjQ3I4T0cydE5ndE1IQm9mcktjUmVnVFRXRjNFQ0I4MFZwNi1ETDJYWUxveVdjMklFT1NEQ1dRMGFEWmFjcFlIamp3N05hYlFtbzlOUmR0Sm9DVkF0ZThqRzRpUkZpNk14Nk5vTVdzYVJpWlprbVVpUlJGQjFxcjNSODd2aUw1VURRVUJpQ3l4RzNNRGNSVzJMSmFyVnRpTkdTdVZLMmlNYXp4YUJLcE9ja1BncllHWjd5eGNGZXp3UWJkaktVdzhhQUwtamZCSWdxay0zVG45Rk95MzNRdExMVzBWTXNNd1RrTG93NFM4cTVFcTFsaDNuRXZmQ3B0MEg0bURQcExyeHNOYVd1S3NxdkZUTkUxU2F1VVJwRFJtTTZ4UkxER1BHN2FIR1BMQVdlVWQ5UjFKd0MzaVl1aF9hR29sYXliVnMwMzBxRnhMc3ZhV1BSRVFrLXpiQXlGcTdwNUtIRVFRYldBTEd6aUd3QzBKZnFHa3o2c3F4bmllMkFMTVNHbVgtbm5RVFdMY2o2N2VmUEx4X3Z2MzU5X19IdEk0bVZubExMd3hmXzJRTllxOC15bzFZd3ltay1lcldKeFM2aVVqUGZBcFhlRUpXY2wyWkJwaVVBaWFoMEtDb25SdU9uRnEya0RHVnFtVjN6cElCVkRFd01vR2lMQzBfSkVGVzN5VWZhcEgyUFRRQk5yR0RtaGYyeS1rWnFPRlNLYVNDLThXeXZjZVhFdjdFVE9MY0V1VUhKeEZTdkRYTlR3cmYwTG90ajRkV2hQamdlRFotZ2VoWVlNNkdyYzdkcWVacll6SzRrNThLVFJSbGdLd09QSnZaUWhPV2g4YVFNd2ZhbEM0eE9LdHBDSnlSQnRzSFpfeUs0YTZNMUdpNTd3RHdkWVlDSmJmcU5uMURuNUJ6NW9GRlFXanVBdlpsWWprWkZYSnFycnNIUHBCSlZGMFVNd1hHdm5UNXpRUFFpQlIzNC01a2ZPTlZoX2h6WTdBeEZvbWFld2FoVDlWU0pZWGFJTmxRelVCeEFtdW9rNkFBYzhJY2h6T3Q5LWtBSThrbUtxeWp3U3dvNVFoVk00cXFURHdEenJxcXZFMExNV3NWc1JUTExucGRBczN1SHJLQmJTcDBESEZaTnFQSVBXcWlZOHVFcUk5aEtndmRQNzB5cGxKcHJhZmJBOUdacS00Ul9SSmVMUlU0MHpvZnNXSFNST2dQVkZKOEZJWl9BQWxTSlM2aU5WS0c4QW8yM0ZXQ3FBTGJGaFhEYXdKeDNGcHlZVXZMQ2U1eG9XaVhlRWtIU2wwRUF0cFoxeEVSdEVNRXRSX3E5YUNQOUswVWNNdXcyWkJ4VWF3Ni11dGE3Yk5iMENXenhoSTZ1anN0UjFtSTk3QnR1Tk1OUWFmeG5FWEtucjFyOHppVkc3aGFtcXJqNWJlNGlrSXdBbW00SXQybFI3QzNzMVpNUkhHSnZLdW1UVU53YlQtYktwZkVvNXpnMlRxRFZpMXVsZzBnZGROWER5NWEtSk1xenVrdWdfM3NsVmZIS3NWYXNxWktlbUJMLVBqdmpsT1dKVkZLMGhjeFBKbVdoNWNORDZtb0xTYUMtT2lJNUwxM3R4TWFMUXluemQ2RGhRUXN6NHU0NEdMZExpUVlYNWQ4Q0duSnNiNnA3TGFKN2E0QjMzalh4dEF2amhJYk9vc3JZRlJVTVZrOVdQWE5zdDBxZnN2OTFLQ1o2OVI5UmNDLVZEaG9BQUE9PVwiXSxcImV4dHJhQXR0cmlidXRlc1wiOntcIndpeC1nemlwcGVkLXNjb3BlXCI6XCJcIn19IiwiaWF0IjoxNzE2NzExNjc2LCJleHAiOjE3MTY3MTE5NzZ9.hqT33YfSGsWJDYFHCvGnWsRYJYNHJoD7RuYWPT73Y0htQUdzbtmkJl7nKRFnHatl-2edtPYwMG4o9w14AEr6mO1ckvtqx5ue7NnTNT-uQJTB5unQIVJNYTWczVzjubDitry_9NzVFI-_Fox2ad03s0iGvD6pFnZQHomnUM2sN7g-uHfUBHuaEQC7PuNMQvGoKjOp4sE9SB_D-5gES23JpvveDF4Rkau1ylR3wMxHa7nPW1jhKiJA0SH-h0rkqfz7b1r17i--VSjPQ4lpi1Co7--PniGUvrspL7QGuhiCmt0cYJfaPL5ndpWXxoZ-IHVPN0srplz9FRchz2CZctbLbg
-2024-05-26 13:51:16,307.307 INFO token_repository - update_token: exist token
-2024-05-26 13:51:16,335.335 INFO token_repository - update_token: Updated token: <Token 20>
-2024-05-26 13:51:21,151.151 INFO delete_routes - delete: Received request  delete the product 
-2024-05-26 13:51:21,152.152 INFO delete_routes - delete: Request headers: Authorization: Oauth
+2024-05-27 12:51:55,405.405 INFO token_routes - post: Request body: {'wix_site': 'simple_learning'}
+2024-05-27 12:51:55,406.406 INFO token_routes - post: Received request to get token for store: simple_learning
+2024-05-27 12:51:55,407.407 INFO token_controller - token_exist: Checking if token exists for store: simple_learning
+2024-05-27 12:51:55,411.411 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
+2024-05-27 12:51:55,656.656 INFO token_controller - get_token_from_db: Found token: <Token 20>
+2024-05-27 12:51:55,657.657 INFO token_controller - get_token_from_db: Serializing token
+2024-05-27 12:51:55,659.659 INFO token_controller - token_exist: Token exists for store: simple_learning
+2024-05-27 12:51:55,662.662 INFO token_routes - post: Retrieved token for store: simple_learning
+2024-05-27 12:51:55,666.666 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
+2024-05-27 12:51:55,677.677 INFO token_controller - update_access_token: Found token: <Token 20>
+2024-05-27 12:51:55,679.679 INFO token_controller - update_access_token: Serializing token
+2024-05-27 12:51:55,680.680 INFO token_controller - update_access_token: APP id :43d91ee0-0523-4804-ad9c-38cec7fa766b
+2024-05-27 12:51:55,682.682 INFO token_controller - update_access_token: APP secret id :9ba86959-c39d-462d-a44d-ee99622d885d
+2024-05-27 12:51:55,685.685 INFO token_controller - update_access_token: Refresh token from the data base: OAUTH2.eyJraWQiOiJkZ0x3cjNRMCIsImFsZyI6IkhTMjU2In0.eyJkYXRhIjoie1wiaWRcIjpcIjQzNDZjN2NmLWI3MWItNGNjMS04ZjA4LTUxMzMyMzZkMDJlMVwifSIsImlhdCI6MTcxNjIwNzE2OSwiZXhwIjoxNzc5Mjc5MTY5fQ.8x6SAFkjrqiHXYymk1iFCvVQ8xC9wlEY7tS_rTb_-Yg
+2024-05-27 12:52:13,041.041 INFO token_controller - update_access_token: Response status :200
+2024-05-27 12:52:13,056.056 INFO token_repository - update_token: New access_token: OAUTH2.eyJraWQiOiJLaUp3NXZpeSIsImFsZyI6IlJTMjU2In0.eyJkYXRhIjoie1wiYXBwSWRcIjpcIjQzZDkxZWUwLTA1MjMtNDgwNC1hZDljLTM4Y2VjN2ZhNzY2YlwiLFwiaW5zdGFuY2VJZFwiOlwiM2YxMTY4M2QtNzMwOS00ZWQ1LWI1YzQtMzEwMWUyYzE1ZmQ3XCIsXCJzY29wZVwiOltcIkg0c0lBQUFBQUFBQV81MVoyM0xjS0JEOUlXZi1nWkdZR2NwSWFBRk43SDJoWEZ1dWJCNDJsVnJuXzJzYmFDUXVqY2JacDB3a0JIMDVmZm8wTnNKeVo3aTFZcjZhMDEzd3IwOWZ4WXN6Vm1sdVRzTUtQeWJ4SjdOQ3pXNWRSbVo1X243UmFsd0g2elJubzV1NEhtNXN0ZzVXc1h6VldiTjVER3VlLUtDbVUxaHQ0YUZoZzlfWXhNY2psLUxPOWFzYm1OYUNhLUs4U1kzaTh1cVVIcmsyVDJjaEpaaDlzdXpGWGJWYUZ6ZXhaWUVuYm9BamFFdmhFRTZfd2ROS1V6U19IbnRlT0IxOXpGWnBjVDd2bjdQVjNwVEdhSjZFY1F2WGs3Q1dqLTc4NnNCMEoyWmoyVHgwckVDdjloaENvT3dlQm5abmttbm10bkNZRkEtVDNCN2cteXVZNEZNYmY3NjZTZDI1QXhSTW5TeXdjVXVibUVmLVVrY19QM2FMQnBnNjh0a0tKZzBSUERGZkZJQXVKRF9EeGFqWnhlTDJhTEViaFJuVU9sc3EyMjB1TWQ0WXFMX2VQdjctX3Y3djZaLTNIMl9mM3VNWmlDQXgzNVVZdUtGU3FoWmJSenRaNGZRcXVVbXZra1ZTR092RXRFZy1nYzgwTWc5MlF6ZDZJZWdHN3NyOXluTG5fSE40QU9qcVpGVnpuX2VpSHNYMTZtM3ZSd1FUU1lHb05UVVVfWmI4UENEZWE2SkNjOTlNVVkyWXM0ajIzZUxMS2ktd3JZLTVlUnBXcmZrOHdDbzFnNk9RQlN5Ui1CeU1qVl9HYzkyWkRjOEFBbjgyX0ppVkZSY3hNTVRqSHlzM25icktjWTAtcDJVRGs4TXFfZWF3a0lwaWhacUhkYk1YQmdhZ3hBM05FUVdZMGp1d0FDTEZhNHUzWklTVFBtMFhlVVRDMWNndEU0WHhJUTBJeWRSb1FuaEdmdWRTQVFjQ3I4T0cydE5ndE1IQm9mcktjUmVnVFRXRjNFQ0I4MFZwNi1ETDJYWUxveVdjMklFT1NEQ1dRMGFEWmFjcFlIamp3N05hYlFtbzlOUmR0Sm9DVkF0ZThqRzRpUkZpNk14Nk5vTVdzYVJpWlprbVVpUlJGQjFxcjNSODd2aUw1VURRVUJpQ3l4RzNNRGNSVzJMSmFyVnRpTkdTdVZLMmlNYXp4YUJLcE9ja1BncllHWjd5eGNGZXp3UWJkaktVdzhhQUwtamZCSWdxay0zVG45Rk95MzNRdExMVzBWTXNNd1RrTG93NFM4cTVFcTFsaDNuRXZmQ3B0MEg0bURQcExyeHNOYVd1S3NxdkZUTkUxU2F1VVJwRFJtTTZ4UkxER1BHN2FIR1BMQVdlVWQ5UjFKd0MzaVl1aF9hR29sYXliVnMwMzBxRnhMc3ZhV1BSRVFrLXpiQXlGcTdwNUtIRVFRYldBTEd6aUd3QzBKZnFHa3o2c3F4bmllMkFMTVNHbVgtbm5RVFdMY2o2N2VmUEx4X3Z2MzU5X19IdEk0bVZubExMd3hmXzJRTllxOC15bzFZd3ltay1lcldKeFM2aVVqUGZBcFhlRUpXY2wyWkJwaVVBaWFoMEtDb25SdU9uRnEya0RHVnFtVjN6cElCVkRFd01vR2lMQzBfSkVGVzN5VWZhcEgyUFRRQk5yR0RtaGYyeS1rWnFPRlNLYVNDLThXeXZjZVhFdjdFVE9MY0V1VUhKeEZTdkRYTlR3cmYwTG90ajRkV2hQamdlRFotZ2VoWVlNNkdyYzdkcWVacll6SzRrNThLVFJSbGdLd09QSnZaUWhPV2g4YVFNd2ZhbEM0eE9LdHBDSnlSQnRzSFpfeUs0YTZNMUdpNTd3RHdkWVlDSmJmcU5uMURuNUJ6NW9GRlFXanVBdlpsWWprWkZYSnFycnNIUHBCSlZGMFVNd1hHdm5UNXpRUFFpQlIzNC01a2ZPTlZoX2h6WTdBeEZvbWFld2FoVDlWU0pZWGFJTmxRelVCeEFtdW9rNkFBYzhJY2h6T3Q5LWtBSThrbUtxeWp3U3dvNVFoVk00cXFURHdEenJxcXZFMExNV3NWc1JUTExucGRBczN1SHJLQmJTcDBESEZaTnFQSVBXcWlZOHVFcUk5aEtndmRQNzB5cGxKcHJhZmJBOUdacS00Ul9SSmVMUlU0MHpvZnNXSFNST2dQVkZKOEZJWl9BQWxTSlM2aU5WS0c4QW8yM0ZXQ3FBTGJGaFhEYXdKeDNGcHlZVXZMQ2U1eG9XaVhlRWtIU2wwRUF0cFoxeEVSdEVNRXRSX3E5YUNQOUswVWNNdXcyWkJ4VWF3Ni11dGE3Yk5iMENXenhoSTZ1anN0UjFtSTk3QnR1Tk1OUWFmeG5FWEtucjFyOHppVkc3aGFtcXJqNWJlNGlrSXdBbW00SXQybFI3QzNzMVpNUkhHSnZLdW1UVU53YlQtYktwZkVvNXpnMlRxRFZpMXVsZzBnZGROWER5NWEtSk1xenVrdWdfM3NsVmZIS3NWYXNxWktlbUJMLVBqdmpsT1dKVkZLMGhjeFBKbVdoNWNORDZtb0xTYUMtT2lJNUwxM3R4TWFMUXluemQ2RGhRUXN6NHU0NEdMZExpUVlYNWQ4Q0duSnNiNnA3TGFKN2E0QjMzalh4dEF2amhJYk9vc3JZRlJVTVZrOVdQWE5zdDBxZnN2OTFLQ1o2OVI5UmNDLVZEaG9BQUE9PVwiXSxcImV4dHJhQXR0cmlidXRlc1wiOntcIndpeC1nemlwcGVkLXNjb3BlXCI6XCJcIn19IiwiaWF0IjoxNzE2Nzk0NTE3LCJleHAiOjE3MTY3OTQ4MTd9.ZM76mpAmtxPCL2LomX6KiiUjAPhCMWikrRW_8H86p-yAldCXpe11MRQzuA0j3AVemXfIEf08U9fWEXSUVTj2QiyV5jDM6MyTdxC9itlLWgpn52DZDYqKgqE7-OTpUL2wnKeYWE0K97_AQiEXjy3GSfCEaYSjfH3UJs3gKRO9U8rcVt0chbOeIjiwLVoJpUNTCWV6MNjH-oTQSAkmECPM0ZrQAoBOlrQoBuNmQAwq75oM8Ojz7R_9v3H8Zw7CpiGVAjS6EiMUYvEyGtLKNKNvC7ctPvhhPNjewWYsr-JlXqfYvp8bmxKfDalChYYYgUMWMF5N6icwPgBx2U1q8BziGw
+2024-05-27 12:52:13,061.061 INFO token_repository - update_token: exist token
+2024-05-27 12:52:13,304.304 INFO token_repository - update_token: Updated token: <Token 20>
+2024-05-27 12:52:20,512.512 INFO search_routes - get: Received request to search Products
+2024-05-27 12:52:20,514.514 INFO search_routes - get: Request headers: Authorization: Oauth
 Content-Type: application/json
 User-Agent: PostmanRuntime/7.37.3
 Accept: */*
-Postman-Token: 73d37084-bb1a-4de3-a45b-2d464e1ea784
+Postman-Token: 917c0024-d68f-40bf-b905-b7f5ff3d82c9
 Host: 127.0.0.1:5000
 Accept-Encoding: gzip, deflate, br
 Connection: keep-alive
-Content-Length: 89
+Content-Length: 66
 
 
-2024-05-26 13:51:21,153.153 INFO delete_routes - delete: Request body: {'id': 'a668ef33-f5b8-6569-d04c-1d123be68441', 'wix_site': 'simple_learning'}
-2024-05-26 13:51:21,154.154 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 13:51:21,163.163 INFO token_controller - get_token_from_db: Found token: <Token 20>
-2024-05-26 13:51:21,164.164 INFO token_controller - get_token_from_db: Serializing token
-2024-05-26 13:51:37,077.077 INFO product_controller - deleteProduct: Request response: 404
-2024-05-26 13:51:37,078.078 WARNING product_controller - deleteProduct: Failed to delete the product from the Wix site. Status Code : 404
-2024-05-26 13:53:36,129.129 INFO token_routes - post: Received request to get token
-2024-05-26 13:53:36,131.131 INFO token_routes - post: Request headers: Content-Type: application/json
-User-Agent: PostmanRuntime/7.37.3
-Accept: */*
-Postman-Token: 0d6fbef0-39b9-4944-b43d-78872bef0921
-Host: 127.0.0.1:5000
-Accept-Encoding: gzip, deflate, br
-Connection: keep-alive
-Content-Length: 42
-
-
-2024-05-26 13:53:36,133.133 INFO token_routes - post: Request body: {'wix_site': 'simple_learning'}
-2024-05-26 13:53:36,133.133 INFO token_routes - post: Received request to get token for store: simple_learning
-2024-05-26 13:53:36,134.134 INFO token_controller - token_exist: Checking if token exists for store: simple_learning
-2024-05-26 13:53:36,135.135 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 13:53:36,149.149 INFO token_controller - get_token_from_db: Found token: <Token 20>
-2024-05-26 13:53:36,150.150 INFO token_controller - get_token_from_db: Serializing token
-2024-05-26 13:53:36,151.151 INFO token_controller - token_exist: Token exists for store: simple_learning
-2024-05-26 13:53:36,151.151 INFO token_routes - post: Retrieved token for store: simple_learning
-2024-05-26 13:53:36,152.152 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 13:53:36,160.160 INFO token_controller - update_access_token: Found token: <Token 20>
-2024-05-26 13:53:36,163.163 INFO token_controller - update_access_token: Serializing token
-2024-05-26 13:53:36,165.165 INFO token_controller - update_access_token: APP id :43d91ee0-0523-4804-ad9c-38cec7fa766b
-2024-05-26 13:53:36,167.167 INFO token_controller - update_access_token: APP secret id :9ba86959-c39d-462d-a44d-ee99622d885d
-2024-05-26 13:53:36,167.167 INFO token_controller - update_access_token: Refresh token from the data base: OAUTH2.eyJraWQiOiJkZ0x3cjNRMCIsImFsZyI6IkhTMjU2In0.eyJkYXRhIjoie1wiaWRcIjpcIjQzNDZjN2NmLWI3MWItNGNjMS04ZjA4LTUxMzMyMzZkMDJlMVwifSIsImlhdCI6MTcxNjIwNzE2OSwiZXhwIjoxNzc5Mjc5MTY5fQ.8x6SAFkjrqiHXYymk1iFCvVQ8xC9wlEY7tS_rTb_-Yg
-2024-05-26 13:53:53,489.489 ERROR token_routes - post: An unexpected error occurred: HTTPSConnectionPool(host='www.wix.com', port=443): Max retries exceeded with url: /oauth/access (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001F5B07F3700>: Failed to establish a new connection: [WinError 10053] An established connection was aborted by the software in your host machine'))
-2024-05-26 13:53:53,492.492 ERROR token_routes - post: An unexpected error occurred: Traceback (most recent call last):
-  File "D:\Wix Service\env\lib\site-packages\urllib3\connection.py", line 198, in _new_conn
-    sock = connection.create_connection(
-  File "D:\Wix Service\env\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
-    raise err
-  File "D:\Wix Service\env\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
-    sock.connect(sa)
-ConnectionAbortedError: [WinError 10053] An established connection was aborted by the software in your host machine
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "D:\Wix Service\env\lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
-    response = self._make_request(
-  File "D:\Wix Service\env\lib\site-packages\urllib3\connectionpool.py", line 491, in _make_request
-    raise new_e
-  File "D:\Wix Service\env\lib\site-packages\urllib3\connectionpool.py", line 467, in _make_request
-    self._validate_conn(conn)
-  File "D:\Wix Service\env\lib\site-packages\urllib3\connectionpool.py", line 1099, in _validate_conn
-    conn.connect()
-  File "D:\Wix Service\env\lib\site-packages\urllib3\connection.py", line 616, in connect
-    self.sock = sock = self._new_conn()
-  File "D:\Wix Service\env\lib\site-packages\urllib3\connection.py", line 213, in _new_conn
-    raise NewConnectionError(
-urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x000001F5B07F3700>: Failed to establish a new connection: [WinError 10053] An established connection was aborted by the software in your host machine
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "D:\Wix Service\env\lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "D:\Wix Service\env\lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
-    retries = retries.increment(
-  File "D:\Wix Service\env\lib\site-packages\urllib3\util\retry.py", line 515, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.wix.com', port=443): Max retries exceeded with url: /oauth/access (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001F5B07F3700>: Failed to establish a new connection: [WinError 10053] An established connection was aborted by the software in your host machine'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\computelib\Wix Service\src\api\Routes\token_routes.py", line 36, in post
-    response= update_access_token(wix_site)
-  File "D:\computelib\Wix Service\src\api\Controllers\token_controller.py", line 51, in update_access_token
-    response = requests.post(url, json=payload)
-  File "D:\Wix Service\env\lib\site-packages\requests\api.py", line 115, in post
-    return request("post", url, data=data, json=json, **kwargs)
-  File "D:\Wix Service\env\lib\site-packages\requests\api.py", line 59, in request
-    return session.request(method=method, url=url, **kwargs)
-  File "D:\Wix Service\env\lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "D:\Wix Service\env\lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "D:\Wix Service\env\lib\site-packages\requests\adapters.py", line 519, in send
-    raise ConnectionError(e, request=request)
-requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.wix.com', port=443): Max retries exceeded with url: /oauth/access (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001F5B07F3700>: Failed to establish a new connection: [WinError 10053] An established connection was aborted by the software in your host machine'))
-
-2024-05-26 13:54:04,998.998 INFO token_routes - post: Received request to get token
-2024-05-26 13:54:05,001.001 INFO token_routes - post: Request headers: Content-Type: application/json
-User-Agent: PostmanRuntime/7.37.3
-Accept: */*
-Postman-Token: 7a2a578d-b673-4c9f-9f62-e5c8c8b1a243
-Host: 127.0.0.1:5000
-Accept-Encoding: gzip, deflate, br
-Connection: keep-alive
-Content-Length: 42
-
-
-2024-05-26 13:54:05,006.006 INFO token_routes - post: Request body: {'wix_site': 'simple_learning'}
-2024-05-26 13:54:05,007.007 INFO token_routes - post: Received request to get token for store: simple_learning
-2024-05-26 13:54:05,008.008 INFO token_controller - token_exist: Checking if token exists for store: simple_learning
-2024-05-26 13:54:05,164.164 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 13:54:05,180.180 INFO token_controller - get_token_from_db: Found token: <Token 20>
-2024-05-26 13:54:05,181.181 INFO token_controller - get_token_from_db: Serializing token
-2024-05-26 13:54:05,182.182 INFO token_controller - token_exist: Token exists for store: simple_learning
-2024-05-26 13:54:05,188.188 INFO token_routes - post: Retrieved token for store: simple_learning
-2024-05-26 13:54:05,190.190 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 13:54:05,194.194 INFO token_controller - update_access_token: Found token: <Token 20>
-2024-05-26 13:54:05,195.195 INFO token_controller - update_access_token: Serializing token
-2024-05-26 13:54:05,195.195 INFO token_controller - update_access_token: APP id :43d91ee0-0523-4804-ad9c-38cec7fa766b
-2024-05-26 13:54:05,197.197 INFO token_controller - update_access_token: APP secret id :9ba86959-c39d-462d-a44d-ee99622d885d
-2024-05-26 13:54:05,197.197 INFO token_controller - update_access_token: Refresh token from the data base: OAUTH2.eyJraWQiOiJkZ0x3cjNRMCIsImFsZyI6IkhTMjU2In0.eyJkYXRhIjoie1wiaWRcIjpcIjQzNDZjN2NmLWI3MWItNGNjMS04ZjA4LTUxMzMyMzZkMDJlMVwifSIsImlhdCI6MTcxNjIwNzE2OSwiZXhwIjoxNzc5Mjc5MTY5fQ.8x6SAFkjrqiHXYymk1iFCvVQ8xC9wlEY7tS_rTb_-Yg
-2024-05-26 13:54:26,448.448 ERROR token_routes - post: An unexpected error occurred: HTTPSConnectionPool(host='www.wix.com', port=443): Max retries exceeded with url: /oauth/access (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000001F5B07F3310>, 'Connection to www.wix.com timed out. (connect timeout=None)'))
-2024-05-26 13:54:26,448.448 ERROR token_routes - post: An unexpected error occurred: Traceback (most recent call last):
-  File "D:\Wix Service\env\lib\site-packages\urllib3\connection.py", line 198, in _new_conn
-    sock = connection.create_connection(
-  File "D:\Wix Service\env\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
-    raise err
-  File "D:\Wix Service\env\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
-    sock.connect(sa)
-TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "D:\Wix Service\env\lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
-    response = self._make_request(
-  File "D:\Wix Service\env\lib\site-packages\urllib3\connectionpool.py", line 491, in _make_request
-    raise new_e
-  File "D:\Wix Service\env\lib\site-packages\urllib3\connectionpool.py", line 467, in _make_request
-    self._validate_conn(conn)
-  File "D:\Wix Service\env\lib\site-packages\urllib3\connectionpool.py", line 1099, in _validate_conn
-    conn.connect()
-  File "D:\Wix Service\env\lib\site-packages\urllib3\connection.py", line 616, in connect
-    self.sock = sock = self._new_conn()
-  File "D:\Wix Service\env\lib\site-packages\urllib3\connection.py", line 207, in _new_conn
-    raise ConnectTimeoutError(
-urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x000001F5B07F3310>, 'Connection to www.wix.com timed out. (connect timeout=None)')
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "D:\Wix Service\env\lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "D:\Wix Service\env\lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
-    retries = retries.increment(
-  File "D:\Wix Service\env\lib\site-packages\urllib3\util\retry.py", line 515, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.wix.com', port=443): Max retries exceeded with url: /oauth/access (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000001F5B07F3310>, 'Connection to www.wix.com timed out. (connect timeout=None)'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\computelib\Wix Service\src\api\Routes\token_routes.py", line 36, in post
-    response= update_access_token(wix_site)
-  File "D:\computelib\Wix Service\src\api\Controllers\token_controller.py", line 51, in update_access_token
-    response = requests.post(url, json=payload)
-  File "D:\Wix Service\env\lib\site-packages\requests\api.py", line 115, in post
-    return request("post", url, data=data, json=json, **kwargs)
-  File "D:\Wix Service\env\lib\site-packages\requests\api.py", line 59, in request
-    return session.request(method=method, url=url, **kwargs)
-  File "D:\Wix Service\env\lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "D:\Wix Service\env\lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "D:\Wix Service\env\lib\site-packages\requests\adapters.py", line 507, in send
-    raise ConnectTimeout(e, request=request)
-requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='www.wix.com', port=443): Max retries exceeded with url: /oauth/access (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000001F5B07F3310>, 'Connection to www.wix.com timed out. (connect timeout=None)'))
-
-2024-05-26 14:27:04,160.160 INFO token_routes - post: Received request to get token
-2024-05-26 14:27:04,299.299 INFO token_routes - post: Request headers: Content-Type: application/json
-User-Agent: PostmanRuntime/7.37.3
-Accept: */*
-Postman-Token: 5bfde537-bfdc-4254-b972-5fba3cf7ab33
-Host: 127.0.0.1:5000
-Accept-Encoding: gzip, deflate, br
-Connection: keep-alive
-Content-Length: 42
-
-
-2024-05-26 14:27:04,362.362 INFO token_routes - post: Request body: {'wix_site': 'simple_learning'}
-2024-05-26 14:27:04,362.362 INFO token_routes - post: Received request to get token for store: simple_learning
-2024-05-26 14:27:04,366.366 INFO token_controller - token_exist: Checking if token exists for store: simple_learning
-2024-05-26 14:27:04,395.395 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 14:27:05,127.127 INFO token_controller - get_token_from_db: Found token: <Token 20>
-2024-05-26 14:27:05,128.128 INFO token_controller - get_token_from_db: Serializing token
-2024-05-26 14:27:05,128.128 INFO token_controller - token_exist: Token exists for store: simple_learning
-2024-05-26 14:27:05,132.132 INFO token_routes - post: Retrieved token for store: simple_learning
-2024-05-26 14:27:05,134.134 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 14:27:05,143.143 INFO token_controller - update_access_token: Found token: <Token 20>
-2024-05-26 14:27:05,143.143 INFO token_controller - update_access_token: Serializing token
-2024-05-26 14:27:05,144.144 INFO token_controller - update_access_token: APP id :43d91ee0-0523-4804-ad9c-38cec7fa766b
-2024-05-26 14:27:05,144.144 INFO token_controller - update_access_token: APP secret id :9ba86959-c39d-462d-a44d-ee99622d885d
-2024-05-26 14:27:05,144.144 INFO token_controller - update_access_token: Refresh token from the data base: OAUTH2.eyJraWQiOiJkZ0x3cjNRMCIsImFsZyI6IkhTMjU2In0.eyJkYXRhIjoie1wiaWRcIjpcIjQzNDZjN2NmLWI3MWItNGNjMS04ZjA4LTUxMzMyMzZkMDJlMVwifSIsImlhdCI6MTcxNjIwNzE2OSwiZXhwIjoxNzc5Mjc5MTY5fQ.8x6SAFkjrqiHXYymk1iFCvVQ8xC9wlEY7tS_rTb_-Yg
-2024-05-26 14:27:06,413.413 INFO token_controller - update_access_token: Response status :200
-2024-05-26 14:27:06,420.420 INFO token_repository - update_token: New access_token: OAUTH2.eyJraWQiOiJLaUp3NXZpeSIsImFsZyI6IlJTMjU2In0.eyJkYXRhIjoie1wiYXBwSWRcIjpcIjQzZDkxZWUwLTA1MjMtNDgwNC1hZDljLTM4Y2VjN2ZhNzY2YlwiLFwiaW5zdGFuY2VJZFwiOlwiM2YxMTY4M2QtNzMwOS00ZWQ1LWI1YzQtMzEwMWUyYzE1ZmQ3XCIsXCJzY29wZVwiOltcIkg0c0lBQUFBQUFBQV81MVoyM0xjS0JEOUlXZi1nWkdZR2NwSWFBRk43SDJoWEZ1dWJCNDJsVnJuXzJzYmFDUXVqY2JacDB3a0JIMDVmZm8wTnNKeVo3aTFZcjZhMDEzd3IwOWZ4WXN6Vm1sdVRzTUtQeWJ4SjdOQ3pXNWRSbVo1X243UmFsd0g2elJubzV1NEhtNXN0ZzVXc1h6VldiTjVER3VlLUtDbVUxaHQ0YUZoZzlfWXhNY2psLUxPOWFzYm1OYUNhLUs4U1kzaTh1cVVIcmsyVDJjaEpaaDlzdXpGWGJWYUZ6ZXhaWUVuYm9BamFFdmhFRTZfd2ROS1V6U19IbnRlT0IxOXpGWnBjVDd2bjdQVjNwVEdhSjZFY1F2WGs3Q1dqLTc4NnNCMEoyWmoyVHgwckVDdjloaENvT3dlQm5abmttbm10bkNZRkEtVDNCN2cteXVZNEZNYmY3NjZTZDI1QXhSTW5TeXdjVXVibUVmLVVrY19QM2FMQnBnNjh0a0tKZzBSUERGZkZJQXVKRF9EeGFqWnhlTDJhTEViaFJuVU9sc3EyMjB1TWQ0WXFMX2VQdjctX3Y3djZaLTNIMl9mM3VNWmlDQXgzNVVZdUtGU3FoWmJSenRaNGZRcXVVbXZra1ZTR092RXRFZy1nYzgwTWc5MlF6ZDZJZWdHN3NyOXluTG5fSE40QU9qcVpGVnpuX2VpSHNYMTZtM3ZSd1FUU1lHb05UVVVfWmI4UENEZWE2SkNjOTlNVVkyWXM0ajIzZUxMS2ktd3JZLTVlUnBXcmZrOHdDbzFnNk9RQlN5Ui1CeU1qVl9HYzkyWkRjOEFBbjgyX0ppVkZSY3hNTVRqSHlzM25icktjWTAtcDJVRGs4TXFfZWF3a0lwaWhacUhkYk1YQmdhZ3hBM05FUVdZMGp1d0FDTEZhNHUzWklTVFBtMFhlVVRDMWNndEU0WHhJUTBJeWRSb1FuaEdmdWRTQVFjQ3I4T0cydE5ndE1IQm9mcktjUmVnVFRXRjNFQ0I4MFZwNi1ETDJYWUxveVdjMklFT1NEQ1dRMGFEWmFjcFlIamp3N05hYlFtbzlOUmR0Sm9DVkF0ZThqRzRpUkZpNk14Nk5vTVdzYVJpWlprbVVpUlJGQjFxcjNSODd2aUw1VURRVUJpQ3l4RzNNRGNSVzJMSmFyVnRpTkdTdVZLMmlNYXp4YUJLcE9ja1BncllHWjd5eGNGZXp3UWJkaktVdzhhQUwtamZCSWdxay0zVG45Rk95MzNRdExMVzBWTXNNd1RrTG93NFM4cTVFcTFsaDNuRXZmQ3B0MEg0bURQcExyeHNOYVd1S3NxdkZUTkUxU2F1VVJwRFJtTTZ4UkxER1BHN2FIR1BMQVdlVWQ5UjFKd0MzaVl1aF9hR29sYXliVnMwMzBxRnhMc3ZhV1BSRVFrLXpiQXlGcTdwNUtIRVFRYldBTEd6aUd3QzBKZnFHa3o2c3F4bmllMkFMTVNHbVgtbm5RVFdMY2o2N2VmUEx4X3Z2MzU5X19IdEk0bVZubExMd3hmXzJRTllxOC15bzFZd3ltay1lcldKeFM2aVVqUGZBcFhlRUpXY2wyWkJwaVVBaWFoMEtDb25SdU9uRnEya0RHVnFtVjN6cElCVkRFd01vR2lMQzBfSkVGVzN5VWZhcEgyUFRRQk5yR0RtaGYyeS1rWnFPRlNLYVNDLThXeXZjZVhFdjdFVE9MY0V1VUhKeEZTdkRYTlR3cmYwTG90ajRkV2hQamdlRFotZ2VoWVlNNkdyYzdkcWVacll6SzRrNThLVFJSbGdLd09QSnZaUWhPV2g4YVFNd2ZhbEM0eE9LdHBDSnlSQnRzSFpfeUs0YTZNMUdpNTd3RHdkWVlDSmJmcU5uMURuNUJ6NW9GRlFXanVBdlpsWWprWkZYSnFycnNIUHBCSlZGMFVNd1hHdm5UNXpRUFFpQlIzNC01a2ZPTlZoX2h6WTdBeEZvbWFld2FoVDlWU0pZWGFJTmxRelVCeEFtdW9rNkFBYzhJY2h6T3Q5LWtBSThrbUtxeWp3U3dvNVFoVk00cXFURHdEenJxcXZFMExNV3NWc1JUTExucGRBczN1SHJLQmJTcDBESEZaTnFQSVBXcWlZOHVFcUk5aEtndmRQNzB5cGxKcHJhZmJBOUdacS00Ul9SSmVMUlU0MHpvZnNXSFNST2dQVkZKOEZJWl9BQWxTSlM2aU5WS0c4QW8yM0ZXQ3FBTGJGaFhEYXdKeDNGcHlZVXZMQ2U1eG9XaVhlRWtIU2wwRUF0cFoxeEVSdEVNRXRSX3E5YUNQOUswVWNNdXcyWkJ4VWF3Ni11dGE3Yk5iMENXenhoSTZ1anN0UjFtSTk3QnR1Tk1OUWFmeG5FWEtucjFyOHppVkc3aGFtcXJqNWJlNGlrSXdBbW00SXQybFI3QzNzMVpNUkhHSnZLdW1UVU53YlQtYktwZkVvNXpnMlRxRFZpMXVsZzBnZGROWER5NWEtSk1xenVrdWdfM3NsVmZIS3NWYXNxWktlbUJMLVBqdmpsT1dKVkZLMGhjeFBKbVdoNWNORDZtb0xTYUMtT2lJNUwxM3R4TWFMUXluemQ2RGhRUXN6NHU0NEdMZExpUVlYNWQ4Q0duSnNiNnA3TGFKN2E0QjMzalh4dEF2amhJYk9vc3JZRlJVTVZrOVdQWE5zdDBxZnN2OTFLQ1o2OVI5UmNDLVZEaG9BQUE9PVwiXSxcImV4dHJhQXR0cmlidXRlc1wiOntcIndpeC1nemlwcGVkLXNjb3BlXCI6XCJcIn19IiwiaWF0IjoxNzE2NzEzODI2LCJleHAiOjE3MTY3MTQxMjZ9.JNhhY-ft50dD-L0f6YmqSUaQo3wZIP_zpfg4NDp4HtW_fiJEvKIe_qqnSDITLcAgq3dYKPt_kZ9BFyWqQ3-dz155Wi4sW_5K4sRyHcFUkUGlD2HaWr0X6CCjDbcf-PgSq1nclNvQGfJu-V480qXl4JuOKhn-1iH6rfo2YSHbKv_-VCFHQgiih9H8rE2j4leaLwOuYUMcl3TvIfHZShweGl6UhijrvcriWazn1BpUQTrqVNhci2Ad-VewfHU2XeoZmfzKiBNfZ0tAWeZe3AVGFIo0RbS5TPiCOV8cWmX5zMvJfUvQJ_nvM5P-AIR1WooSOTbvPvZVQhLOsbgS30nGyg
-2024-05-26 14:27:06,421.421 INFO token_repository - update_token: exist token
-2024-05-26 14:27:06,654.654 INFO token_repository - update_token: Updated token: <Token 20>
-2024-05-26 14:32:11,069.069 INFO token_routes - post: Received request to get token
-2024-05-26 14:32:11,084.084 INFO token_routes - post: Request headers: Content-Type: application/json
-User-Agent: PostmanRuntime/7.37.3
-Accept: */*
-Postman-Token: 0eebe615-113a-4ad2-9b63-9799ca3eb312
-Host: 127.0.0.1:5000
-Accept-Encoding: gzip, deflate, br
-Connection: keep-alive
-Content-Length: 42
-
-
-2024-05-26 14:32:11,097.097 INFO token_routes - post: Request body: {'wix_site': 'simple_learning'}
-2024-05-26 14:32:11,101.101 INFO token_routes - post: Received request to get token for store: simple_learning
-2024-05-26 14:32:11,103.103 INFO token_controller - token_exist: Checking if token exists for store: simple_learning
-2024-05-26 14:32:11,126.126 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 14:32:11,280.280 INFO token_controller - get_token_from_db: Found token: <Token 20>
-2024-05-26 14:32:11,281.281 INFO token_controller - get_token_from_db: Serializing token
-2024-05-26 14:32:11,283.283 INFO token_controller - token_exist: Token exists for store: simple_learning
-2024-05-26 14:32:11,284.284 INFO token_routes - post: Retrieved token for store: simple_learning
-2024-05-26 14:32:11,286.286 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 14:32:11,295.295 INFO token_controller - update_access_token: Found token: <Token 20>
-2024-05-26 14:32:11,298.298 INFO token_controller - update_access_token: Serializing token
-2024-05-26 14:32:11,301.301 INFO token_controller - update_access_token: APP id :43d91ee0-0523-4804-ad9c-38cec7fa766b
-2024-05-26 14:32:11,302.302 INFO token_controller - update_access_token: APP secret id :9ba86959-c39d-462d-a44d-ee99622d885d
-2024-05-26 14:32:11,304.304 INFO token_controller - update_access_token: Refresh token from the data base: OAUTH2.eyJraWQiOiJkZ0x3cjNRMCIsImFsZyI6IkhTMjU2In0.eyJkYXRhIjoie1wiaWRcIjpcIjQzNDZjN2NmLWI3MWItNGNjMS04ZjA4LTUxMzMyMzZkMDJlMVwifSIsImlhdCI6MTcxNjIwNzE2OSwiZXhwIjoxNzc5Mjc5MTY5fQ.8x6SAFkjrqiHXYymk1iFCvVQ8xC9wlEY7tS_rTb_-Yg
-2024-05-26 14:32:12,453.453 INFO token_controller - update_access_token: Response status :200
-2024-05-26 14:32:12,462.462 INFO token_repository - update_token: New access_token: OAUTH2.eyJraWQiOiJLaUp3NXZpeSIsImFsZyI6IlJTMjU2In0.eyJkYXRhIjoie1wiYXBwSWRcIjpcIjQzZDkxZWUwLTA1MjMtNDgwNC1hZDljLTM4Y2VjN2ZhNzY2YlwiLFwiaW5zdGFuY2VJZFwiOlwiM2YxMTY4M2QtNzMwOS00ZWQ1LWI1YzQtMzEwMWUyYzE1ZmQ3XCIsXCJzY29wZVwiOltcIkg0c0lBQUFBQUFBQV81MVoyM0xjS0JEOUlXZi1nWkdZR2NwSWFBRk43SDJoWEZ1dWJCNDJsVnJuXzJzYmFDUXVqY2JacDB3a0JIMDVmZm8wTnNKeVo3aTFZcjZhMDEzd3IwOWZ4WXN6Vm1sdVRzTUtQeWJ4SjdOQ3pXNWRSbVo1X243UmFsd0g2elJubzV1NEhtNXN0ZzVXc1h6VldiTjVER3VlLUtDbVUxaHQ0YUZoZzlfWXhNY2psLUxPOWFzYm1OYUNhLUs4U1kzaTh1cVVIcmsyVDJjaEpaaDlzdXpGWGJWYUZ6ZXhaWUVuYm9BamFFdmhFRTZfd2ROS1V6U19IbnRlT0IxOXpGWnBjVDd2bjdQVjNwVEdhSjZFY1F2WGs3Q1dqLTc4NnNCMEoyWmoyVHgwckVDdjloaENvT3dlQm5abmttbm10bkNZRkEtVDNCN2cteXVZNEZNYmY3NjZTZDI1QXhSTW5TeXdjVXVibUVmLVVrY19QM2FMQnBnNjh0a0tKZzBSUERGZkZJQXVKRF9EeGFqWnhlTDJhTEViaFJuVU9sc3EyMjB1TWQ0WXFMX2VQdjctX3Y3djZaLTNIMl9mM3VNWmlDQXgzNVVZdUtGU3FoWmJSenRaNGZRcXVVbXZra1ZTR092RXRFZy1nYzgwTWc5MlF6ZDZJZWdHN3NyOXluTG5fSE40QU9qcVpGVnpuX2VpSHNYMTZtM3ZSd1FUU1lHb05UVVVfWmI4UENEZWE2SkNjOTlNVVkyWXM0ajIzZUxMS2ktd3JZLTVlUnBXcmZrOHdDbzFnNk9RQlN5Ui1CeU1qVl9HYzkyWkRjOEFBbjgyX0ppVkZSY3hNTVRqSHlzM25icktjWTAtcDJVRGs4TXFfZWF3a0lwaWhacUhkYk1YQmdhZ3hBM05FUVdZMGp1d0FDTEZhNHUzWklTVFBtMFhlVVRDMWNndEU0WHhJUTBJeWRSb1FuaEdmdWRTQVFjQ3I4T0cydE5ndE1IQm9mcktjUmVnVFRXRjNFQ0I4MFZwNi1ETDJYWUxveVdjMklFT1NEQ1dRMGFEWmFjcFlIamp3N05hYlFtbzlOUmR0Sm9DVkF0ZThqRzRpUkZpNk14Nk5vTVdzYVJpWlprbVVpUlJGQjFxcjNSODd2aUw1VURRVUJpQ3l4RzNNRGNSVzJMSmFyVnRpTkdTdVZLMmlNYXp4YUJLcE9ja1BncllHWjd5eGNGZXp3UWJkaktVdzhhQUwtamZCSWdxay0zVG45Rk95MzNRdExMVzBWTXNNd1RrTG93NFM4cTVFcTFsaDNuRXZmQ3B0MEg0bURQcExyeHNOYVd1S3NxdkZUTkUxU2F1VVJwRFJtTTZ4UkxER1BHN2FIR1BMQVdlVWQ5UjFKd0MzaVl1aF9hR29sYXliVnMwMzBxRnhMc3ZhV1BSRVFrLXpiQXlGcTdwNUtIRVFRYldBTEd6aUd3QzBKZnFHa3o2c3F4bmllMkFMTVNHbVgtbm5RVFdMY2o2N2VmUEx4X3Z2MzU5X19IdEk0bVZubExMd3hmXzJRTllxOC15bzFZd3ltay1lcldKeFM2aVVqUGZBcFhlRUpXY2wyWkJwaVVBaWFoMEtDb25SdU9uRnEya0RHVnFtVjN6cElCVkRFd01vR2lMQzBfSkVGVzN5VWZhcEgyUFRRQk5yR0RtaGYyeS1rWnFPRlNLYVNDLThXeXZjZVhFdjdFVE9MY0V1VUhKeEZTdkRYTlR3cmYwTG90ajRkV2hQamdlRFotZ2VoWVlNNkdyYzdkcWVacll6SzRrNThLVFJSbGdLd09QSnZaUWhPV2g4YVFNd2ZhbEM0eE9LdHBDSnlSQnRzSFpfeUs0YTZNMUdpNTd3RHdkWVlDSmJmcU5uMURuNUJ6NW9GRlFXanVBdlpsWWprWkZYSnFycnNIUHBCSlZGMFVNd1hHdm5UNXpRUFFpQlIzNC01a2ZPTlZoX2h6WTdBeEZvbWFld2FoVDlWU0pZWGFJTmxRelVCeEFtdW9rNkFBYzhJY2h6T3Q5LWtBSThrbUtxeWp3U3dvNVFoVk00cXFURHdEenJxcXZFMExNV3NWc1JUTExucGRBczN1SHJLQmJTcDBESEZaTnFQSVBXcWlZOHVFcUk5aEtndmRQNzB5cGxKcHJhZmJBOUdacS00Ul9SSmVMUlU0MHpvZnNXSFNST2dQVkZKOEZJWl9BQWxTSlM2aU5WS0c4QW8yM0ZXQ3FBTGJGaFhEYXdKeDNGcHlZVXZMQ2U1eG9XaVhlRWtIU2wwRUF0cFoxeEVSdEVNRXRSX3E5YUNQOUswVWNNdXcyWkJ4VWF3Ni11dGE3Yk5iMENXenhoSTZ1anN0UjFtSTk3QnR1Tk1OUWFmeG5FWEtucjFyOHppVkc3aGFtcXJqNWJlNGlrSXdBbW00SXQybFI3QzNzMVpNUkhHSnZLdW1UVU53YlQtYktwZkVvNXpnMlRxRFZpMXVsZzBnZGROWER5NWEtSk1xenVrdWdfM3NsVmZIS3NWYXNxWktlbUJMLVBqdmpsT1dKVkZLMGhjeFBKbVdoNWNORDZtb0xTYUMtT2lJNUwxM3R4TWFMUXluemQ2RGhRUXN6NHU0NEdMZExpUVlYNWQ4Q0duSnNiNnA3TGFKN2E0QjMzalh4dEF2amhJYk9vc3JZRlJVTVZrOVdQWE5zdDBxZnN2OTFLQ1o2OVI5UmNDLVZEaG9BQUE9PVwiXSxcImV4dHJhQXR0cmlidXRlc1wiOntcIndpeC1nemlwcGVkLXNjb3BlXCI6XCJcIn19IiwiaWF0IjoxNzE2NzE0MTMyLCJleHAiOjE3MTY3MTQ0MzJ9.sGFWE5Iy1uEJtbIV1wnwzNQTzHUpZsddzygxh8dfxzgimkhiJKEDRFqyz2M6raLe3QjJ2FJgUPK161rMM2tTypJLhSOW34qHcuSKwskPRAqkFRQnPiDQ9_Jx-oX15YGz22OXNhIzXdymi2gz_egZPsDihffOuIG-1oAVKbMIrQlRWgZydbKOI4ZG3BZKAfqcrUpcOjqjFV2IoIr8h6UY9YjkORVjf-_Wd8qa1vDoBm_J6FOPeM8FTdrygjzmaF4dzJ4AGzzRBt6xvGsSviO_Am5hfFgTb80ISU5CSlR_wjz6dltkkdnZeRidMAFc5ujK43GVQyOmjq0PVMraNBzcow
-2024-05-26 14:32:12,465.465 INFO token_repository - update_token: exist token
-2024-05-26 14:32:12,540.540 INFO token_repository - update_token: Updated token: <Token 20>
-2024-05-26 14:34:45,469.469 INFO token_routes - post: Received request to get token
-2024-05-26 14:34:45,569.569 INFO token_routes - post: Request headers: Content-Type: application/json
-User-Agent: PostmanRuntime/7.37.3
-Accept: */*
-Postman-Token: 04c5de25-4a7a-4418-a024-0db55a392b1f
-Host: 127.0.0.1:5000
-Accept-Encoding: gzip, deflate, br
-Connection: keep-alive
-Content-Length: 42
-
-
-2024-05-26 14:34:45,572.572 INFO token_routes - post: Request body: {'wix_site': 'simple_learning'}
-2024-05-26 14:34:45,574.574 INFO token_routes - post: Received request to get token for store: simple_learning
-2024-05-26 14:34:45,577.577 INFO token_controller - token_exist: Checking if token exists for store: simple_learning
-2024-05-26 14:34:45,586.586 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 14:34:45,850.850 INFO token_controller - get_token_from_db: Found token: <Token 20>
-2024-05-26 14:34:45,852.852 INFO token_controller - get_token_from_db: Serializing token
-2024-05-26 14:34:45,853.853 INFO token_controller - token_exist: Token exists for store: simple_learning
-2024-05-26 14:34:45,854.854 INFO token_routes - post: Retrieved token for store: simple_learning
-2024-05-26 14:34:45,856.856 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 14:34:45,869.869 INFO token_controller - update_access_token: Found token: <Token 20>
-2024-05-26 14:34:45,870.870 INFO token_controller - update_access_token: Serializing token
-2024-05-26 14:34:45,871.871 INFO token_controller - update_access_token: APP id :43d91ee0-0523-4804-ad9c-38cec7fa766b
-2024-05-26 14:34:45,872.872 INFO token_controller - update_access_token: APP secret id :9ba86959-c39d-462d-a44d-ee99622d885d
-2024-05-26 14:34:45,874.874 INFO token_controller - update_access_token: Refresh token from the data base: OAUTH2.eyJraWQiOiJkZ0x3cjNRMCIsImFsZyI6IkhTMjU2In0.eyJkYXRhIjoie1wiaWRcIjpcIjQzNDZjN2NmLWI3MWItNGNjMS04ZjA4LTUxMzMyMzZkMDJlMVwifSIsImlhdCI6MTcxNjIwNzE2OSwiZXhwIjoxNzc5Mjc5MTY5fQ.8x6SAFkjrqiHXYymk1iFCvVQ8xC9wlEY7tS_rTb_-Yg
-2024-05-26 14:34:47,834.834 INFO token_controller - update_access_token: Response status :200
-2024-05-26 14:34:47,839.839 INFO token_repository - update_token: New access_token: OAUTH2.eyJraWQiOiJLaUp3NXZpeSIsImFsZyI6IlJTMjU2In0.eyJkYXRhIjoie1wiYXBwSWRcIjpcIjQzZDkxZWUwLTA1MjMtNDgwNC1hZDljLTM4Y2VjN2ZhNzY2YlwiLFwiaW5zdGFuY2VJZFwiOlwiM2YxMTY4M2QtNzMwOS00ZWQ1LWI1YzQtMzEwMWUyYzE1ZmQ3XCIsXCJzY29wZVwiOltcIkg0c0lBQUFBQUFBQV81MVoyM0xjS0JEOUlXZi1nWkdZR2NwSWFBRk43SDJoWEZ1dWJCNDJsVnJuXzJzYmFDUXVqY2JacDB3a0JIMDVmZm8wTnNKeVo3aTFZcjZhMDEzd3IwOWZ4WXN6Vm1sdVRzTUtQeWJ4SjdOQ3pXNWRSbVo1X243UmFsd0g2elJubzV1NEhtNXN0ZzVXc1h6VldiTjVER3VlLUtDbVUxaHQ0YUZoZzlfWXhNY2psLUxPOWFzYm1OYUNhLUs4U1kzaTh1cVVIcmsyVDJjaEpaaDlzdXpGWGJWYUZ6ZXhaWUVuYm9BamFFdmhFRTZfd2ROS1V6U19IbnRlT0IxOXpGWnBjVDd2bjdQVjNwVEdhSjZFY1F2WGs3Q1dqLTc4NnNCMEoyWmoyVHgwckVDdjloaENvT3dlQm5abmttbm10bkNZRkEtVDNCN2cteXVZNEZNYmY3NjZTZDI1QXhSTW5TeXdjVXVibUVmLVVrY19QM2FMQnBnNjh0a0tKZzBSUERGZkZJQXVKRF9EeGFqWnhlTDJhTEViaFJuVU9sc3EyMjB1TWQ0WXFMX2VQdjctX3Y3djZaLTNIMl9mM3VNWmlDQXgzNVVZdUtGU3FoWmJSenRaNGZRcXVVbXZra1ZTR092RXRFZy1nYzgwTWc5MlF6ZDZJZWdHN3NyOXluTG5fSE40QU9qcVpGVnpuX2VpSHNYMTZtM3ZSd1FUU1lHb05UVVVfWmI4UENEZWE2SkNjOTlNVVkyWXM0ajIzZUxMS2ktd3JZLTVlUnBXcmZrOHdDbzFnNk9RQlN5Ui1CeU1qVl9HYzkyWkRjOEFBbjgyX0ppVkZSY3hNTVRqSHlzM25icktjWTAtcDJVRGs4TXFfZWF3a0lwaWhacUhkYk1YQmdhZ3hBM05FUVdZMGp1d0FDTEZhNHUzWklTVFBtMFhlVVRDMWNndEU0WHhJUTBJeWRSb1FuaEdmdWRTQVFjQ3I4T0cydE5ndE1IQm9mcktjUmVnVFRXRjNFQ0I4MFZwNi1ETDJYWUxveVdjMklFT1NEQ1dRMGFEWmFjcFlIamp3N05hYlFtbzlOUmR0Sm9DVkF0ZThqRzRpUkZpNk14Nk5vTVdzYVJpWlprbVVpUlJGQjFxcjNSODd2aUw1VURRVUJpQ3l4RzNNRGNSVzJMSmFyVnRpTkdTdVZLMmlNYXp4YUJLcE9ja1BncllHWjd5eGNGZXp3UWJkaktVdzhhQUwtamZCSWdxay0zVG45Rk95MzNRdExMVzBWTXNNd1RrTG93NFM4cTVFcTFsaDNuRXZmQ3B0MEg0bURQcExyeHNOYVd1S3NxdkZUTkUxU2F1VVJwRFJtTTZ4UkxER1BHN2FIR1BMQVdlVWQ5UjFKd0MzaVl1aF9hR29sYXliVnMwMzBxRnhMc3ZhV1BSRVFrLXpiQXlGcTdwNUtIRVFRYldBTEd6aUd3QzBKZnFHa3o2c3F4bmllMkFMTVNHbVgtbm5RVFdMY2o2N2VmUEx4X3Z2MzU5X19IdEk0bVZubExMd3hmXzJRTllxOC15bzFZd3ltay1lcldKeFM2aVVqUGZBcFhlRUpXY2wyWkJwaVVBaWFoMEtDb25SdU9uRnEya0RHVnFtVjN6cElCVkRFd01vR2lMQzBfSkVGVzN5VWZhcEgyUFRRQk5yR0RtaGYyeS1rWnFPRlNLYVNDLThXeXZjZVhFdjdFVE9MY0V1VUhKeEZTdkRYTlR3cmYwTG90ajRkV2hQamdlRFotZ2VoWVlNNkdyYzdkcWVacll6SzRrNThLVFJSbGdLd09QSnZaUWhPV2g4YVFNd2ZhbEM0eE9LdHBDSnlSQnRzSFpfeUs0YTZNMUdpNTd3RHdkWVlDSmJmcU5uMURuNUJ6NW9GRlFXanVBdlpsWWprWkZYSnFycnNIUHBCSlZGMFVNd1hHdm5UNXpRUFFpQlIzNC01a2ZPTlZoX2h6WTdBeEZvbWFld2FoVDlWU0pZWGFJTmxRelVCeEFtdW9rNkFBYzhJY2h6T3Q5LWtBSThrbUtxeWp3U3dvNVFoVk00cXFURHdEenJxcXZFMExNV3NWc1JUTExucGRBczN1SHJLQmJTcDBESEZaTnFQSVBXcWlZOHVFcUk5aEtndmRQNzB5cGxKcHJhZmJBOUdacS00Ul9SSmVMUlU0MHpvZnNXSFNST2dQVkZKOEZJWl9BQWxTSlM2aU5WS0c4QW8yM0ZXQ3FBTGJGaFhEYXdKeDNGcHlZVXZMQ2U1eG9XaVhlRWtIU2wwRUF0cFoxeEVSdEVNRXRSX3E5YUNQOUswVWNNdXcyWkJ4VWF3Ni11dGE3Yk5iMENXenhoSTZ1anN0UjFtSTk3QnR1Tk1OUWFmeG5FWEtucjFyOHppVkc3aGFtcXJqNWJlNGlrSXdBbW00SXQybFI3QzNzMVpNUkhHSnZLdW1UVU53YlQtYktwZkVvNXpnMlRxRFZpMXVsZzBnZGROWER5NWEtSk1xenVrdWdfM3NsVmZIS3NWYXNxWktlbUJMLVBqdmpsT1dKVkZLMGhjeFBKbVdoNWNORDZtb0xTYUMtT2lJNUwxM3R4TWFMUXluemQ2RGhRUXN6NHU0NEdMZExpUVlYNWQ4Q0duSnNiNnA3TGFKN2E0QjMzalh4dEF2amhJYk9vc3JZRlJVTVZrOVdQWE5zdDBxZnN2OTFLQ1o2OVI5UmNDLVZEaG9BQUE9PVwiXSxcImV4dHJhQXR0cmlidXRlc1wiOntcIndpeC1nemlwcGVkLXNjb3BlXCI6XCJcIn19IiwiaWF0IjoxNzE2NzE0Mjg2LCJleHAiOjE3MTY3MTQ1ODZ9.Jt6gH9hgzOuOZSoHhjT3Ah32wkwKrkKyxvqHdNHQg3PFn3m_xWEBA5PglToorfd0rvUyQn1mW-SqlTf5Qsce1NzAci0mk5R39xsHROy9WoxrS_inI32ZVy2PPbE9kof5rQkxAlWUEj7UPwogv2pU9JgBz7KePdPPWk6vULcLEVxOoRcLGS4uctPnjEOX1r12TshEr2JNTuU-QCRxNCPF8mtpi74BQXcrKpF8XZx80ighO6cqxkFpX3oKbfEfvDqxvrhdoMbamDXGvQkLyb8qagJCFejJGpw7YoKlzkGrvDvgjG5t8f-sb6cpjIDmG-xllgwYa8vStDs2idNegmF30Q
-2024-05-26 14:34:47,950.950 INFO token_repository - update_token: exist token
-2024-05-26 14:34:48,000.000 INFO token_repository - update_token: Updated token: <Token 20>
-2024-05-26 14:34:54,807.807 INFO delete_routes - delete: Received request  delete the product 
-2024-05-26 14:34:54,808.808 INFO delete_routes - delete: Request headers: Authorization: outh
+2024-05-27 12:52:20,515.515 INFO search_routes - get: Request body: {'search_term': 'modern', 'wix_site': 'simple_learning'}
+2024-05-27 12:52:20,516.516 INFO search_dtr - search_rest_response: Received REST search request for site: simple_learning, search query: modern
+2024-05-27 12:52:20,518.518 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
+2024-05-27 12:52:20,528.528 INFO token_controller - get_token_from_db: Found token: <Token 20>
+2024-05-27 12:52:20,529.529 INFO token_controller - get_token_from_db: Serializing token
+2024-05-27 12:52:20,530.530 INFO product_controller - get_all_product: Sending request to wix  API to get all products for wix _site: simple_learning
+2024-05-27 12:52:21,948.948 INFO product_controller - get_all_product: Wix API Response Status Code: 200
+2024-05-27 12:52:21,970.970 INFO product_controller - get_all_product: Retrieved 9 products from wix API
+2024-05-27 12:52:21,978.978 INFO search_dtr - search_rest_response: Generated REST response for search
+2024-05-27 12:53:30,535.535 INFO order_routes - get: Request headers: Authorization: oAUTH
 Content-Type: application/json
 User-Agent: PostmanRuntime/7.37.3
 Accept: */*
-Postman-Token: db412f36-79df-4b3e-a41d-faf7d69a5b99
+Postman-Token: aba79802-0348-424f-9ae4-1594f39f8954
 Host: 127.0.0.1:5000
 Accept-Encoding: gzip, deflate, br
 Connection: keep-alive
-Content-Length: 89
+Content-Length: 93
 
 
-2024-05-26 14:34:54,809.809 INFO delete_routes - delete: Request body: {'id': 'cd59cd36-b6d2-2cf3-9d48-81793a7bdbbd', 'wix_site': 'simple_learning'}
-2024-05-26 14:34:54,811.811 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 14:34:54,815.815 INFO token_controller - get_token_from_db: Found token: <Token 20>
-2024-05-26 14:34:54,816.816 INFO token_controller - get_token_from_db: Serializing token
-2024-05-26 14:34:59,942.942 INFO product_controller - deleteProduct: Request response: 404
-2024-05-26 14:34:59,943.943 WARNING product_controller - deleteProduct: Failed to delete the product from the Wix site. Status Code : 404
-2024-05-26 14:39:47,012.012 INFO token_routes - post: Received request to get token
-2024-05-26 14:39:47,038.038 INFO token_routes - post: Request headers: Content-Type: application/json
-User-Agent: PostmanRuntime/7.37.3
-Accept: */*
-Postman-Token: 05272b48-2487-4881-b05d-f401a5e7050d
-Host: 127.0.0.1:5000
-Accept-Encoding: gzip, deflate, br
-Connection: keep-alive
-Content-Length: 42
-
-
-2024-05-26 14:39:47,059.059 INFO token_routes - post: Request body: {'wix_site': 'simple_learning'}
-2024-05-26 14:39:47,060.060 INFO token_routes - post: Received request to get token for store: simple_learning
-2024-05-26 14:39:47,064.064 INFO token_controller - token_exist: Checking if token exists for store: simple_learning
-2024-05-26 14:39:47,076.076 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 14:39:47,994.994 INFO token_controller - get_token_from_db: Found token: <Token 20>
-2024-05-26 14:39:47,995.995 INFO token_controller - get_token_from_db: Serializing token
-2024-05-26 14:39:47,997.997 INFO token_controller - token_exist: Token exists for store: simple_learning
-2024-05-26 14:39:47,998.998 INFO token_routes - post: Retrieved token for store: simple_learning
-2024-05-26 14:39:48,000.000 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 14:39:48,012.012 INFO token_controller - update_access_token: Found token: <Token 20>
-2024-05-26 14:39:48,014.014 INFO token_controller - update_access_token: Serializing token
-2024-05-26 14:39:48,016.016 INFO token_controller - update_access_token: APP id :43d91ee0-0523-4804-ad9c-38cec7fa766b
-2024-05-26 14:39:48,017.017 INFO token_controller - update_access_token: APP secret id :9ba86959-c39d-462d-a44d-ee99622d885d
-2024-05-26 14:39:48,021.021 INFO token_controller - update_access_token: Refresh token from the data base: OAUTH2.eyJraWQiOiJkZ0x3cjNRMCIsImFsZyI6IkhTMjU2In0.eyJkYXRhIjoie1wiaWRcIjpcIjQzNDZjN2NmLWI3MWItNGNjMS04ZjA4LTUxMzMyMzZkMDJlMVwifSIsImlhdCI6MTcxNjIwNzE2OSwiZXhwIjoxNzc5Mjc5MTY5fQ.8x6SAFkjrqiHXYymk1iFCvVQ8xC9wlEY7tS_rTb_-Yg
-2024-05-26 14:39:52,870.870 INFO token_controller - update_access_token: Response status :200
-2024-05-26 14:39:52,876.876 INFO token_repository - update_token: New access_token: OAUTH2.eyJraWQiOiJLaUp3NXZpeSIsImFsZyI6IlJTMjU2In0.eyJkYXRhIjoie1wiYXBwSWRcIjpcIjQzZDkxZWUwLTA1MjMtNDgwNC1hZDljLTM4Y2VjN2ZhNzY2YlwiLFwiaW5zdGFuY2VJZFwiOlwiM2YxMTY4M2QtNzMwOS00ZWQ1LWI1YzQtMzEwMWUyYzE1ZmQ3XCIsXCJzY29wZVwiOltcIkg0c0lBQUFBQUFBQV81MVoyM0xjS0JEOUlXZi1nWkdZR2NwSWFBRk43SDJoWEZ1dWJCNDJsVnJuXzJzYmFDUXVqY2JacDB3a0JIMDVmZm8wTnNKeVo3aTFZcjZhMDEzd3IwOWZ4WXN6Vm1sdVRzTUtQeWJ4SjdOQ3pXNWRSbVo1X243UmFsd0g2elJubzV1NEhtNXN0ZzVXc1h6VldiTjVER3VlLUtDbVUxaHQ0YUZoZzlfWXhNY2psLUxPOWFzYm1OYUNhLUs4U1kzaTh1cVVIcmsyVDJjaEpaaDlzdXpGWGJWYUZ6ZXhaWUVuYm9BamFFdmhFRTZfd2ROS1V6U19IbnRlT0IxOXpGWnBjVDd2bjdQVjNwVEdhSjZFY1F2WGs3Q1dqLTc4NnNCMEoyWmoyVHgwckVDdjloaENvT3dlQm5abmttbm10bkNZRkEtVDNCN2cteXVZNEZNYmY3NjZTZDI1QXhSTW5TeXdjVXVibUVmLVVrY19QM2FMQnBnNjh0a0tKZzBSUERGZkZJQXVKRF9EeGFqWnhlTDJhTEViaFJuVU9sc3EyMjB1TWQ0WXFMX2VQdjctX3Y3djZaLTNIMl9mM3VNWmlDQXgzNVVZdUtGU3FoWmJSenRaNGZRcXVVbXZra1ZTR092RXRFZy1nYzgwTWc5MlF6ZDZJZWdHN3NyOXluTG5fSE40QU9qcVpGVnpuX2VpSHNYMTZtM3ZSd1FUU1lHb05UVVVfWmI4UENEZWE2SkNjOTlNVVkyWXM0ajIzZUxMS2ktd3JZLTVlUnBXcmZrOHdDbzFnNk9RQlN5Ui1CeU1qVl9HYzkyWkRjOEFBbjgyX0ppVkZSY3hNTVRqSHlzM25icktjWTAtcDJVRGs4TXFfZWF3a0lwaWhacUhkYk1YQmdhZ3hBM05FUVdZMGp1d0FDTEZhNHUzWklTVFBtMFhlVVRDMWNndEU0WHhJUTBJeWRSb1FuaEdmdWRTQVFjQ3I4T0cydE5ndE1IQm9mcktjUmVnVFRXRjNFQ0I4MFZwNi1ETDJYWUxveVdjMklFT1NEQ1dRMGFEWmFjcFlIamp3N05hYlFtbzlOUmR0Sm9DVkF0ZThqRzRpUkZpNk14Nk5vTVdzYVJpWlprbVVpUlJGQjFxcjNSODd2aUw1VURRVUJpQ3l4RzNNRGNSVzJMSmFyVnRpTkdTdVZLMmlNYXp4YUJLcE9ja1BncllHWjd5eGNGZXp3UWJkaktVdzhhQUwtamZCSWdxay0zVG45Rk95MzNRdExMVzBWTXNNd1RrTG93NFM4cTVFcTFsaDNuRXZmQ3B0MEg0bURQcExyeHNOYVd1S3NxdkZUTkUxU2F1VVJwRFJtTTZ4UkxER1BHN2FIR1BMQVdlVWQ5UjFKd0MzaVl1aF9hR29sYXliVnMwMzBxRnhMc3ZhV1BSRVFrLXpiQXlGcTdwNUtIRVFRYldBTEd6aUd3QzBKZnFHa3o2c3F4bmllMkFMTVNHbVgtbm5RVFdMY2o2N2VmUEx4X3Z2MzU5X19IdEk0bVZubExMd3hmXzJRTllxOC15bzFZd3ltay1lcldKeFM2aVVqUGZBcFhlRUpXY2wyWkJwaVVBaWFoMEtDb25SdU9uRnEya0RHVnFtVjN6cElCVkRFd01vR2lMQzBfSkVGVzN5VWZhcEgyUFRRQk5yR0RtaGYyeS1rWnFPRlNLYVNDLThXeXZjZVhFdjdFVE9MY0V1VUhKeEZTdkRYTlR3cmYwTG90ajRkV2hQamdlRFotZ2VoWVlNNkdyYzdkcWVacll6SzRrNThLVFJSbGdLd09QSnZaUWhPV2g4YVFNd2ZhbEM0eE9LdHBDSnlSQnRzSFpfeUs0YTZNMUdpNTd3RHdkWVlDSmJmcU5uMURuNUJ6NW9GRlFXanVBdlpsWWprWkZYSnFycnNIUHBCSlZGMFVNd1hHdm5UNXpRUFFpQlIzNC01a2ZPTlZoX2h6WTdBeEZvbWFld2FoVDlWU0pZWGFJTmxRelVCeEFtdW9rNkFBYzhJY2h6T3Q5LWtBSThrbUtxeWp3U3dvNVFoVk00cXFURHdEenJxcXZFMExNV3NWc1JUTExucGRBczN1SHJLQmJTcDBESEZaTnFQSVBXcWlZOHVFcUk5aEtndmRQNzB5cGxKcHJhZmJBOUdacS00Ul9SSmVMUlU0MHpvZnNXSFNST2dQVkZKOEZJWl9BQWxTSlM2aU5WS0c4QW8yM0ZXQ3FBTGJGaFhEYXdKeDNGcHlZVXZMQ2U1eG9XaVhlRWtIU2wwRUF0cFoxeEVSdEVNRXRSX3E5YUNQOUswVWNNdXcyWkJ4VWF3Ni11dGE3Yk5iMENXenhoSTZ1anN0UjFtSTk3QnR1Tk1OUWFmeG5FWEtucjFyOHppVkc3aGFtcXJqNWJlNGlrSXdBbW00SXQybFI3QzNzMVpNUkhHSnZLdW1UVU53YlQtYktwZkVvNXpnMlRxRFZpMXVsZzBnZGROWER5NWEtSk1xenVrdWdfM3NsVmZIS3NWYXNxWktlbUJMLVBqdmpsT1dKVkZLMGhjeFBKbVdoNWNORDZtb0xTYUMtT2lJNUwxM3R4TWFMUXluemQ2RGhRUXN6NHU0NEdMZExpUVlYNWQ4Q0duSnNiNnA3TGFKN2E0QjMzalh4dEF2amhJYk9vc3JZRlJVTVZrOVdQWE5zdDBxZnN2OTFLQ1o2OVI5UmNDLVZEaG9BQUE9PVwiXSxcImV4dHJhQXR0cmlidXRlc1wiOntcIndpeC1nemlwcGVkLXNjb3BlXCI6XCJcIn19IiwiaWF0IjoxNzE2NzE0NTkyLCJleHAiOjE3MTY3MTQ4OTJ9.VIzWLCAacYeBYT7QRniZFzrihIBJ4iAottD0zCiPrC8fwdLiPdW2gdl1BybRKSlffkUY1E7h7Sr0GYn_N18sjDB6shzJuYRPlVF036uGfFiPEEedWmZxxsYA2WOv7vbDUIE-uzD5xaBOoabSqlTYuvppuwUEwskZSqKuGP0s9A_hqFRdiSSngAYyZnnrFqOkSTOHTFcQRqIe504H7EzK-x42zDIAs3UBZyDIrhN9w0X2cv9v81NpaCUa35Z4HSGDFFDZBA7YOCaH3tFwEgDN8O34xX6Fqt788MAAR5BSs8rcpfWxUFZtA9wOK_NzxgfyEmyLpPnGQpBNG35WbgO_mA
-2024-05-26 14:39:52,879.879 INFO token_repository - update_token: exist token
-2024-05-26 14:39:52,997.997 INFO token_repository - update_token: Updated token: <Token 20>
-2024-05-26 14:42:21,974.974 INFO token_routes - post: Received request to get token
-2024-05-26 14:42:22,312.312 INFO token_routes - post: Request headers: Authorization: oauth
-Content-Type: application/json
-User-Agent: PostmanRuntime/7.37.3
-Accept: */*
-Postman-Token: 59cdf85b-a97e-4c0f-b4ef-e53d68981ff2
-Host: 127.0.0.1:5000
-Accept-Encoding: gzip, deflate, br
-Connection: keep-alive
-Content-Length: 42
-
-
-2024-05-26 14:42:22,314.314 INFO token_routes - post: Request body: {'wix_site': 'simple_learning'}
-2024-05-26 14:42:22,315.315 INFO token_routes - post: Received request to get token for store: simple_learning
-2024-05-26 14:42:22,316.316 INFO token_controller - token_exist: Checking if token exists for store: simple_learning
-2024-05-26 14:42:22,327.327 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 14:42:22,524.524 INFO token_controller - get_token_from_db: Found token: <Token 20>
-2024-05-26 14:42:22,525.525 INFO token_controller - get_token_from_db: Serializing token
-2024-05-26 14:42:22,525.525 INFO token_controller - token_exist: Token exists for store: simple_learning
-2024-05-26 14:42:22,526.526 INFO token_routes - post: Retrieved token for store: simple_learning
-2024-05-26 14:42:22,526.526 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 14:42:22,529.529 INFO token_controller - update_access_token: Found token: <Token 20>
-2024-05-26 14:42:22,530.530 INFO token_controller - update_access_token: Serializing token
-2024-05-26 14:42:22,530.530 INFO token_controller - update_access_token: APP id :43d91ee0-0523-4804-ad9c-38cec7fa766b
-2024-05-26 14:42:22,530.530 INFO token_controller - update_access_token: APP secret id :9ba86959-c39d-462d-a44d-ee99622d885d
-2024-05-26 14:42:22,531.531 INFO token_controller - update_access_token: Refresh token from the data base: OAUTH2.eyJraWQiOiJkZ0x3cjNRMCIsImFsZyI6IkhTMjU2In0.eyJkYXRhIjoie1wiaWRcIjpcIjQzNDZjN2NmLWI3MWItNGNjMS04ZjA4LTUxMzMyMzZkMDJlMVwifSIsImlhdCI6MTcxNjIwNzE2OSwiZXhwIjoxNzc5Mjc5MTY5fQ.8x6SAFkjrqiHXYymk1iFCvVQ8xC9wlEY7tS_rTb_-Yg
-2024-05-26 14:42:25,843.843 INFO token_controller - update_access_token: Response status :200
-2024-05-26 14:42:25,849.849 INFO token_repository - update_token: New access_token: OAUTH2.eyJraWQiOiJLaUp3NXZpeSIsImFsZyI6IlJTMjU2In0.eyJkYXRhIjoie1wiYXBwSWRcIjpcIjQzZDkxZWUwLTA1MjMtNDgwNC1hZDljLTM4Y2VjN2ZhNzY2YlwiLFwiaW5zdGFuY2VJZFwiOlwiM2YxMTY4M2QtNzMwOS00ZWQ1LWI1YzQtMzEwMWUyYzE1ZmQ3XCIsXCJzY29wZVwiOltcIkg0c0lBQUFBQUFBQV81MVoyM0xjS0JEOUlXZi1nWkdZR2NwSWFBRk43SDJoWEZ1dWJCNDJsVnJuXzJzYmFDUXVqY2JacDB3a0JIMDVmZm8wTnNKeVo3aTFZcjZhMDEzd3IwOWZ4WXN6Vm1sdVRzTUtQeWJ4SjdOQ3pXNWRSbVo1X243UmFsd0g2elJubzV1NEhtNXN0ZzVXc1h6VldiTjVER3VlLUtDbVUxaHQ0YUZoZzlfWXhNY2psLUxPOWFzYm1OYUNhLUs4U1kzaTh1cVVIcmsyVDJjaEpaaDlzdXpGWGJWYUZ6ZXhaWUVuYm9BamFFdmhFRTZfd2ROS1V6U19IbnRlT0IxOXpGWnBjVDd2bjdQVjNwVEdhSjZFY1F2WGs3Q1dqLTc4NnNCMEoyWmoyVHgwckVDdjloaENvT3dlQm5abmttbm10bkNZRkEtVDNCN2cteXVZNEZNYmY3NjZTZDI1QXhSTW5TeXdjVXVibUVmLVVrY19QM2FMQnBnNjh0a0tKZzBSUERGZkZJQXVKRF9EeGFqWnhlTDJhTEViaFJuVU9sc3EyMjB1TWQ0WXFMX2VQdjctX3Y3djZaLTNIMl9mM3VNWmlDQXgzNVVZdUtGU3FoWmJSenRaNGZRcXVVbXZra1ZTR092RXRFZy1nYzgwTWc5MlF6ZDZJZWdHN3NyOXluTG5fSE40QU9qcVpGVnpuX2VpSHNYMTZtM3ZSd1FUU1lHb05UVVVfWmI4UENEZWE2SkNjOTlNVVkyWXM0ajIzZUxMS2ktd3JZLTVlUnBXcmZrOHdDbzFnNk9RQlN5Ui1CeU1qVl9HYzkyWkRjOEFBbjgyX0ppVkZSY3hNTVRqSHlzM25icktjWTAtcDJVRGs4TXFfZWF3a0lwaWhacUhkYk1YQmdhZ3hBM05FUVdZMGp1d0FDTEZhNHUzWklTVFBtMFhlVVRDMWNndEU0WHhJUTBJeWRSb1FuaEdmdWRTQVFjQ3I4T0cydE5ndE1IQm9mcktjUmVnVFRXRjNFQ0I4MFZwNi1ETDJYWUxveVdjMklFT1NEQ1dRMGFEWmFjcFlIamp3N05hYlFtbzlOUmR0Sm9DVkF0ZThqRzRpUkZpNk14Nk5vTVdzYVJpWlprbVVpUlJGQjFxcjNSODd2aUw1VURRVUJpQ3l4RzNNRGNSVzJMSmFyVnRpTkdTdVZLMmlNYXp4YUJLcE9ja1BncllHWjd5eGNGZXp3UWJkaktVdzhhQUwtamZCSWdxay0zVG45Rk95MzNRdExMVzBWTXNNd1RrTG93NFM4cTVFcTFsaDNuRXZmQ3B0MEg0bURQcExyeHNOYVd1S3NxdkZUTkUxU2F1VVJwRFJtTTZ4UkxER1BHN2FIR1BMQVdlVWQ5UjFKd0MzaVl1aF9hR29sYXliVnMwMzBxRnhMc3ZhV1BSRVFrLXpiQXlGcTdwNUtIRVFRYldBTEd6aUd3QzBKZnFHa3o2c3F4bmllMkFMTVNHbVgtbm5RVFdMY2o2N2VmUEx4X3Z2MzU5X19IdEk0bVZubExMd3hmXzJRTllxOC15bzFZd3ltay1lcldKeFM2aVVqUGZBcFhlRUpXY2wyWkJwaVVBaWFoMEtDb25SdU9uRnEya0RHVnFtVjN6cElCVkRFd01vR2lMQzBfSkVGVzN5VWZhcEgyUFRRQk5yR0RtaGYyeS1rWnFPRlNLYVNDLThXeXZjZVhFdjdFVE9MY0V1VUhKeEZTdkRYTlR3cmYwTG90ajRkV2hQamdlRFotZ2VoWVlNNkdyYzdkcWVacll6SzRrNThLVFJSbGdLd09QSnZaUWhPV2g4YVFNd2ZhbEM0eE9LdHBDSnlSQnRzSFpfeUs0YTZNMUdpNTd3RHdkWVlDSmJmcU5uMURuNUJ6NW9GRlFXanVBdlpsWWprWkZYSnFycnNIUHBCSlZGMFVNd1hHdm5UNXpRUFFpQlIzNC01a2ZPTlZoX2h6WTdBeEZvbWFld2FoVDlWU0pZWGFJTmxRelVCeEFtdW9rNkFBYzhJY2h6T3Q5LWtBSThrbUtxeWp3U3dvNVFoVk00cXFURHdEenJxcXZFMExNV3NWc1JUTExucGRBczN1SHJLQmJTcDBESEZaTnFQSVBXcWlZOHVFcUk5aEtndmRQNzB5cGxKcHJhZmJBOUdacS00Ul9SSmVMUlU0MHpvZnNXSFNST2dQVkZKOEZJWl9BQWxTSlM2aU5WS0c4QW8yM0ZXQ3FBTGJGaFhEYXdKeDNGcHlZVXZMQ2U1eG9XaVhlRWtIU2wwRUF0cFoxeEVSdEVNRXRSX3E5YUNQOUswVWNNdXcyWkJ4VWF3Ni11dGE3Yk5iMENXenhoSTZ1anN0UjFtSTk3QnR1Tk1OUWFmeG5FWEtucjFyOHppVkc3aGFtcXJqNWJlNGlrSXdBbW00SXQybFI3QzNzMVpNUkhHSnZLdW1UVU53YlQtYktwZkVvNXpnMlRxRFZpMXVsZzBnZGROWER5NWEtSk1xenVrdWdfM3NsVmZIS3NWYXNxWktlbUJMLVBqdmpsT1dKVkZLMGhjeFBKbVdoNWNORDZtb0xTYUMtT2lJNUwxM3R4TWFMUXluemQ2RGhRUXN6NHU0NEdMZExpUVlYNWQ4Q0duSnNiNnA3TGFKN2E0QjMzalh4dEF2amhJYk9vc3JZRlJVTVZrOVdQWE5zdDBxZnN2OTFLQ1o2OVI5UmNDLVZEaG9BQUE9PVwiXSxcImV4dHJhQXR0cmlidXRlc1wiOntcIndpeC1nemlwcGVkLXNjb3BlXCI6XCJcIn19IiwiaWF0IjoxNzE2NzE0NzQzLCJleHAiOjE3MTY3MTUwNDN9.pR3IK8B1hXDFBB7EpSl4Zp7jN-Yzft6al7hf_q7erY0umDlmqLAG0G5yl0vTk_6tcztrfThbGeVME8joNT_fmOsG5Cw43qFVnMh2OD3fECTa1uw62bH734vvpcgXE1kDA7wu1TaRD_oMdHj3v82-6hBI_nSM6Tx2swmHy6Trn97fgfizrZlbgdoegwWDG9rUSDHG1nY1H3zmITg5A1AmEaWDcFqSMEqgiXfx9OBEe7-LjY6Z65I_9rvoTrH8jY9Z0YuYtNGhv-cyHuEA8bsfEANzkiQym8ug0VSelsDPdv70wt-dfwcOr6rnjaF7_7TZp6u2Fi_nVPZ-U8EHgihuBQ
-2024-05-26 14:42:25,852.852 INFO token_repository - update_token: exist token
-2024-05-26 14:42:25,893.893 INFO token_repository - update_token: Updated token: <Token 20>
-2024-05-26 14:42:34,743.743 INFO delete_routes - delete: Received request  delete the product 
-2024-05-26 14:42:34,743.743 INFO delete_routes - delete: Request headers: Content-Type: application/json
-User-Agent: PostmanRuntime/7.37.3
-Accept: */*
-Postman-Token: d849cfc9-80cd-4029-8dbc-40f18f3d2417
-Host: 127.0.0.1:5000
-Accept-Encoding: gzip, deflate, br
-Connection: keep-alive
-Content-Length: 88
-
-
-2024-05-26 14:42:34,744.744 INFO delete_routes - delete: Request body: {'id': 'ea77f230-558f-57b6-cdd1-0ba565e8f827', 'wix_site': 'simple_learning'}
-2024-05-26 14:42:34,745.745 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 14:42:34,751.751 INFO token_controller - get_token_from_db: Found token: <Token 20>
-2024-05-26 14:42:34,752.752 INFO token_controller - get_token_from_db: Serializing token
-2024-05-26 14:42:35,384.384 INFO product_controller - deleteProduct: Request response: 200
-2024-05-26 14:46:00,746.746 INFO token_routes - post: Received request to get token
-2024-05-26 14:46:00,748.748 INFO token_routes - post: Request headers: Authorization: oauth
-Content-Type: application/json
-User-Agent: PostmanRuntime/7.37.3
-Accept: */*
-Postman-Token: 5ee8738a-dc93-4474-8019-61a49ef5c59f
-Host: 127.0.0.1:5000
-Accept-Encoding: gzip, deflate, br
-Connection: keep-alive
-Content-Length: 42
-
-
-2024-05-26 14:46:00,754.754 INFO token_routes - post: Request body: {'wix_site': 'simple_learning'}
-2024-05-26 14:46:00,756.756 INFO token_routes - post: Received request to get token for store: simple_learning
-2024-05-26 14:46:00,757.757 INFO token_controller - token_exist: Checking if token exists for store: simple_learning
-2024-05-26 14:46:00,758.758 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 14:46:00,913.913 INFO token_controller - get_token_from_db: Found token: <Token 20>
-2024-05-26 14:46:00,917.917 INFO token_controller - get_token_from_db: Serializing token
-2024-05-26 14:46:00,920.920 INFO token_controller - token_exist: Token exists for store: simple_learning
-2024-05-26 14:46:00,923.923 INFO token_routes - post: Retrieved token for store: simple_learning
-2024-05-26 14:46:00,924.924 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 14:46:00,928.928 INFO token_controller - update_access_token: Found token: <Token 20>
-2024-05-26 14:46:00,929.929 INFO token_controller - update_access_token: Serializing token
-2024-05-26 14:46:00,929.929 INFO token_controller - update_access_token: APP id :43d91ee0-0523-4804-ad9c-38cec7fa766b
-2024-05-26 14:46:00,930.930 INFO token_controller - update_access_token: APP secret id :9ba86959-c39d-462d-a44d-ee99622d885d
-2024-05-26 14:46:00,931.931 INFO token_controller - update_access_token: Refresh token from the data base: OAUTH2.eyJraWQiOiJkZ0x3cjNRMCIsImFsZyI6IkhTMjU2In0.eyJkYXRhIjoie1wiaWRcIjpcIjQzNDZjN2NmLWI3MWItNGNjMS04ZjA4LTUxMzMyMzZkMDJlMVwifSIsImlhdCI6MTcxNjIwNzE2OSwiZXhwIjoxNzc5Mjc5MTY5fQ.8x6SAFkjrqiHXYymk1iFCvVQ8xC9wlEY7tS_rTb_-Yg
-2024-05-26 14:46:01,688.688 INFO token_controller - update_access_token: Response status :200
-2024-05-26 14:46:01,695.695 INFO token_repository - update_token: New access_token: OAUTH2.eyJraWQiOiJLaUp3NXZpeSIsImFsZyI6IlJTMjU2In0.eyJkYXRhIjoie1wiYXBwSWRcIjpcIjQzZDkxZWUwLTA1MjMtNDgwNC1hZDljLTM4Y2VjN2ZhNzY2YlwiLFwiaW5zdGFuY2VJZFwiOlwiM2YxMTY4M2QtNzMwOS00ZWQ1LWI1YzQtMzEwMWUyYzE1ZmQ3XCIsXCJzY29wZVwiOltcIkg0c0lBQUFBQUFBQV81MVoyM0xjS0JEOUlXZi1nWkdZR2NwSWFBRk43SDJoWEZ1dWJCNDJsVnJuXzJzYmFDUXVqY2JacDB3a0JIMDVmZm8wTnNKeVo3aTFZcjZhMDEzd3IwOWZ4WXN6Vm1sdVRzTUtQeWJ4SjdOQ3pXNWRSbVo1X243UmFsd0g2elJubzV1NEhtNXN0ZzVXc1h6VldiTjVER3VlLUtDbVUxaHQ0YUZoZzlfWXhNY2psLUxPOWFzYm1OYUNhLUs4U1kzaTh1cVVIcmsyVDJjaEpaaDlzdXpGWGJWYUZ6ZXhaWUVuYm9BamFFdmhFRTZfd2ROS1V6U19IbnRlT0IxOXpGWnBjVDd2bjdQVjNwVEdhSjZFY1F2WGs3Q1dqLTc4NnNCMEoyWmoyVHgwckVDdjloaENvT3dlQm5abmttbm10bkNZRkEtVDNCN2cteXVZNEZNYmY3NjZTZDI1QXhSTW5TeXdjVXVibUVmLVVrY19QM2FMQnBnNjh0a0tKZzBSUERGZkZJQXVKRF9EeGFqWnhlTDJhTEViaFJuVU9sc3EyMjB1TWQ0WXFMX2VQdjctX3Y3djZaLTNIMl9mM3VNWmlDQXgzNVVZdUtGU3FoWmJSenRaNGZRcXVVbXZra1ZTR092RXRFZy1nYzgwTWc5MlF6ZDZJZWdHN3NyOXluTG5fSE40QU9qcVpGVnpuX2VpSHNYMTZtM3ZSd1FUU1lHb05UVVVfWmI4UENEZWE2SkNjOTlNVVkyWXM0ajIzZUxMS2ktd3JZLTVlUnBXcmZrOHdDbzFnNk9RQlN5Ui1CeU1qVl9HYzkyWkRjOEFBbjgyX0ppVkZSY3hNTVRqSHlzM25icktjWTAtcDJVRGs4TXFfZWF3a0lwaWhacUhkYk1YQmdhZ3hBM05FUVdZMGp1d0FDTEZhNHUzWklTVFBtMFhlVVRDMWNndEU0WHhJUTBJeWRSb1FuaEdmdWRTQVFjQ3I4T0cydE5ndE1IQm9mcktjUmVnVFRXRjNFQ0I4MFZwNi1ETDJYWUxveVdjMklFT1NEQ1dRMGFEWmFjcFlIamp3N05hYlFtbzlOUmR0Sm9DVkF0ZThqRzRpUkZpNk14Nk5vTVdzYVJpWlprbVVpUlJGQjFxcjNSODd2aUw1VURRVUJpQ3l4RzNNRGNSVzJMSmFyVnRpTkdTdVZLMmlNYXp4YUJLcE9ja1BncllHWjd5eGNGZXp3UWJkaktVdzhhQUwtamZCSWdxay0zVG45Rk95MzNRdExMVzBWTXNNd1RrTG93NFM4cTVFcTFsaDNuRXZmQ3B0MEg0bURQcExyeHNOYVd1S3NxdkZUTkUxU2F1VVJwRFJtTTZ4UkxER1BHN2FIR1BMQVdlVWQ5UjFKd0MzaVl1aF9hR29sYXliVnMwMzBxRnhMc3ZhV1BSRVFrLXpiQXlGcTdwNUtIRVFRYldBTEd6aUd3QzBKZnFHa3o2c3F4bmllMkFMTVNHbVgtbm5RVFdMY2o2N2VmUEx4X3Z2MzU5X19IdEk0bVZubExMd3hmXzJRTllxOC15bzFZd3ltay1lcldKeFM2aVVqUGZBcFhlRUpXY2wyWkJwaVVBaWFoMEtDb25SdU9uRnEya0RHVnFtVjN6cElCVkRFd01vR2lMQzBfSkVGVzN5VWZhcEgyUFRRQk5yR0RtaGYyeS1rWnFPRlNLYVNDLThXeXZjZVhFdjdFVE9MY0V1VUhKeEZTdkRYTlR3cmYwTG90ajRkV2hQamdlRFotZ2VoWVlNNkdyYzdkcWVacll6SzRrNThLVFJSbGdLd09QSnZaUWhPV2g4YVFNd2ZhbEM0eE9LdHBDSnlSQnRzSFpfeUs0YTZNMUdpNTd3RHdkWVlDSmJmcU5uMURuNUJ6NW9GRlFXanVBdlpsWWprWkZYSnFycnNIUHBCSlZGMFVNd1hHdm5UNXpRUFFpQlIzNC01a2ZPTlZoX2h6WTdBeEZvbWFld2FoVDlWU0pZWGFJTmxRelVCeEFtdW9rNkFBYzhJY2h6T3Q5LWtBSThrbUtxeWp3U3dvNVFoVk00cXFURHdEenJxcXZFMExNV3NWc1JUTExucGRBczN1SHJLQmJTcDBESEZaTnFQSVBXcWlZOHVFcUk5aEtndmRQNzB5cGxKcHJhZmJBOUdacS00Ul9SSmVMUlU0MHpvZnNXSFNST2dQVkZKOEZJWl9BQWxTSlM2aU5WS0c4QW8yM0ZXQ3FBTGJGaFhEYXdKeDNGcHlZVXZMQ2U1eG9XaVhlRWtIU2wwRUF0cFoxeEVSdEVNRXRSX3E5YUNQOUswVWNNdXcyWkJ4VWF3Ni11dGE3Yk5iMENXenhoSTZ1anN0UjFtSTk3QnR1Tk1OUWFmeG5FWEtucjFyOHppVkc3aGFtcXJqNWJlNGlrSXdBbW00SXQybFI3QzNzMVpNUkhHSnZLdW1UVU53YlQtYktwZkVvNXpnMlRxRFZpMXVsZzBnZGROWER5NWEtSk1xenVrdWdfM3NsVmZIS3NWYXNxWktlbUJMLVBqdmpsT1dKVkZLMGhjeFBKbVdoNWNORDZtb0xTYUMtT2lJNUwxM3R4TWFMUXluemQ2RGhRUXN6NHU0NEdMZExpUVlYNWQ4Q0duSnNiNnA3TGFKN2E0QjMzalh4dEF2amhJYk9vc3JZRlJVTVZrOVdQWE5zdDBxZnN2OTFLQ1o2OVI5UmNDLVZEaG9BQUE9PVwiXSxcImV4dHJhQXR0cmlidXRlc1wiOntcIndpeC1nemlwcGVkLXNjb3BlXCI6XCJcIn19IiwiaWF0IjoxNzE2NzE0OTYxLCJleHAiOjE3MTY3MTUyNjF9.Us8eeNAx6Wv6kXFBj1j7nTRIbbXP6yTRNrbZ8w-JDGaUAdy2K_RXYYif2NvmVwnT3bfVQh42RjNmJGnWZGC4S5xVc50KWcGO3Pii3DPAsiu5jdM6rhcu7zUzDm9vHA3kAPNeivZyid47EZvU72GzHvW7x2UGsPrJJ1E80HSxFLaNX4SA-dUykIbukc00dU0HFf7CRx1jUmGd5jKpdvDFSRsaNp9V5aCpajXQedcy7Zlh1nUQCYW3ieh1766AGwzrESygOUE21g7A4eSNteagLw5gw_jTcjyMPEoi64tbT5vIFrWbPAHgxJE9NfjC-fJHPW6wA58dwsNthOYHncDULw
-2024-05-26 14:46:01,699.699 INFO token_repository - update_token: exist token
-2024-05-26 14:46:01,755.755 INFO token_repository - update_token: Updated token: <Token 20>
-2024-05-26 14:46:06,183.183 INFO delete_routes - delete: Received request to delete Collection
-2024-05-26 14:46:06,184.184 INFO delete_routes - delete: Request headers: Content-Type: application/json
-User-Agent: PostmanRuntime/7.37.3
-Accept: */*
-Postman-Token: 1bd09ec0-6a0b-45e2-b4ca-76171a4550a4
-Host: 127.0.0.1:5000
-Accept-Encoding: gzip, deflate, br
-Connection: keep-alive
-Content-Length: 88
-
-
-2024-05-26 14:46:06,185.185 INFO delete_routes - delete: Request body: {'id': 'a94ca128-3dd0-494b-9315-8e923ba93447', 'wix_site': 'simple_learning'}
-2024-05-26 14:46:06,186.186 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
-2024-05-26 14:46:06,191.191 INFO token_controller - get_token_from_db: Found token: <Token 20>
-2024-05-26 14:46:06,193.193 INFO token_controller - get_token_from_db: Serializing token
+2024-05-27 12:53:30,537.537 INFO order_routes - get: Request body: {'order_id': '2f3358b6-24a7-4e1a-871e-0ae5387733c5', 'wix_site': 'simple_learning'}
+2024-05-27 12:53:30,539.539 INFO order_routes - get: Recieved request to get the order info for particular order: 2f3358b6-24a7-4e1a-871e-0ae5387733c5
+2024-05-27 12:53:30,540.540 INFO order_dtr - order_rest_response: Received request to get Product with ID 2f3358b6-24a7-4e1a-871e-0ae5387733c5 for wix site : simple_learning
+2024-05-27 12:53:30,542.542 INFO token_repository - get_token_by_wix_site: Retrieving token by wix site: simple_learning
+2024-05-27 12:53:30,554.554 INFO token_controller - get_token_from_db: Found token: <Token 20>
+2024-05-27 12:53:30,557.557 INFO token_controller - get_token_from_db: Serializing token
+2024-05-27 12:53:30,559.559 INFO order_controller - get_order_by_id: Access token :OAUTH2.eyJraWQiOiJLaUp3NXZpeSIsImFsZyI6IlJTMjU2In0.eyJkYXRhIjoie1wiYXBwSWRcIjpcIjQzZDkxZWUwLTA1MjMtNDgwNC1hZDljLTM4Y2VjN2ZhNzY2YlwiLFwiaW5zdGFuY2VJZFwiOlwiM2YxMTY4M2QtNzMwOS00ZWQ1LWI1YzQtMzEwMWUyYzE1ZmQ3XCIsXCJzY29wZVwiOltcIkg0c0lBQUFBQUFBQV81MVoyM0xjS0JEOUlXZi1nWkdZR2NwSWFBRk43SDJoWEZ1dWJCNDJsVnJuXzJzYmFDUXVqY2JacDB3a0JIMDVmZm8wTnNKeVo3aTFZcjZhMDEzd3IwOWZ4WXN6Vm1sdVRzTUtQeWJ4SjdOQ3pXNWRSbVo1X243UmFsd0g2elJubzV1NEhtNXN0ZzVXc1h6VldiTjVER3VlLUtDbVUxaHQ0YUZoZzlfWXhNY2psLUxPOWFzYm1OYUNhLUs4U1kzaTh1cVVIcmsyVDJjaEpaaDlzdXpGWGJWYUZ6ZXhaWUVuYm9BamFFdmhFRTZfd2ROS1V6U19IbnRlT0IxOXpGWnBjVDd2bjdQVjNwVEdhSjZFY1F2WGs3Q1dqLTc4NnNCMEoyWmoyVHgwckVDdjloaENvT3dlQm5abmttbm10bkNZRkEtVDNCN2cteXVZNEZNYmY3NjZTZDI1QXhSTW5TeXdjVXVibUVmLVVrY19QM2FMQnBnNjh0a0tKZzBSUERGZkZJQXVKRF9EeGFqWnhlTDJhTEViaFJuVU9sc3EyMjB1TWQ0WXFMX2VQdjctX3Y3djZaLTNIMl9mM3VNWmlDQXgzNVVZdUtGU3FoWmJSenRaNGZRcXVVbXZra1ZTR092RXRFZy1nYzgwTWc5MlF6ZDZJZWdHN3NyOXluTG5fSE40QU9qcVpGVnpuX2VpSHNYMTZtM3ZSd1FUU1lHb05UVVVfWmI4UENEZWE2SkNjOTlNVVkyWXM0ajIzZUxMS2ktd3JZLTVlUnBXcmZrOHdDbzFnNk9RQlN5Ui1CeU1qVl9HYzkyWkRjOEFBbjgyX0ppVkZSY3hNTVRqSHlzM25icktjWTAtcDJVRGs4TXFfZWF3a0lwaWhacUhkYk1YQmdhZ3hBM05FUVdZMGp1d0FDTEZhNHUzWklTVFBtMFhlVVRDMWNndEU0WHhJUTBJeWRSb1FuaEdmdWRTQVFjQ3I4T0cydE5ndE1IQm9mcktjUmVnVFRXRjNFQ0I4MFZwNi1ETDJYWUxveVdjMklFT1NEQ1dRMGFEWmFjcFlIamp3N05hYlFtbzlOUmR0Sm9DVkF0ZThqRzRpUkZpNk14Nk5vTVdzYVJpWlprbVVpUlJGQjFxcjNSODd2aUw1VURRVUJpQ3l4RzNNRGNSVzJMSmFyVnRpTkdTdVZLMmlNYXp4YUJLcE9ja1BncllHWjd5eGNGZXp3UWJkaktVdzhhQUwtamZCSWdxay0zVG45Rk95MzNRdExMVzBWTXNNd1RrTG93NFM4cTVFcTFsaDNuRXZmQ3B0MEg0bURQcExyeHNOYVd1S3NxdkZUTkUxU2F1VVJwRFJtTTZ4UkxER1BHN2FIR1BMQVdlVWQ5UjFKd0MzaVl1aF9hR29sYXliVnMwMzBxRnhMc3ZhV1BSRVFrLXpiQXlGcTdwNUtIRVFRYldBTEd6aUd3QzBKZnFHa3o2c3F4bmllMkFMTVNHbVgtbm5RVFdMY2o2N2VmUEx4X3Z2MzU5X19IdEk0bVZubExMd3hmXzJRTllxOC15bzFZd3ltay1lcldKeFM2aVVqUGZBcFhlRUpXY2wyWkJwaVVBaWFoMEtDb25SdU9uRnEya0RHVnFtVjN6cElCVkRFd01vR2lMQzBfSkVGVzN5VWZhcEgyUFRRQk5yR0RtaGYyeS1rWnFPRlNLYVNDLThXeXZjZVhFdjdFVE9MY0V1VUhKeEZTdkRYTlR3cmYwTG90ajRkV2hQamdlRFotZ2VoWVlNNkdyYzdkcWVacll6SzRrNThLVFJSbGdLd09QSnZaUWhPV2g4YVFNd2ZhbEM0eE9LdHBDSnlSQnRzSFpfeUs0YTZNMUdpNTd3RHdkWVlDSmJmcU5uMURuNUJ6NW9GRlFXanVBdlpsWWprWkZYSnFycnNIUHBCSlZGMFVNd1hHdm5UNXpRUFFpQlIzNC01a2ZPTlZoX2h6WTdBeEZvbWFld2FoVDlWU0pZWGFJTmxRelVCeEFtdW9rNkFBYzhJY2h6T3Q5LWtBSThrbUtxeWp3U3dvNVFoVk00cXFURHdEenJxcXZFMExNV3NWc1JUTExucGRBczN1SHJLQmJTcDBESEZaTnFQSVBXcWlZOHVFcUk5aEtndmRQNzB5cGxKcHJhZmJBOUdacS00Ul9SSmVMUlU0MHpvZnNXSFNST2dQVkZKOEZJWl9BQWxTSlM2aU5WS0c4QW8yM0ZXQ3FBTGJGaFhEYXdKeDNGcHlZVXZMQ2U1eG9XaVhlRWtIU2wwRUF0cFoxeEVSdEVNRXRSX3E5YUNQOUswVWNNdXcyWkJ4VWF3Ni11dGE3Yk5iMENXenhoSTZ1anN0UjFtSTk3QnR1Tk1OUWFmeG5FWEtucjFyOHppVkc3aGFtcXJqNWJlNGlrSXdBbW00SXQybFI3QzNzMVpNUkhHSnZLdW1UVU53YlQtYktwZkVvNXpnMlRxRFZpMXVsZzBnZGROWER5NWEtSk1xenVrdWdfM3NsVmZIS3NWYXNxWktlbUJMLVBqdmpsT1dKVkZLMGhjeFBKbVdoNWNORDZtb0xTYUMtT2lJNUwxM3R4TWFMUXluemQ2RGhRUXN6NHU0NEdMZExpUVlYNWQ4Q0duSnNiNnA3TGFKN2E0QjMzalh4dEF2amhJYk9vc3JZRlJVTVZrOVdQWE5zdDBxZnN2OTFLQ1o2OVI5UmNDLVZEaG9BQUE9PVwiXSxcImV4dHJhQXR0cmlidXRlc1wiOntcIndpeC1nemlwcGVkLXNjb3BlXCI6XCJcIn19IiwiaWF0IjoxNzE2Nzk0NTE3LCJleHAiOjE3MTY3OTQ4MTd9.ZM76mpAmtxPCL2LomX6KiiUjAPhCMWikrRW_8H86p-yAldCXpe11MRQzuA0j3AVemXfIEf08U9fWEXSUVTj2QiyV5jDM6MyTdxC9itlLWgpn52DZDYqKgqE7-OTpUL2wnKeYWE0K97_AQiEXjy3GSfCEaYSjfH3UJs3gKRO9U8rcVt0chbOeIjiwLVoJpUNTCWV6MNjH-oTQSAkmECPM0ZrQAoBOlrQoBuNmQAwq75oM8Ojz7R_9v3H8Zw7CpiGVAjS6EiMUYvEyGtLKNKNvC7ctPvhhPNjewWYsr-JlXqfYvp8bmxKfDalChYYYgUMWMF5N6icwPgBx2U1q8BziGw
+2024-05-27 12:53:30,562.562 INFO order_controller - get_order_by_id: Sending request to WIX site to get order info : 2f3358b6-24a7-4e1a-871e-0ae5387733c5
+2024-05-27 12:53:31,848.848 INFO order_controller - get_order_by_id: Wix API Response: {'order': {'id': '2f3358b6-24a7-4e1a-871e-0ae5387733c5', 'number': 10002, 'dateCreated': '2024-05-25T13:21:00.433Z', 'buyerInfo': {'id': '777bf5bb-8fcd-430e-b1ee-d44b901e536c', 'type': 'MEMBER', 'identityType': 'MEMBER', 'firstName': 'ANNU', 'lastName': '', 'phone': '80598 75667', 'email': 'annu000060@gmail.com'}, 'currency': 'INR', 'weightUnit': 'KG', 'totals': {'subtotal': '20.00', 'shipping': '0', 'tax': '0.00', 'discount': '20', 'total': '1.00', 'weight': '0', 'quantity': 1}, 'billingInfo': {'address': {'fullName': {'firstName': 'ANNU', 'lastName': ''}, 'country': 'IN', 'city': 'Hisar', 'zipCode': '125001', 'phone': '80598 75667', 'company': '', 'email': 'annu000060@gmail.com', 'addressLine1': 'Azad Nagar hisar'}}, 'shippingInfo': {'deliveryOption': '', 'shippingRegion': 'Domestic', 'shipmentDetails': {'address': {}}}, 'read': True, 'archived': False, 'paymentStatus': 'NOT_PAID', 'fulfillmentStatus': 'NOT_FULFILLED', 'lineItems': [{'index': 1, 'quantity': 1, 'price': '20.00', 'name': 'Side bags for girls', 'productId': 'cd59cd36-b6d2-2cf3-9d48-81793a7bdbbd', 'totalPrice': '20.00', 'lineItemType': 'PHYSICAL', 'options': [{'option': 'Color', 'selection': 'White'}], 'customTextFields': [], 'mediaItem': {'mediaType': 'IMAGE', 'url': 'https://static.wixstatic.com/media/22e53e_c9bafb2ad1424aff97c33ef56eaca801~mv2.jpg/v1/fit/w_4000,h_4000,q_90/file.jpg', 'width': 4000, 'height': 4000, 'mediaId': '22e53e_c9bafb2ad1424aff97c33ef56eaca801~mv2.jpg', 'id': '22e53e_c9bafb2ad1424aff97c33ef56eaca801~mv2.jpg'}, 'sku': 'On demand', 'tax': '0.00', 'taxIncludedInPrice': False, 'priceData': {'taxIncludedInPrice': False, 'price': '20.00', 'totalPrice': '20.00'}}], 'activities': [{'type': 'ORDER_PLACED', 'timestamp': '2024-05-25T13:21:00.426Z'}], 'fulfillments': [], 'discount': {'value': '20'}, 'buyerLanguage': 'en', 'channelInfo': {'type': 'BACKOFFICE_MERCHANT'}, 'enteredBy': {'id': '30a9382c-a184-41c7-90af-3c13e432947f', 'identityType': 'USER'}, 'lastUpdated': '2024-05-25T16:43:18.507Z', 'numericId': '10002', 'refunds': [], 'isInternalOrderCreate': False}}
+2024-05-27 12:53:31,849.849 INFO order_controller - get_order_by_id: Wix API Response Status Code: 200
+2024-05-27 12:53:31,854.854 ERROR order_dtr - order_rest_response: An unexpected error occurred: Order.__init__() missing 3 required positional arguments: 'buyerNote', 'cartId', and 'checkoutId'

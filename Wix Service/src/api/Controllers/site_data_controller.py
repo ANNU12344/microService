@@ -1,5 +1,5 @@
 from src.api.Controllers.token_controller import get_token_from_db
-from src.Interactor.Exception.custom_exceptions import UnauthorizedApiException , TokenNotFoundException
+from src.Interactor.Exception.custom_exceptions import UnauthorizedApiException , SiteNotFoundException
 from src.Interactor.Logger.custom_logger import app_logger
 # from src.Interactor.Dto.shop_dto import shop_dto
 import requests
@@ -12,7 +12,7 @@ def get_site_data(wix_site, token = None):
     
     if not access_token:
         app_logger.error(f'No access token found for wix site: {wix_site}')
-        raise TokenNotFoundException
+        raise SiteNotFoundException
     url = f"https://www.wixapis.com/site-properties/v4/properties"
     headers = {
         'Authorization': access_token

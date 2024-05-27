@@ -1,13 +1,13 @@
 import requests
 import json
-from src.Interactor.Exception.custom_exceptions import TokenNotFoundException
+from src.Interactor.Exception.custom_exceptions import SiteNotFoundException
 from src.Interactor.Logger.custom_logger import app_logger
 from src.api.Controllers.token_controller import get_token_from_db
 def update_collections(wix_site,collection_id,name,description):
     access_token=get_token_from_db(wix_site)
     if not access_token:
         app_logger.error(f'No access token found for site')
-        raise TokenNotFoundException
+        raise SiteNotFoundException
     
     url = f'https://www.wixapis.com/stores/v1/collections/{collection_id}'
 

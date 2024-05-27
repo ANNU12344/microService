@@ -2,6 +2,7 @@ from flask import request, jsonify
 from flask_restx import Resource, reqparse, Namespace
 from src.Interactor.DTR.order_dtr import order_rest_response
 from src.Interactor.Logger.custom_logger import app_logger
+from src.api.Auth.jwt import jwt_wrapper
 import traceback
 order_ns = Namespace('wix_rest', description='Wix Rest APIs')
 
@@ -14,7 +15,7 @@ order_parser.add_argument('order_id', type=str, help="Order ID", required=True)
 @order_ns.route('/orders')
 class Order(Resource):
     @order_ns.expect(order_parser)
-    #I have to write decorator for authentication the requests using the wix public key
+    #@jwt_wrapper
     def get(self):
 
         

@@ -55,11 +55,11 @@ class UnauthorizedApiException(ApiException):
         )
         
 # Store not found in database
-class TokenNotFoundException(ApiException):
+class SiteNotFoundException(ApiException):
 
     def __init__(self):
-        super(TokenNotFoundException, self).__init__(
-            message="Token not found", status_code=404
+        super(SiteNotFoundException, self).__init__(
+            message="Site not found", status_code=404
         )
         
 # New exception for Shopify API errors

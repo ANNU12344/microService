@@ -1,6 +1,6 @@
 from src.Interactor.Logger.custom_logger import app_logger
 from src.api.Controllers.post_controller import get_all_post,get_post_by_id
-from src.Interactor.Exception.custom_exceptions import TokenNotFoundException,WixAPIException
+from src.Interactor.Exception.custom_exceptions import SiteNotFoundException,WixAPIException
 from flask import jsonify
 
 def post_rest_response(wix_site,post_ids):
@@ -19,9 +19,9 @@ def post_rest_response(wix_site,post_ids):
     except WixAPIException as e:
         app_logger.error(f'Wix API Exception: {e}')
         return jsonify({'message': 'Wix API Exception'})
-    except TokenNotFoundException as e:
-        app_logger.error(f'Token Not Found Exception: {e}')
-        return jsonify({'error': 'Token Not Found Exception'}) 
+    except SiteNotFoundException as e:
+        app_logger.error(f'Site Not Found Exception: {e}')
+        return jsonify({'error': 'Site Not Found Exception'}) 
     except Exception as e:
         app_logger.error(f'An unexpected error occurred: {e}')
         return jsonify({'message': 'Internal Server Error'})

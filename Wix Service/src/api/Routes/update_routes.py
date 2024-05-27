@@ -1,8 +1,9 @@
-from flask import Blueprint, app, request, jsonify
+from flask import request, jsonify
 from src.api.Controllers.product_update_controller import update_products
 from src.api.Controllers.collection_update_controller import update_collections
 from src.Interactor.Logger.custom_logger import app_logger
-from flask_restx import Api, Resource, reqparse, Namespace
+from src.api.Auth.jwt import jwt_wrapper
+from flask_restx import Resource, reqparse, Namespace
 import traceback
 
 
@@ -17,6 +18,7 @@ update_parser.add_argument('description', type=str, help="New Description.", req
 @update_ns.route('/update_product')
 class UpdateProduct(Resource):
     @update_ns.expect(update_parser)
+    #@jwt_wrapper
     def post(self):
 
         app_logger.info('Received request to update product')

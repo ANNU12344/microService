@@ -7,10 +7,8 @@ from src.api.Controllers.site_user_controller import create_site_user
 from src.Domain.wix_token.wix_client import WixClientToken
 from src.Domain.wix_token import helpers
 from dotenv import load_dotenv
-
-# from src.Infra.Repositories.token_repository import TokenRepository
-
 load_dotenv()
+
 INSTALL_FROM_LINK = os.environ.get('INSTALL_APP_USING_LINK')
 wix_token_bp = Blueprint('wix_token', __name__)
 
@@ -27,20 +25,6 @@ def app_installed():
     code = request.args.get('code')
     wix_site=request.args.get('wix_site')
     access_token,refresh_token= WixClientToken.authenticate(code=code)
-    
-    # new_token=TokenRepository.create_token(wix_site,access_token,refresh_token)
-    # try:
-    #     app_logger.info(f'Creating configuration')
-    #     create_configuration(wix_site, access_token)
-    #     app_logger.info(f"Configuration created successfully")
-    # except:
-    #     app_logger.error(f"Failed to create configuration")
-
-    # try:
-    #     create_site_user(wix_site,access_token)
-    #     app_logger.info(f"Store User created successfully")
-    # except:
-    #     app_logger.error(f"Failed to create store user")
     return access_token
     
 

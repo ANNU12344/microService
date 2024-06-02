@@ -12,7 +12,7 @@ post_parser.add_argument('Authorization', type=str, location='headers', help='Au
 post_parser.add_argument('wix_site', type=str, help="wix site Name.", required=True)
 post_parser.add_argument('post_ids', type=str, help="post ids", required=True)
 
-@post_ns .route('/post')
+@post_ns .route('/posts')
 class Post(Resource):
     @post_ns.expect(post_parser)
     # @jwt_wrapper

@@ -57,9 +57,3 @@ class Collection:
     
     
 
-
-# class Welcome10:
-#     collection: Collection
-
-#     def __init__(self, collection: Collection) -> None:
-#         self.collection = collection

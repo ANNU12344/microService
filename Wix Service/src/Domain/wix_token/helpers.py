@@ -1,12 +1,6 @@
-
-from typing import List
+from functools import wraps
 import logging
-
 import os
-import re
-import hmac
-import base64
-import hashlib
 from flask import request, abort
 from dotenv import load_dotenv
 load_dotenv()
@@ -17,5 +11,22 @@ def generate_install_redirect_url(token: str):
     print('redirect_url', redirect_url)
     return redirect_url
 
+
+def verify_web_call(f):
+    @wraps(f)
+    def wrapper(*args, **kwargs) -> bool:
+        get_args = request.args
+
+        code = get_args.get('code')
+        if not code:
+            logging.error(f"Code not found")
+            abort(401)
+
+        wix_site=get_args.get('wix_site')
+        if not wix_site:
+            logging.error(f"Wix Site not recieved: {wix_site}")
+            abort(401)
+        return f(*args, **kwargs)
+    return wrapper
 
 

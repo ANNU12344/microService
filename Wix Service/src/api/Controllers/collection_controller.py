@@ -2,7 +2,42 @@ from src.Interactor.Logger.custom_logger import app_logger
 from src.Interactor.Dto.collection_dto import collection_dto
 from src.Interactor.Exception.custom_exceptions import SiteNotFoundException,UnauthorizedApiException
 from src.api.Controllers.token_controller import get_token_from_db
-import requests
+import requests,json
+
+def create_collection_rest_response(wix_site, name,discription):
+    access_token = get_token_from_db(wix_site)
+
+    if not access_token:
+        app_logger.error(f'No access token found for wix site :{wix_site}')
+        raise SiteNotFoundException
+    url = f"https://www.wixapis.com/stores/v1/collections"
+    headers = {
+        'Content-Type': 'application/json',
+        'Authorization': access_token
+    }
+    payload = json.dumps({
+     "collection": {
+    "name": name,
+    "discription":discription
+    }
+    })
+    response = requests.post(url, data=payload, headers=headers)
+    app_logger.info(f'Wix API Response: {response.json()}')
+    app_logger.info(f'Wix API Response Status Code: {response.status_code}')
+    if response.status_code==200:
+        collection_data = response.json().get('collection', {})
+        return collection_data
+
+    elif response.status_code==401:
+        app_logger.error('Unauthorized API call. Invalid API key or access token.')
+        app_logger.error('Update the access token')
+        raise UnauthorizedApiException
+    else:
+        app_logger.warning(f'Failed to retrieve product from Wix site. Status Code : {response.status_code}')
+    return []
+    
+    
+
 def get_all_collection(wix_site):
     access_token = get_token_from_db(wix_site)
 

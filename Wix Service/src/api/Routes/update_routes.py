@@ -7,7 +7,7 @@ from flask_restx import Resource, reqparse, Namespace
 import traceback
 
 
-update_ns = Namespace('Wix_rest',  description='Wix Rest APIs')
+update_ns = Namespace('wix_rest',  description='Wix Rest APIs')
 
 update_parser = reqparse.RequestParser()
 update_parser.add_argument('Authorization', type=str, location='headers', help='Authorization header', required=True)

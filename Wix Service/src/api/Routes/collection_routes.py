@@ -12,7 +12,7 @@ collection_parser.add_argument('Authorization', type=str, location='headers', he
 collection_parser.add_argument('wix_site', type=str, help="wix site Name.", required=True)
 collection_parser.add_argument('collection_id', type=str, help="collection id", required=True)
 
-@collection_ns .route('/collection')
+@collection_ns .route('/collections')
 class Product(Resource):
     @collection_ns.expect(collection_parser)
     #@jwt_wrapper

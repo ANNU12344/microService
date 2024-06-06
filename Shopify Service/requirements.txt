@@ -1,6 +1,0 @@
-Flask-SQLAlchemy
-Flask 
-python-dotenv
-requests
-flask_swagger_ui
-flask_restx
